@@ -1,0 +1,18 @@
+$screen-mobile: 400px;
+$screen-mobile-l: 550px;
+$screen-tablet: 768px;
+$screen-desktop: 1080px;
+$screen-desktop-l: 1280px;
+$screen-desktop-1l: 1440px;
+$screen-desktop-2l: 1920px;
+$screen-retina: 2dppx;
+$screen-sizes: (
+  mobile: $screen-mobile,
+  mobile-l: $screen-mobile-l,
+  tablet: $screen-tablet,
+  desktop: $screen-desktop,
+  desktop-l: $screen-desktop-l,
+  desktop-1l: $screen-desktop-1l,
+  desktop-2l: $screen-desktop-2l,
+  retina: $screen-retina,
+);
