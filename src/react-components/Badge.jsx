@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../components/badge/index.vue'; // Import SCSS styles
 import './Badge.scss';
 
 export const variants = ['featured', 'neutral', 'accent-yellow'];
