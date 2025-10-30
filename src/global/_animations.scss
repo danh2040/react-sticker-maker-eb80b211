@@ -1,0 +1,92 @@
+@use '../base/variables/animations' as *;
+@use '../base/mixins' as *;
+
+@keyframes e-svg-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes e-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes e-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes e-shimmer {
+  0% {
+    background-position: calc(-1 * var(--shimmer-width)) 0;
+    background-size: var(--shimmer-width) 100%;
+  }
+
+  50% {
+    background-position: calc(-1 * var(--shimmer-width)) 0;
+    background-size: var(--shimmer-width) 100%;
+  }
+
+  100% {
+    background-position: var(--shimmer-distance) 0;
+    background-size: calc(2 * var(--shimmer-width)) 100%;
+  }
+}
+
+@keyframes e-slide-top {
+  from {
+    transform: translateY(-$slide-offset);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+// like e-slide-top but for cases where we need to maintain a translateX(-50%) for horizontal centering
+@keyframes e-slide-top-center {
+  from {
+    transform: translateX(-50%) translateY(-$slide-offset);
+  }
+
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/*
+  The prefers-reduced-motion CSS media feature is used to detect
+  if the user has requested that the system minimize the amount of
+  animation or motion it uses.
+  Base on: https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    @include disable-transitions;
+    @include disable-animations;
+
+    /*
+      In general we don't want to use `!important` since
+      it makes overwriting styles impossible.
+
+      In this case we really want to make sure that the scroll
+      behaviour is disabled for users which prefer reduced motions.
+    */
+    /* stylelint-disable declaration-no-important */
+    scroll-behavior: auto !important;
+    /* stylelint-enable declaration-no-important */
+  }
+}
