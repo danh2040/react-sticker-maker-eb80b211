@@ -1,0 +1,146 @@
+// Import base variables and utilities
+@import '../scss/variables';
+@import '../scss/spaces';
+@import '../scss/borders';
+@import '../scss/colors';
+@import '../scss/typography';
+@import '../scss/mixins';
+@import '../scss/placeholders';
+
+// Note: Global theme variables (--color-*) are defined in global/_themes.scss
+// Make sure to import the main styles.scss file in your app entry point
+
+$icon-padding-left: $space-m;
+$icon-padding-right: $space-s;
+
+.input {
+  display: flex;
+  appearance: none;
+  position: relative;
+}
+
+.input__element {
+  $padding-unit: $space-s + $space-2s;
+  display: flex;
+  appearance: none;
+  box-sizing: border-box;
+  flex-grow: 1;
+  align-items: center;
+  width: 100%;
+  height: $space-3l;
+  padding: 0 $space-l 0 $padding-unit;
+
+  transition: border $timing-2s $easing;
+
+  border: solid $border-width var(--color-form-border-default);
+  border-radius: $border-radius-1l;
+
+  background: var(--color-button-background-secondary);
+
+  color: var(--color-button-content-secondary);
+  font-family: $family;
+  font-size: $font-m;
+  line-height: $line-height-s;
+
+  &::placeholder {
+    opacity: 1;
+    color: var(--color-text-secondary);
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    display: none;
+  }
+
+  &[type="number"] {
+    appearance: textfield;
+  }
+
+  &:hover {
+    border-color: var(--color-form-border-hover);
+  }
+
+  &:focus {
+    @extend %keyboard-nav-focus;
+    border-color: var(--color-form-border-primary-active);
+  }
+
+  &:disabled {
+    border-color: var(--color-disabled);
+    background: var(--color-background-primary);
+    color: var(--color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.input__icon {
+  pointer-events: none;
+}
+
+.input--has-icon {
+  .input__element {
+    padding-right: $space-3l;
+  }
+}
+
+.input--has-icon-start {
+  .input__element {
+    padding-left: $space-3l;
+  }
+}
+
+.input--as-button {
+  .input__element {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.input--hidden {
+  display: none;
+}
+
+.input--disabled {
+  .input__icon {
+    color: var(--color-disabled);
+  }
+}
+
+.input--invalid .input__element,
+.input--dirty .input__element:invalid {
+  border-color: var(--color-error);
+}
+
+.input__addon {
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  & > * {
+    display: flex;
+  }
+}
+
+.input__addon--start {
+  left: $icon-padding-left;
+}
+
+.input__addon--end {
+  right: $icon-padding-right;
+}
+

@@ -1,0 +1,121 @@
+// Import base variables and utilities
+@import '../scss/variables';
+@import '../scss/spaces';
+@import '../scss/borders';
+@import '../scss/colors';
+@import '../scss/typography';
+@import '../scss/mixins';
+@import '../scss/placeholders';
+
+// Note: Global theme variables (--color-*) are defined in global/_themes.scss
+// Make sure to import the main styles.scss file in your app entry point
+
+$checkbox-size: $space-l;
+$tappable-area-padding: $space-1s;
+$icon-padding: $space-2s * 0.5;
+
+.checkbox {
+  display: inline-block;
+  position: relative;
+
+  font-family: $family;
+  font-size: $font-l;
+  line-height: $line-height-m;
+
+  cursor: pointer;
+
+  &::before {
+    content: "";
+
+    display: block;
+    box-sizing: border-box;
+    width: $checkbox-size;
+    height: $checkbox-size;
+
+    transition: border $timing-2s $easing;
+
+    border: solid $border-width var(--color-form-border-default);
+    border-radius: $border-radius-s;
+
+    background: var(--color-button-content-primary);
+
+    pointer-events: none;
+  }
+
+  &:hover {
+    &::before {
+      border-color: var(--color-form-border-hover);
+    }
+  }
+
+  &:focus {
+    @extend %keyboard-nav-focus;
+
+    &::before {
+      border-color: var(--color-form-border-primary-active);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__check {
+    position: absolute;
+    top: $icon-padding;
+    left: $icon-padding;
+
+    color: var(--color-button-content-primary);
+  }
+
+  &__input {
+    position: absolute;
+    top: -1 * $tappable-area-padding;
+    left: -1 * $tappable-area-padding;
+    width: calc(100% + #{2 * $tappable-area-padding});
+    height: calc(100% + #{2 * $tappable-area-padding});
+    margin: 0;
+
+    border: none;
+
+    opacity: 0;
+
+    cursor: pointer;
+  }
+
+  &.checkbox--checked {
+    &::before {
+      border-width: $checkbox-size * 0.5;
+      border-color: var(--color-brand-primary);
+    }
+  }
+
+  &--disabled {
+    color: var(--color-disabled);
+
+    pointer-events: none;
+
+    &::before {
+      border-color: var(--color-disabled);
+
+      background-color: var(--color-background-secondary);
+    }
+
+    .checkbox__icon {
+      display: none;
+    }
+
+    &.checkbox--checked {
+      &::before {
+        border-color: var(--color-disabled);
+      }
+
+      .checkbox__icon {
+        display: unset;
+      }
+    }
+  }
+}
+

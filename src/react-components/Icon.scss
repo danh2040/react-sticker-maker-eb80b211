@@ -1,0 +1,36 @@
+// Import base variables and utilities
+@import '../scss/variables';
+
+// Note: Uses global animations (e-svg-stroke, e-spin) from global/_animations.scss
+// Make sure to import the main styles.scss file in your app entry point
+
+.icon {
+  vertical-align: middle;
+
+  &.icon--icon-check-circle.icon--size-l path {
+    animation: e-svg-stroke 0.5s ease-out forwards;
+
+    stroke-dasharray: 29;
+    stroke-dashoffset: 29;
+  }
+
+  &--icon-spinner {
+    animation: e-spin 0.9s linear both infinite;
+  }
+}
+
+@keyframes e-svg-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes e-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,0 +1,76 @@
+// Import base variables and utilities
+@import '../scss/variables';
+@import '../scss/spaces';
+@import '../scss/scale';
+@import '../scss/icons';
+
+// Note: Uses keyframe animations defined here
+// Global animations are available in global/_animations.scss
+
+@keyframes loading-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+.loading {
+  padding: $space-l 0;
+}
+
+.loading__container {
+  position: relative;
+  width: $icon-size-m;
+  height: $icon-size-m;
+  margin: auto;
+}
+
+.loading__icon,
+.loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.loading__icon {
+  transform: translate(-50%, -50%) scale($scale-4l);
+
+  [data-circle] {
+    display: none;
+  }
+}
+
+.loading__spinner {
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  animation: loading-rotate 2s linear infinite;
+}
+
+.loading__spinner-circle {
+  animation: loading-dash 1.5s ease-in-out infinite;
+
+  stroke-linecap: round;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+}
+
