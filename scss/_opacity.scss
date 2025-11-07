@@ -1,0 +1,16 @@
+$opacity-3s: 0.1;
+$opacity-2s: 0.15;
+$opacity-1s: 0.3;
+$opacity-s: 0.4;
+$opacity-m: 0.5;
+$opacity-l: 0.7;
+$opacity-1l: 0.85;
+$opacities: (
+  3s: $opacity-3s,
+  2s: $opacity-2s,
+  1s: $opacity-1s,
+  s: $opacity-s,
+  m: $opacity-m,
+  l: $opacity-l,
+  "1l": $opacity-1l,
+);

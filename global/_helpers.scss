@@ -1,0 +1,5 @@
+@use '../base/placeholders' as *;
+
+.sr-only {
+  @extend %sr-only;
+}

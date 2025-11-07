@@ -1,0 +1,14 @@
+@use 'spaces' as *;
+
+$header-height-mobile: 124px;
+$header-height-desktop: 72px;
+
+// TODO: to deprecate after equivalent CSS custom are released
+$page-container-width-desktop: 660px;
+$page-container-left-space-desktop: 120px;
+
+$select-option-height: 40px;
+
+$tappable-area-size-mobile: $space-4l;
+
+$filter-dropdown-max-height-desktop: 300px;

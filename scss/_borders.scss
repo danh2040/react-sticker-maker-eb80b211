@@ -1,0 +1,20 @@
+$border-radius-2s: 2px;
+$border-radius-1s: 3px;
+$border-radius-s: 4px;
+$border-radius-m: 6px;
+$border-radius-l: 10px;
+$border-radius-1l: 20px;
+$border-radius-2l: 40px;
+
+$border-radius-full: 9999px;
+
+$border-radii: (
+  s: $border-radius-s,
+  m: $border-radius-m,
+  l: $border-radius-l,
+  1l: $border-radius-1l,
+  full: $border-radius-full,
+);
+
+$border-width: 1px;
+$border-width-l: 2px;

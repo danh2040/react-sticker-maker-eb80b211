@@ -1,0 +1,24 @@
+$scale-3s: 0.8;
+$scale-2s: 0.9;
+$scale-1s: 0.95;
+$scale-s: 0.98;
+$scale-m: 1;
+$scale-l: 1.02;
+$scale-1l: 1.05;
+$scale-2l: 1.1;
+$scale-3l: 1.2;
+$scale-4l: 1.3;
+$scale-5l: 1.5;
+$scales: (
+  3s: $scale-3s,
+  2s: $scale-2s,
+  1s: $scale-1s,
+  s: $scale-s,
+  m: $scale-m,
+  l: $scale-l,
+  1l: $scale-1l,
+  2l: $scale-2l,
+  3l: $scale-3l,
+  4l: $scale-4l,
+  5l: $scale-5l,
+);

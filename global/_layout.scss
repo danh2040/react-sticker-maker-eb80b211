@@ -1,0 +1,21 @@
+@use '../base/mixins' as *;
+
+#app {
+  --page-container-width-desktop: 654px;
+
+  @include desktop {
+    --page-container-left-space-desktop: 0px;
+  }
+
+  @include desktop-l {
+    --page-container-left-space-desktop: 120px;
+  }
+
+  @include desktop-1l {
+    --page-container-left-space-desktop: 180px;
+  }
+
+  @include desktop-2l {
+    --page-container-left-space-desktop: 240px;
+  }
+}
