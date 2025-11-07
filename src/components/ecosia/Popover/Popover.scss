@@ -1,0 +1,232 @@
+@import '../../../scss/variables';
+@import '../../../scss/spaces';
+@import '../../../scss/typography';
+@import '../../../scss/colors';
+@import '../../../scss/borders';
+@import '../../../scss/elevations';
+@import '../../../scss/animations';
+
+$max-width: 280px;
+
+.popover {
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.popover__toggle {
+  display: inline-flex;
+  position: relative;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.popover__content,
+.popover__arrow {
+  opacity: 0;
+  transition: opacity $timing-1s $easing, transform $timing-1s $easing;
+  pointer-events: none;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.popover__content {
+  position: absolute;
+  z-index: 900;
+  width: max-content;
+  max-width: $max-width;
+  padding: $space-m;
+  border-radius: $border-radius-l;
+  background-color: var(--color-background-brand-secondary);
+  color: var(--color-text-inverse-primary);
+  font-size: $font-m;
+  cursor: default;
+  box-shadow: $elevation-2;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.popover__arrow {
+  position: absolute;
+  z-index: 1000;
+  width: $space-m * 2;
+  height: $space-m;
+  margin-top: -1px;
+  overflow: hidden;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: $space-s;
+    height: $space-s;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: var(--color-background-brand-secondary);
+    box-shadow: $elevation-2;
+  }
+}
+
+// Position variants - Center Top
+.popover--side-center-top {
+  .popover__content {
+    left: 50%;
+    transform: translate(-50%, -100%);
+    top: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(-50%, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+// Center Bottom
+.popover--side-center-bottom {
+  .popover__content {
+    left: 50%;
+    transform: translate(-50%, 100%);
+    bottom: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(-50%, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0) rotate(180deg);
+  }
+}
+
+// Left positions
+.popover--side-left-top {
+  .popover__content {
+    left: -$space-m;
+    transform: translate(0, -100%);
+    top: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(0, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+.popover--side-left-center {
+  .popover__content {
+    top: 50%;
+    transform: translate(-100%, -50%);
+    left: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(calc(-100% + #{$slide-offset * 0.5}%), -50%);
+    }
+  }
+
+  .popover__arrow {
+    left: -$space-m;
+    top: 50%;
+    transform: translate(-25%, -50%) rotate(-90deg);
+  }
+}
+
+.popover--side-left-bottom {
+  .popover__content {
+    left: -$space-m;
+    transform: translate(0, 100%);
+    bottom: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(0, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0) rotate(180deg);
+  }
+}
+
+// Right positions
+.popover--side-right-top {
+  .popover__content {
+    right: -$space-m;
+    transform: translate(0, -100%);
+    top: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(0, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+.popover--side-right-center {
+  .popover__content {
+    top: 50%;
+    transform: translate(100%, -50%);
+    right: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(calc(100% - #{$slide-offset * 0.5}%), -50%);
+    }
+  }
+
+  .popover__arrow {
+    right: -$space-m;
+    top: 50%;
+    transform: translate(25%, -50%) rotate(90deg);
+  }
+}
+
+.popover--side-right-bottom {
+  .popover__content {
+    right: -$space-m;
+    transform: translate(0, 100%);
+    bottom: -$space-m;
+
+    &:not(.popover__content--visible) {
+      transform: translate(0, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .popover__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0%) rotate(180deg);
+  }
+}
+

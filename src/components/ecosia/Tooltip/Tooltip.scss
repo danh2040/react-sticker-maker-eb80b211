@@ -1,0 +1,334 @@
+@import '../../../scss/variables';
+@import '../../../scss/spaces';
+@import '../../../scss/typography';
+@import '../../../scss/colors';
+@import '../../../scss/borders';
+@import '../../../scss/elevations';
+@import '../../../scss/animations';
+
+$max-width: 280px;
+$max-width-l: 315px;
+
+.tooltip {
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.tooltip__toggle {
+  display: inline-flex;
+  position: relative;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.tooltip__content,
+.tooltip__arrow {
+  opacity: 0;
+  transition: opacity $timing-1s $easing, transform $timing-1s $easing;
+  pointer-events: none;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.tooltip__content {
+  position: absolute;
+  z-index: 1000;
+  width: max-content;
+  max-width: $max-width;
+  border-radius: $border-radius-l;
+  background-color: $white;
+  color: var(--color-text-primary);
+  cursor: default;
+  box-shadow: $elevation-2;
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+}
+
+.tooltip__arrow {
+  position: absolute;
+  z-index: 1001;
+  margin-top: 1px;
+  overflow: hidden;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: $white;
+    box-shadow: $elevation-2;
+  }
+}
+
+.tooltip--color-variant-brand-secondary {
+  .tooltip__arrow::after {
+    background-color: $white;
+  }
+
+  .tooltip__content {
+    background-color: $white;
+    color: var(--color-text-primary);
+  }
+}
+
+// Size variants
+.tooltip--size-l {
+  .tooltip__content {
+    font-size: $font-m;
+    width: $max-width-l;
+    max-width: calc(100vw - 2 * $space-m);
+  }
+
+  .tooltip__arrow {
+    width: $space-m * 2;
+    height: $space-m;
+
+    &::after {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &.tooltip--padding {
+    .tooltip__content {
+      padding: $space-m;
+    }
+  }
+}
+
+.tooltip--size-m {
+  .tooltip__content {
+    font-size: $font-m;
+  }
+
+  .tooltip__arrow {
+    width: $space-m * 2;
+    height: $space-m;
+
+    &::after {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &.tooltip--padding {
+    .tooltip__content {
+      padding: $space-m;
+    }
+  }
+}
+
+.tooltip--size-s {
+  .tooltip__content {
+    font-size: $font-s;
+  }
+
+  .tooltip__arrow {
+    width: $space-1s * 2;
+    height: $space-1s;
+
+    &::after {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &.tooltip--padding {
+    .tooltip__content {
+      padding: $space-1s;
+    }
+  }
+}
+
+// Position variants - Center Top
+.tooltip--side-center-top {
+  .tooltip__content {
+    left: 50%;
+    transform: translate(-50%, -100%);
+    top: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(-50%, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+// Center Bottom
+.tooltip--side-center-bottom,
+.tooltip--side-center-bottom-left-aligned {
+  .tooltip__content {
+    transform: translate(-50%, 100%);
+    bottom: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(-50%, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0) rotate(180deg);
+  }
+}
+
+.tooltip--side-center-bottom {
+  .tooltip__content {
+    left: 50%;
+  }
+}
+
+.tooltip--side-center-bottom-left-aligned {
+  .tooltip__content {
+    left: 0%;
+    transform: translate(10%, 100%);
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(-50%, calc(100% - #{$slide-offset}%));
+    }
+  }
+}
+
+// Left positions
+.tooltip--side-left-top,
+.tooltip--side-left-bottom {
+  .tooltip__content {
+    left: -$space-s;
+  }
+}
+
+.tooltip--side-left-top {
+  .tooltip__content {
+    transform: translate(0, -100%);
+    top: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(0, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+.tooltip--side-left-center {
+  .tooltip__content {
+    top: 50%;
+    transform: translate(-100%, -50%);
+    left: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(calc(-100% + #{$slide-offset * 0.5}%), -50%);
+    }
+  }
+
+  .tooltip__arrow {
+    left: -$space-m;
+    top: 50%;
+    transform: translate(-25%, -50%) rotate(-90deg);
+  }
+}
+
+.tooltip--side-left-bottom {
+  .tooltip__content {
+    transform: translate(0, 100%);
+    bottom: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(0, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0) rotate(180deg);
+  }
+}
+
+// Right positions
+.tooltip--side-right-top,
+.tooltip--side-right-bottom {
+  .tooltip__content {
+    right: -$space-s;
+  }
+}
+
+.tooltip--side-right-top {
+  .tooltip__content {
+    transform: translate(0, -100%);
+    top: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(0, calc(-100% + #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    top: -$space-m;
+    transform: translate(-50%, 0) rotate(0);
+  }
+}
+
+.tooltip--side-right-center {
+  .tooltip__content {
+    top: 50%;
+    transform: translate(100%, -50%);
+    right: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(calc(100% - #{$slide-offset * 0.5}%), -50%);
+    }
+  }
+
+  .tooltip__arrow {
+    right: -$space-m;
+    top: 50%;
+    transform: translate(25%, -50%) rotate(90deg);
+  }
+}
+
+.tooltip--side-right-bottom {
+  .tooltip__content {
+    transform: translate(0, 100%);
+    bottom: -$space-m;
+
+    &:not(.tooltip__content--visible) {
+      transform: translate(0, calc(100% - #{$slide-offset}%));
+    }
+  }
+
+  .tooltip__arrow {
+    left: 50%;
+    bottom: -$space-m;
+    transform: translate(-50%, 0%) rotate(180deg);
+  }
+}
+

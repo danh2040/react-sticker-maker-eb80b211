@@ -1,0 +1,127 @@
+@import '../../../scss/variables';
+@import '../../../scss/spaces';
+@import '../../../scss/typography';
+@import '../../../scss/colors';
+@import '../../../scss/borders';
+@import '../../../scss/elevations';
+@import '../../../scss/animations';
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slider__container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: $border-radius-l;
+  background-color: var(--color-background-elevation-1);
+}
+
+.slider__track {
+  display: flex;
+  transition: transform $timing-m $easing;
+}
+
+.slider__slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slider__image {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slider__content {
+  padding: $space-1l;
+  text-align: center;
+  background-color: var(--color-background-primary);
+}
+
+.slider__title {
+  margin: 0 0 $space-s 0;
+  font-size: $font-2l;
+  font-weight: $font-weight-700;
+  color: var(--color-text-primary);
+}
+
+.slider__description {
+  margin: 0;
+  font-size: $font-l;
+  line-height: $line-height-l;
+  color: var(--color-text-secondary);
+}
+
+.slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-m;
+  margin-top: $space-l;
+}
+
+.slider__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $space-3l;
+  height: $space-3l;
+  padding: 0;
+  border: none;
+  border-radius: $border-radius-full;
+  background: var(--color-background-elevation-2);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all $timing-1s;
+  box-shadow: $elevation-1;
+
+  &:hover {
+    background: var(--color-brand-primary);
+    color: var(--color-text-inverse-primary);
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-focused);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.slider__dots {
+  display: flex;
+  align-items: center;
+  gap: $space-1s;
+}
+
+.slider__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: $border-radius-full;
+  background-color: $c-gray-30;
+  cursor: pointer;
+  transition: all $timing-s;
+
+  &:hover {
+    background-color: $c-gray-50;
+    transform: scale(1.2);
+  }
+
+  &--active {
+    width: 32px;
+    background-color: var(--color-brand-primary);
+  }
+}
+

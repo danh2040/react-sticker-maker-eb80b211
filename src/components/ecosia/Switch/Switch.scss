@@ -1,0 +1,122 @@
+@import '../../../scss/variables';
+@import '../../../scss/spaces';
+@import '../../../scss/typography';
+@import '../../../scss/colors';
+@import '../../../scss/borders';
+@import '../../../scss/icons';
+@import '../../../scss/animations';
+
+.switch {
+  .checkbox::before {
+    content: '';
+    position: absolute;
+    width: $icon-size-m;
+    height: $icon-size-m;
+    margin: 3px;
+    transform: translate(2px, 0);
+    transition: transform $timing-1s, background $timing-1s;
+    border-width: $border-width-l;
+    border-radius: $border-radius-full;
+    border-color: var(--color-form-border-default);
+    background: var(--color-button-content-primary);
+  }
+
+  .field__input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: $space-2s 0;
+  }
+
+  .field--type-checkbox {
+    .field__details {
+      order: 0;
+      margin-right: $space-m;
+      margin-left: 0;
+    }
+
+    .field__input-wrapper {
+      align-items: center;
+    }
+
+    .field__label {
+      font-size: $font-m;
+      font-weight: $font-weight-600;
+      color: var(--color-text-primary);
+      margin-bottom: $space-2s;
+      display: block;
+    }
+
+    .field__description {
+      font-size: $font-m;
+      color: var(--color-text-secondary);
+      margin-top: $space-2s;
+    }
+
+    .field__input {
+      position: relative;
+      width: 54px;
+      height: 32px;
+      transition: background $timing-1s;
+      border: $border-width solid var(--color-form-border-default);
+      border-radius: $border-radius-1l;
+      background: var(--color-button-content-primary);
+      cursor: pointer;
+      flex-shrink: 0;
+
+      &:hover {
+        border-color: var(--color-form-border-hover);
+      }
+    }
+  }
+
+  .checkbox__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox__icon {
+    position: absolute;
+    top: 5px;
+    left: 27px;
+    transition: none;
+    opacity: 0;
+    color: var(--color-brand-primary);
+  }
+
+  .checkbox--checked {
+    &.field__input {
+      background: var(--color-brand-primary);
+      border-color: var(--color-brand-primary);
+    }
+
+    &::before {
+      transform: translate(22px, 0);
+      background: $white;
+      border-color: var(--color-brand-primary);
+    }
+
+    .checkbox__input {
+      left: $space-1s;
+    }
+
+    .checkbox__icon {
+      transition: opacity $timing-1s;
+      transition-delay: $timing-1s;
+      opacity: 1;
+    }
+
+    .checkbox__check {
+      color: $white;
+    }
+  }
+
+  .checkbox {
+    &.checkbox--checked::before {
+      border-width: $border-width;
+    }
+  }
+}
+

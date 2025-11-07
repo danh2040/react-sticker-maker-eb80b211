@@ -11,6 +11,9 @@
   --color-background-secondary: #f5f5f5;
   --color-background-featured-static: #{$n-grellow-100}; // Ecosia's signature grellow
   --color-background-inverse-primary: #{$c-gray-90};
+  --color-background-elevation-1: #f8f8f6;
+  --color-background-elevation-2: #ffffff;
+  --color-background-brand-secondary: #{$n-green-500};
   
   // Text colors
   --color-text-primary: #{$c-gray-70};
@@ -21,9 +24,19 @@
   // Interactive colors
   --color-focused: #{$c-blue-40};
   --color-highlighter: rgba($n-grellow-100, 0.3);
+  --color-brand-primary: #{$n-green-500};
   
   // Border colors
   --color-decorative-border-1: #{$c-gray-30};
+  
+  // Form colors
+  --color-form-border-default: #{$c-gray-30};
+  --color-form-border-hover: #{$c-gray-50};
+  --color-button-content-primary: #ffffff;
+  
+  // Elevation shadows
+  --color-elevation-layer-1: rgba(0, 0, 0, 0.08);
+  --color-elevation-layer-2: rgba(0, 0, 0, 0.04);
 }
 
 // Basic resets and global styles

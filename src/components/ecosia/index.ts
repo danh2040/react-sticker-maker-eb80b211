@@ -3,3 +3,7 @@ export * from './AdPill';
 export * from './AISearchButton';
 export * from './Avatar';
 export * from './Badge';
+export * from './Popover';
+export * from './Slider';
+export * from './Switch';
+export * from './Tooltip';
