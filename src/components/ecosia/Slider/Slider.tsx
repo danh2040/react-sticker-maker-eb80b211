@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './Slider.scss';
 
 export interface SlideData {
@@ -92,14 +91,6 @@ export const Slider: React.FC<SliderProps> = ({
       </div>
 
       <div className="slider__controls">
-        <button
-          className="slider__button slider__button--prev"
-          onClick={handlePrevious}
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={24} />
-        </button>
-
         <div className="slider__dots">
           {slides.map((_, index) => (
             <button
@@ -112,14 +103,6 @@ export const Slider: React.FC<SliderProps> = ({
             />
           ))}
         </div>
-
-        <button
-          className="slider__button slider__button--next"
-          onClick={handleNext}
-          aria-label="Next slide"
-        >
-          <ChevronRight size={24} />
-        </button>
       </div>
     </div>
   );

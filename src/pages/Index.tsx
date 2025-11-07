@@ -1,4 +1,4 @@
-import { Badge, AdPill, Accordion, AccordionItem, Avatar, AISearchButton, Switch, Tooltip, Slider, Popover } from "@/components/ecosia";
+import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover } from "@/components/ecosia";
 import { PrimaryButton, SecondaryButton, OutlineButton, GhostButton, DestructiveButton, LinkButton } from "@/components/button-variants";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -81,11 +81,6 @@ const Index = () => {
             <Avatar size="m">JD</Avatar>
             <Avatar size="l">JD</Avatar>
           </div>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">AI Search Button</h2>
-          <AISearchButton onClick={() => alert('AI Search!')} />
         </section>
 
         <section className="space-y-4">
