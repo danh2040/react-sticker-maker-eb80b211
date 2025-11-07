@@ -88,14 +88,14 @@
 
   .checkbox--checked {
     &.field__input {
-      background: var(--color-brand-primary);
-      border-color: var(--color-brand-primary);
+      background: var(--color-button-background-primary);
+      border-color: var(--color-button-background-primary);
     }
 
     &::before {
       transform: translate(22px, 0);
       background: $white;
-      border-color: var(--color-brand-primary);
+      border-color: var(--color-button-background-primary);
     }
 
     .checkbox__input {

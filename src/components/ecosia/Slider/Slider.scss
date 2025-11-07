@@ -78,18 +78,18 @@
   padding: 0;
   border: none;
   border-radius: $border-radius-full;
-  background-color: $c-gray-30;
+  background-color: var(--color-decorative-border-1);
   cursor: pointer;
   transition: all $timing-s;
 
   &:hover {
-    background-color: $c-gray-50;
+    background-color: var(--color-text-secondary);
     transform: scale(1.2);
   }
 
   &--active {
     width: 32px;
-    background-color: var(--color-brand-primary);
+    background-color: var(--color-button-background-primary);
   }
 }
 

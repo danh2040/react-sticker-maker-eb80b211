@@ -48,7 +48,7 @@ $max-width: 280px;
   max-width: $max-width;
   padding: $space-m;
   border-radius: $border-radius-l;
-  background-color: var(--color-background-brand-secondary);
+  background-color: var(--color-surface-brand-secondary);
   color: var(--color-text-inverse-primary);
   font-size: $font-m;
   cursor: default;
@@ -77,7 +77,7 @@ $max-width: 280px;
     width: $space-s;
     height: $space-s;
     transform: translate(-50%, -50%) rotate(45deg);
-    background-color: var(--color-background-brand-secondary);
+    background-color: var(--color-surface-brand-secondary);
     box-shadow: $elevation-2;
   }
 }
