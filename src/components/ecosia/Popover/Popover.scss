@@ -63,7 +63,7 @@ $max-width: 280px;
 
 .popover__badge {
   display: inline-block;
-  padding: $space-3xs $space-2xs;
+  padding: $space-3s $space-2s;
   margin: $space-m $space-m 0 $space-m;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: $border-radius-s;
@@ -101,7 +101,7 @@ $max-width: 280px;
 }
 
 .popover__button {
-  padding: $space-2xs $space-m;
+  padding: $space-2s $space-m;
   border: 1px solid currentColor;
   border-radius: 9999px;
   background: transparent;
