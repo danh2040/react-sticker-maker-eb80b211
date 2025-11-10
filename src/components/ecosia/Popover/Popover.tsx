@@ -8,6 +8,12 @@ export type PopoverSide =
   | 'right-top'
   | 'right-center'
   | 'right-bottom'
+  | 'top-left'
+  | 'top-center'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right'
   | 'center-top'
   | 'center-bottom';
 
@@ -17,6 +23,16 @@ export interface PopoverProps {
   visible: boolean;
   side?: PopoverSide;
   className?: string;
+  showBadge?: boolean;
+  showImage?: boolean;
+  showPointer?: boolean;
+  showStep?: boolean;
+  showTrailingButton?: boolean;
+  badge?: string;
+  imageUrl?: string;
+  step?: string;
+  trailingButtonText?: string;
+  onTrailingButtonClick?: () => void;
 }
 
 export const Popover: React.FC<PopoverProps> = ({
@@ -25,6 +41,16 @@ export const Popover: React.FC<PopoverProps> = ({
   visible,
   side = 'left-top',
   className = '',
+  showBadge = false,
+  showImage = false,
+  showPointer = true,
+  showStep = false,
+  showTrailingButton = false,
+  badge = 'New',
+  imageUrl,
+  step = '1 / 2',
+  trailingButtonText = 'Got it',
+  onTrailingButtonClick,
 }) => {
   const hasToggle = !!children;
 
@@ -48,16 +74,44 @@ export const Popover: React.FC<PopoverProps> = ({
           {children}
         </span>
       )}
-      <span
-        className={`popover__arrow ${visible ? 'popover__arrow--visible' : ''}`}
-        aria-hidden="true"
-      />
+      {showPointer && (
+        <span
+          className={`popover__arrow ${visible ? 'popover__arrow--visible' : ''}`}
+          aria-hidden="true"
+        />
+      )}
       <div
         role="dialog"
         className={`popover__content ${visible ? 'popover__content--visible' : ''}`}
         data-test-id="popover-content"
+        style={{ backgroundColor: 'var(--background-neutral-featured)', color: 'var(--background-neutral-featured-foreground)' }}
       >
-        {content}
+        {showBadge && (
+          <div className="popover__badge">
+            <span className="popover__badge-text">{badge}</span>
+          </div>
+        )}
+        {showImage && imageUrl && (
+          <div className="popover__image">
+            <img src={imageUrl} alt="Popover visual" />
+          </div>
+        )}
+        <div className="popover__body">
+          {content}
+        </div>
+        <div className="popover__footer">
+          {showStep && (
+            <span className="popover__step">{step}</span>
+          )}
+          {showTrailingButton && (
+            <button 
+              className="popover__button"
+              onClick={onTrailingButtonClick}
+            >
+              {trailingButtonText}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { ComponentSection } from "@/components/ComponentSection";
 import { ComponentDemo } from "@/components/ComponentDemo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -40,7 +41,7 @@ const Index = () => {
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="flex h-16 items-center px-4 md:px-6">
+            <div className="flex h-16 items-center justify-between px-4 md:px-6">
               <div className="flex items-center gap-4">
                 {/* Mobile Menu */}
                 <Sheet>
@@ -61,6 +62,8 @@ const Index = () => {
                 
                 <h1 className="text-xl font-bold">Ecosia Flora Component Library</h1>
               </div>
+              
+              <ThemeToggle />
             </div>
           </header>
 
@@ -300,11 +303,18 @@ const Index = () => {
                 <ComponentDemo title="Interactive Example">
                   <Popover
                     visible={popoverVisible}
-                    side="center-bottom"
+                    side="bottom-center"
+                    showBadge={true}
+                    showStep={true}
+                    showTrailingButton={true}
+                    badge="New"
+                    step="1 / 2"
+                    trailingButtonText="Got it"
+                    onTrailingButtonClick={() => setPopoverVisible(false)}
                     content={
                       <div>
-                        <p className="font-semibold mb-2">Popover Content</p>
-                        <p className="text-sm">This is a popover with white background and can contain any content.</p>
+                        <p className="font-semibold mb-2">From trees to seeds</p>
+                        <p className="text-sm">Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...</p>
                       </div>
                     }
                   >
@@ -317,15 +327,56 @@ const Index = () => {
                   </Popover>
                 </ComponentDemo>
 
+                <ComponentDemo title="Positions">
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <Popover
+                      visible={false}
+                      side="top-center"
+                      showBadge={true}
+                      showTrailingButton={true}
+                      content={<p>Top center popover</p>}
+                    >
+                      <Button variant="outline">Top Center</Button>
+                    </Popover>
+                    <Popover
+                      visible={false}
+                      side="right-center"
+                      showStep={true}
+                      content={<p>Right center popover</p>}
+                    >
+                      <Button variant="outline">Right Center</Button>
+                    </Popover>
+                    <Popover
+                      visible={false}
+                      side="bottom-left"
+                      showBadge={true}
+                      content={<p>Bottom left popover</p>}
+                    >
+                      <Button variant="outline">Bottom Left</Button>
+                    </Popover>
+                    <Popover
+                      visible={false}
+                      side="left-center"
+                      content={<p>Left center popover</p>}
+                    >
+                      <Button variant="outline">Left Center</Button>
+                    </Popover>
+                  </div>
+                </ComponentDemo>
+
                 <ComponentDemo title="Anatomy">
                   <div className="space-y-3">
                     <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Container: White background with border</p>
-                      <p>• Padding: 16px</p>
-                      <p>• Border radius: 8px</p>
-                      <p>• Shadow: Elevated shadow for depth</p>
-                      <p>• Arrow: Optional 10px arrow pointing to trigger</p>
-                      <p>• Content: Flexible slot for any content</p>
+                      <p>• Container: Background uses --background-neutral-featured color</p>
+                      <p>• Badge: Optional "New" badge at the top (showBadge prop)</p>
+                      <p>• Image: Optional image slot (showImage + imageUrl props)</p>
+                      <p>• Body: Main content area with flexible slot</p>
+                      <p>• Footer: Contains step counter and trailing button</p>
+                      <p>• Step: Optional step indicator like "1 / 2" (showStep prop)</p>
+                      <p>• Trailing Button: Optional action button (showTrailingButton prop)</p>
+                      <p>• Arrow: Optional pointer (showPointer prop, default: true)</p>
+                      <p>• Positions: 12 positions supported (top-left/center/right, bottom-left/center/right, left-top/center/bottom, right-top/center/bottom)</p>
+                      <p>• Colors: #D7EB80 (light mode), #424A1E (dark mode)</p>
                     </div>
                   </div>
                 </ComponentDemo>
