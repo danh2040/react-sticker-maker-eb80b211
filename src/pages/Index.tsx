@@ -1,6 +1,7 @@
 import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover } from "@/components/ecosia";
 import { PrimaryButton, SecondaryButton, OutlineButton, GhostButton, DestructiveButton, LinkButton } from "@/components/button-variants";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Index = () => {
@@ -28,7 +29,12 @@ const Index = () => {
   return (
     <div className="min-h-screen p-8 bg-background">
       <div className="max-w-4xl mx-auto space-y-8">
-        <h1 className="text-4xl font-bold mb-8">Component Showcase</h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-bold">Component Showcase</h1>
+          <Link to="/demo">
+            <PrimaryButton>View Demo Profile</PrimaryButton>
+          </Link>
+        </div>
         
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold">Button Variants</h2>
