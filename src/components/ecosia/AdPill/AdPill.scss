@@ -1,5 +1,5 @@
-@import '../../../scss/spaces';
-@import '../../../scss/borders';
+@use '../../../scss/spaces' as *;
+@use '../../../scss/borders' as *;
 
 .ad-pill {
   padding: 0 $space-3s;

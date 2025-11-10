@@ -1,6 +1,6 @@
-@import '../../../scss/spaces';
-@import '../../../scss/borders';
-@import '../../../scss/animations';
+@use '../../../scss/spaces' as *;
+@use '../../../scss/borders' as *;
+@use '../../../scss/animations' as *;
 
 .accordion-item {
   border-bottom: 1px solid var(--color-decorative-border-1);

@@ -1,10 +1,10 @@
-@import '../../../scss/variables';
-@import '../../../scss/spaces';
-@import '../../../scss/typography';
-@import '../../../scss/colors';
-@import '../../../scss/borders';
-@import '../../../scss/elevations';
-@import '../../../scss/animations';
+@use '../../../scss/variables' as *;
+@use '../../../scss/spaces' as *;
+@use '../../../scss/typography' as *;
+@use '../../../scss/colors' as *;
+@use '../../../scss/borders' as *;
+@use '../../../scss/elevations' as *;
+@use '../../../scss/animations' as *;
 
 $max-width: 280px;
 $max-width-l: 315px;

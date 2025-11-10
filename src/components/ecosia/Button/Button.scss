@@ -1,9 +1,9 @@
-@import '../../../scss/variables';
-@import '../../../scss/spaces';
-@import '../../../scss/typography';
-@import '../../../scss/colors';
-@import '../../../scss/borders';
-@import '../../../scss/animations';
+@use '../../../scss/variables' as *;
+@use '../../../scss/spaces' as *;
+@use '../../../scss/typography' as *;
+@use '../../../scss/colors' as *;
+@use '../../../scss/borders' as *;
+@use '../../../scss/animations' as *;
 
 .button {
   display: inline-flex;

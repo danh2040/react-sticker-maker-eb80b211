@@ -1,11 +1,11 @@
 // Import SCSS variables
-@import '../scss/variables';
-@import '../scss/spaces';
-@import '../scss/borders';
-@import '../scss/colors';
-@import '../scss/typography';
-@import '../scss/elevations';
-@import '../scss/animations';
+@use '../scss/variables' as *;
+@use '../scss/spaces' as *;
+@use '../scss/borders' as *;
+@use '../scss/colors' as *;
+@use '../scss/typography' as *;
+@use '../scss/elevations' as *;
+@use '../scss/animations' as *;
 
 // Ecosia theme variables (based on global/_themes.scss)
 :root,

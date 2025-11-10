@@ -1,8 +1,8 @@
-@import '../../../scss/variables';
-@import '../../../scss/spaces';
-@import '../../../scss/typography';
-@import '../../../scss/colors';
-@import '../../../scss/borders';
+@use '../../../scss/variables' as *;
+@use '../../../scss/spaces' as *;
+@use '../../../scss/typography' as *;
+@use '../../../scss/colors' as *;
+@use '../../../scss/borders' as *;
 
 .badge {
   display: inline-flex;
