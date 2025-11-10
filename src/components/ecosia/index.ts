@@ -2,6 +2,7 @@ export * from './Accordion';
 export * from './AdPill';
 export * from './Avatar';
 export * from './Badge';
+export * from './Button';
 export * from './Popover';
 export * from './Slider';
 export * from './Switch';

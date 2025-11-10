@@ -1,6 +1,4 @@
-import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover } from "@/components/ecosia";
-import { PrimaryButton, SecondaryButton, OutlineButton, GhostButton, DestructiveButton, LinkButton } from "@/components/button-variants";
-import { Button } from "@/components/ui/button";
+import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover, Button } from "@/components/ecosia";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -32,19 +30,18 @@ const Index = () => {
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-4xl font-bold">Component Showcase</h1>
           <Link to="/demo">
-            <PrimaryButton>View Demo Profile</PrimaryButton>
+            <Button variant="primary">View Demo Profile</Button>
           </Link>
         </div>
         
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold">Button Variants</h2>
           <div className="flex flex-wrap gap-4">
-            <PrimaryButton>Primary</PrimaryButton>
-            <SecondaryButton>Secondary</SecondaryButton>
-            <OutlineButton>Outline</OutlineButton>
-            <GhostButton>Ghost</GhostButton>
-            <DestructiveButton>Destructive</DestructiveButton>
-            <LinkButton>Link</LinkButton>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="destructive">Destructive</Button>
           </div>
         </section>
 

@@ -1,5 +1,4 @@
-import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover } from "@/components/ecosia";
-import { PrimaryButton, SecondaryButton, OutlineButton, GhostButton } from "@/components/button-variants";
+import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover, Button } from "@/components/ecosia";
 import { useState } from "react";
 
 const DemoProfile = () => {
@@ -42,9 +41,9 @@ const DemoProfile = () => {
           </div>
           <div className="flex gap-2">
             <Tooltip content="Edit your profile" side="center-bottom">
-              <OutlineButton>Edit Profile</OutlineButton>
+              <Button variant="outline">Edit Profile</Button>
             </Tooltip>
-            <PrimaryButton>Share</PrimaryButton>
+            <Button variant="primary">Share</Button>
           </div>
         </div>
       </header>
@@ -106,8 +105,8 @@ const DemoProfile = () => {
                   onChange={setDarkModeEnabled}
                 />
                 <div className="flex gap-2 mt-4">
-                  <SecondaryButton size="sm">Reset Theme</SecondaryButton>
-                  <GhostButton size="sm">Preview</GhostButton>
+                  <Button variant="secondary" size="sm">Reset Theme</Button>
+                  <Button variant="ghost" size="sm">Preview</Button>
                 </div>
               </div>
             </AccordionItem>
@@ -118,7 +117,7 @@ const DemoProfile = () => {
                   Your privacy is important to us. We never sell your data or track your searches.
                 </p>
                 <div className="flex gap-2">
-                  <OutlineButton size="sm">Download Data</OutlineButton>
+                  <Button variant="outline" size="sm">Download Data</Button>
                   <Popover
                     visible={popoverVisible}
                     side="center-top"
@@ -127,20 +126,21 @@ const DemoProfile = () => {
                         <p className="font-semibold mb-2">Delete Account?</p>
                         <p className="text-sm mb-3">This action cannot be undone.</p>
                         <div className="flex gap-2">
-                          <SecondaryButton size="sm" onClick={() => setPopoverVisible(false)}>
+                          <Button variant="secondary" size="sm" onClick={() => setPopoverVisible(false)}>
                             Cancel
-                          </SecondaryButton>
-                          <PrimaryButton size="sm">Confirm</PrimaryButton>
+                          </Button>
+                          <Button variant="primary" size="sm">Confirm</Button>
                         </div>
                       </div>
                     }
                   >
-                    <GhostButton 
+                    <Button 
+                      variant="ghost"
                       size="sm" 
                       onClick={() => setPopoverVisible(!popoverVisible)}
                     >
                       Delete Account
-                    </GhostButton>
+                    </Button>
                   </Popover>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const DemoProfile = () => {
               <Avatar size="m">ED</Avatar>
             </Tooltip>
             <Tooltip content="Invite team members" side="center-top">
-              <OutlineButton size="sm">+ Invite</OutlineButton>
+              <Button variant="outline" size="sm">+ Invite</Button>
             </Tooltip>
           </div>
         </section>
