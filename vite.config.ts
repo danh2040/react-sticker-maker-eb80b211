@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
         api: 'modern-compiler',
         importers: [
           {
-            findFileUrl(url, context) {
+            findFileUrl(url: string, context: any) {
               // Handle relative paths like '../../../scss/spaces'
               if (url.includes('/scss/')) {
                 const fileName = url.split('/scss/')[1];
