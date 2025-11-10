@@ -1,6 +1,11 @@
 import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover, Button } from "@/components/ecosia";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
+import { ComponentSection } from "@/components/ComponentSection";
+import { ComponentDemo } from "@/components/ComponentDemo";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -25,144 +30,369 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen p-8 bg-background">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-bold">Component Showcase</h1>
-          <Link to="/demo">
-            <Button variant="primary">View Demo Profile</Button>
-          </Link>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full">
+        {/* Desktop Sidebar */}
+        <div className="hidden md:block">
+          <AppSidebar />
         </div>
-        
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Button Variants</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="destructive">Destructive</Button>
-          </div>
-        </section>
 
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Button Sizes</h2>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Button size="sm">Small</Button>
-            <Button size="default">Default</Button>
-            <Button size="lg">Large</Button>
-          </div>
-        </section>
+        <div className="flex-1 flex flex-col">
+          {/* Header */}
+          <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="flex h-16 items-center px-4 md:px-6">
+              <div className="flex items-center gap-4">
+                {/* Mobile Menu */}
+                <Sheet>
+                  <SheetTrigger asChild className="md:hidden">
+                    <button className="p-2 hover:bg-muted rounded-md">
+                      <Menu className="h-5 w-5" />
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="w-64 p-0">
+                    <div className="py-4">
+                      <AppSidebar />
+                    </div>
+                  </SheetContent>
+                </Sheet>
 
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Disabled Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button disabled>Disabled Primary</Button>
-            <Button variant="secondary" disabled>Disabled Secondary</Button>
-            <Button variant="outline" disabled>Disabled Outline</Button>
-          </div>
-        </section>
+                {/* Desktop Sidebar Toggle */}
+                <SidebarTrigger className="hidden md:block" />
+                
+                <h1 className="text-xl font-bold">Ecosia Flora Component Library</h1>
+              </div>
+            </div>
+          </header>
 
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Badges</h2>
-          <div className="flex gap-4">
-            <Badge variant="featured">Featured</Badge>
-            <Badge variant="neutral">Neutral</Badge>
-            <Badge variant="accent-yellow">Accent</Badge>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Ad Pill</h2>
-          <AdPill />
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Avatar Sizes</h2>
-          <div className="flex gap-4 items-center">
-            <Avatar size="s">JD</Avatar>
-            <Avatar size="m">JD</Avatar>
-            <Avatar size="l">JD</Avatar>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Accordion</h2>
-          <Accordion defaultOpenIndex={0}>
-            <AccordionItem index={0} title="First Item">
-              Content for first item
-            </AccordionItem>
-            <AccordionItem index={1} title="Second Item">
-              Content for second item
-            </AccordionItem>
-            <AccordionItem index={2} title="Third Item">
-              Content for third item
-            </AccordionItem>
-          </Accordion>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Switch</h2>
-          <Switch
-            name="demo-switch"
-            label="Enable notifications"
-            description="Receive updates about your account activity"
-            checked={switchChecked}
-            onChange={setSwitchChecked}
-          />
-          <p className="text-sm text-gray-600">
-            Current state: {switchChecked ? 'On' : 'Off'}
-          </p>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Tooltip</h2>
-          <div className="flex flex-wrap gap-8 items-center">
-            <Tooltip content="This is a helpful tooltip!" side="center-top">
-              <Button variant="outline">Hover me (Top)</Button>
-            </Tooltip>
-            <Tooltip content="Tooltip on the right side" side="right-center">
-              <Button variant="outline">Hover me (Right)</Button>
-            </Tooltip>
-            <Tooltip 
-              content="This is a larger tooltip with more information!" 
-              size="l"
-              colorVariant="brand-secondary"
-            >
-              <Button variant="outline">Large Secondary Tooltip</Button>
-            </Tooltip>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Popover</h2>
-          <div className="flex gap-8 items-center">
-            <Popover
-              visible={popoverVisible}
-              side="center-bottom"
-              content={
-                <div>
-                  <p className="font-semibold mb-2">Popover Content</p>
-                  <p className="text-sm">This is a popover with white background and can contain any content.</p>
-                </div>
-              }
-            >
-              <Button 
-                variant="outline" 
-                onClick={() => setPopoverVisible(!popoverVisible)}
+          {/* Main Content */}
+          <main className="flex-1 px-4 md:px-6 py-8">
+            <div className="max-w-5xl mx-auto">
+              {/* Button Section */}
+              <ComponentSection
+                id="button"
+                title="Button"
+                description="Buttons allow users to take actions and make choices with a single tap. They communicate actions that users can take."
               >
-                Toggle Popover
-              </Button>
-            </Popover>
-          </div>
-        </section>
+                <ComponentDemo title="Interactive Example">
+                  <Button variant="primary" onClick={() => alert('Button clicked!')}>
+                    Click Me
+                  </Button>
+                </ComponentDemo>
 
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Slider</h2>
-          <Slider slides={sliderData} />
-        </section>
+                <ComponentDemo title="Variants">
+                  <div className="flex flex-wrap gap-4">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Primary</p>
+                      <Button variant="primary">Primary</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Secondary</p>
+                      <Button variant="secondary">Secondary</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Outline</p>
+                      <Button variant="outline">Outline</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Ghost</p>
+                      <Button variant="ghost">Ghost</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Destructive</p>
+                      <Button variant="destructive">Destructive</Button>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy & Sizes">
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium">Size: Small (sm)</p>
+                      <Button size="sm">Small Button</Button>
+                      <p className="text-xs text-muted-foreground">Height: 32px, Padding: 12px horizontal</p>
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium">Size: Default</p>
+                      <Button size="default">Default Button</Button>
+                      <p className="text-xs text-muted-foreground">Height: 40px, Padding: 16px horizontal</p>
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium">Size: Large (lg)</p>
+                      <Button size="lg">Large Button</Button>
+                      <p className="text-xs text-muted-foreground">Height: 48px, Padding: 24px horizontal</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Badge Section */}
+              <ComponentSection
+                id="badge"
+                title="Badge"
+                description="Badges are used to highlight an item's status or to draw attention to important information."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Badge variant="featured">New Feature</Badge>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="flex flex-wrap gap-4">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Featured</p>
+                      <Badge variant="featured">Featured</Badge>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Neutral</p>
+                      <Badge variant="neutral">Neutral</Badge>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Accent Yellow</p>
+                      <Badge variant="accent-yellow">Accent</Badge>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <Badge variant="featured">Badge Content</Badge>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Height: Auto (content-based)</p>
+                      <p>• Padding: 4px horizontal, 2px vertical</p>
+                      <p>• Border radius: 4px</p>
+                      <p>• Font size: 12px</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Avatar Section */}
+              <ComponentSection
+                id="avatar"
+                title="Avatar"
+                description="Avatars represent users or entities. They can display initials, images, or icons."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Avatar size="m">JD</Avatar>
+                </ComponentDemo>
+
+                <ComponentDemo title="Sizes">
+                  <div className="flex flex-wrap gap-6 items-center">
+                    <div className="space-y-2 text-center">
+                      <Avatar size="s">JD</Avatar>
+                      <p className="text-xs text-muted-foreground">Small (24px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <Avatar size="m">JD</Avatar>
+                      <p className="text-xs text-muted-foreground">Medium (32px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <Avatar size="l">JD</Avatar>
+                      <p className="text-xs text-muted-foreground">Large (48px)</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <Avatar size="m">AB</Avatar>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Circular shape</p>
+                      <p>• Centered content (text or image)</p>
+                      <p>• Background color from theme</p>
+                      <p>• 2-character initials maximum</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Switch Section */}
+              <ComponentSection
+                id="switch"
+                title="Switch"
+                description="Switches toggle the state of a single setting on or off. They provide immediate feedback on the current state."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Switch
+                    name="demo-switch"
+                    label="Enable notifications"
+                    description="Receive updates about your account activity"
+                    checked={switchChecked}
+                    onChange={setSwitchChecked}
+                  />
+                  <p className="text-sm text-muted-foreground mt-4">
+                    Current state: <span className="font-medium">{switchChecked ? 'On' : 'Off'}</span>
+                  </p>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-4">
+                    <Switch
+                      name="anatomy-demo"
+                      label="Label text"
+                      description="Optional description text"
+                      checked={false}
+                      onChange={() => {}}
+                    />
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Toggle track: 44px width × 24px height</p>
+                      <p>• Toggle thumb: 20px diameter</p>
+                      <p>• Label: Optional, positioned to the right</p>
+                      <p>• Description: Optional secondary text</p>
+                      <p>• Spacing: 12px between switch and labels</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Tooltip Section */}
+              <ComponentSection
+                id="tooltip"
+                title="Tooltip"
+                description="Tooltips display informative text when users hover over, focus on, or tap an element."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Tooltip content="This is a helpful tooltip!" side="center-top">
+                    <Button variant="outline">Hover me</Button>
+                  </Tooltip>
+                </ComponentDemo>
+
+                <ComponentDemo title="Positions">
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <Tooltip content="Top tooltip" side="center-top">
+                      <Button variant="outline">Top</Button>
+                    </Tooltip>
+                    <Tooltip content="Right tooltip" side="right-center">
+                      <Button variant="outline">Right</Button>
+                    </Tooltip>
+                    <Tooltip content="Bottom tooltip" side="center-bottom">
+                      <Button variant="outline">Bottom</Button>
+                    </Tooltip>
+                    <Tooltip content="Left tooltip" side="left-center">
+                      <Button variant="outline">Left</Button>
+                    </Tooltip>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy & Variants">
+                  <div className="space-y-4">
+                    <Tooltip content="Default size tooltip" size="m">
+                      <Button variant="outline">Default Size</Button>
+                    </Tooltip>
+                    <Tooltip content="Large tooltip with more content" size="l" colorVariant="brand-secondary">
+                      <Button variant="outline">Large Secondary</Button>
+                    </Tooltip>
+                    <div className="text-sm text-muted-foreground space-y-1 mt-4">
+                      <p>• Padding: 8px horizontal, 6px vertical</p>
+                      <p>• Max width: Size dependent (m: 200px, l: 300px)</p>
+                      <p>• Arrow: 8px positioned on appropriate side</p>
+                      <p>• Animation: Fade in/out with scale</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Popover Section */}
+              <ComponentSection
+                id="popover"
+                title="Popover"
+                description="Popovers display additional content in a floating container when triggered. They can contain rich content and interactive elements."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Popover
+                    visible={popoverVisible}
+                    side="center-bottom"
+                    content={
+                      <div>
+                        <p className="font-semibold mb-2">Popover Content</p>
+                        <p className="text-sm">This is a popover with white background and can contain any content.</p>
+                      </div>
+                    }
+                  >
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setPopoverVisible(!popoverVisible)}
+                    >
+                      Toggle Popover
+                    </Button>
+                  </Popover>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Container: White background with border</p>
+                      <p>• Padding: 16px</p>
+                      <p>• Border radius: 8px</p>
+                      <p>• Shadow: Elevated shadow for depth</p>
+                      <p>• Arrow: Optional 10px arrow pointing to trigger</p>
+                      <p>• Content: Flexible slot for any content</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Slider Section */}
+              <ComponentSection
+                id="slider"
+                title="Slider"
+                description="Sliders showcase content in a carousel format, allowing users to browse through multiple items with smooth transitions."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Slider slides={sliderData} />
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Slide container: Full width, aspect ratio preserved</p>
+                      <p>• Navigation buttons: Previous/Next positioned on sides</p>
+                      <p>• Indicators: Dots showing current slide position</p>
+                      <p>• Content overlay: Title and description over image</p>
+                      <p>• Transitions: Smooth slide animations</p>
+                      <p>• Touch support: Swipe gestures on mobile</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Accordion Section */}
+              <ComponentSection
+                id="accordion"
+                title="Accordion"
+                description="Accordions allow users to expand and collapse sections of content. They help organize information into manageable sections."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <Accordion defaultOpenIndex={0}>
+                    <AccordionItem index={0} title="First Item">
+                      Content for first item. This section can contain any type of content including text, images, or other components.
+                    </AccordionItem>
+                    <AccordionItem index={1} title="Second Item">
+                      Content for second item. Each accordion item expands and collapses independently.
+                    </AccordionItem>
+                    <AccordionItem index={2} title="Third Item">
+                      Content for third item. Only one item can be open at a time by default.
+                    </AccordionItem>
+                  </Accordion>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Header: Clickable trigger with title</p>
+                      <p>• Header padding: 16px vertical, full width</p>
+                      <p>• Content panel: Collapsible area with 16px padding</p>
+                      <p>• Divider: 1px border between items</p>
+                      <p>• Animation: Max-height transition for smooth expand/collapse</p>
+                      <p>• Single expansion: Only one item open at a time</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
