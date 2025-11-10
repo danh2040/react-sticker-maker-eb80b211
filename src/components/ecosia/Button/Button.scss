@@ -122,10 +122,10 @@
   color: var(--color-button-content-primary);
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-negative-hover, #{$c-red-60});
+    background-color: var(--color-button-background-negative-hover, #{$c-red-40});
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-negative-active, #{$c-red-70});
+    background-color: var(--color-button-background-negative-active, #{$c-red-30});
   }
 }
