@@ -224,6 +224,8 @@ All colors MUST be HSL.
     --color-button-content-secondary: 0 0% 20%;
     --color-button-content-featured: 66 44% 20%;
     --color-button-border: 0 0% 15%;
+    --color-button-background-transparent-hover: 0 0% 20% / 0.16;
+    --color-button-background-transparent-active: 0 0% 20% / 0.24;
 
     /* Additional semantic colors */
     --color-highlight-primary: 0 0% 20% / 0.16;
@@ -326,6 +328,8 @@ All colors MUST be HSL.
     --color-button-content-secondary: 0 0% 100%;
     --color-button-content-featured: 66 44% 20%;
     --color-button-border: 0 0% 100%;
+    --color-button-background-transparent-hover: 0 0% 100% / 0.16;
+    --color-button-background-transparent-active: 0 0% 100% / 0.32;
 
     /* Additional semantic colors - dark mode */
     --color-highlight-primary: 0 0% 100% / 0.16;

@@ -77,7 +77,7 @@
 .button--variant-secondary {
   background-color: var(--color-button-background-secondary);
   color: var(--color-button-content-secondary);
-  border: 1px solid var(--color-decorative-border-1);
+  border: none;
   
   &:hover:not(:disabled) {
     background-color: var(--color-button-background-secondary-hover);

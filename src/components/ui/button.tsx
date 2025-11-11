@@ -10,6 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-[hsl(var(--color-button-background-primary))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-primary-hover))] active:bg-[hsl(var(--color-button-background-primary-active))]",
+        primary: "bg-[hsl(var(--color-button-background-primary))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-primary-hover))] active:bg-[hsl(var(--color-button-background-primary-active))]",
         destructive: "bg-[hsl(var(--color-button-background-negative))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-negative-hover))] active:bg-[hsl(var(--color-button-background-negative-active))]",
         outline: "border border-[hsl(var(--form-border-default))] bg-transparent text-foreground hover:bg-[hsl(var(--color-highlight-primary))] hover:border-[hsl(var(--form-border-hover))] active:border-[hsl(var(--form-border-primary-active))] active:bg-[hsl(var(--color-button-background-transparent-active))]",
         secondary: "bg-[hsl(var(--color-button-background-secondary))] text-[hsl(var(--color-button-content-secondary))] hover:bg-[hsl(var(--color-button-background-secondary-hover))] active:bg-[hsl(var(--color-button-background-secondary-active))]",
