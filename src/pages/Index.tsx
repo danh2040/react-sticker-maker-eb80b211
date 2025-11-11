@@ -687,22 +687,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy & Variants">
-                  <div className="space-y-4">
-                    <Tooltip content="Default size tooltip" size="m">
-                      <Button variant="outline">Default Size</Button>
-                    </Tooltip>
-                    <Tooltip content="Large tooltip with more content" size="l" colorVariant="brand-secondary">
-                      <Button variant="outline">Large Secondary</Button>
-                    </Tooltip>
-                    <div className="text-sm text-muted-foreground space-y-1 mt-4">
-                      <p>• Padding: 8px horizontal, 6px vertical</p>
-                      <p>• Max width: Size dependent (m: 200px, l: 300px)</p>
-                      <p>• Arrow: 8px positioned on appropriate side</p>
-                      <p>• Animation: Fade in/out with scale</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Popover Section */}
@@ -831,31 +815,24 @@ const Index = () => {
                 </ComponentDemo>
 
                 <ComponentDemo title="Variants">
-                  <div className="space-y-8">
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Neutral</h4>
-                      <div className="relative h-16">
-                        <EcosiaToast variant="neutral" message="This is a neutral toast message" />
-                      </div>
+                  <div className="space-y-4">
+                    <div className="flex gap-4">
+                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                        Neutral
+                      </Button>
+                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                        Informative
+                      </Button>
+                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                        Positive
+                      </Button>
+                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                        Negative
+                      </Button>
                     </div>
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Informative</h4>
-                      <div className="relative h-16">
-                        <EcosiaToast variant="informative" message="This is an informative message" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Positive</h4>
-                      <div className="relative h-16">
-                        <EcosiaToast variant="positive" message="Action completed successfully!" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Negative</h4>
-                      <div className="relative h-16">
-                        <EcosiaToast variant="negative" message="An error occurred" />
-                      </div>
-                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Click the "Show Toast" button in the Interactive Example section above to see toast notifications in action. Toast variants include: neutral (gray), informative (blue), positive (green), and negative (red).
+                    </p>
                   </div>
                 </ComponentDemo>
 
