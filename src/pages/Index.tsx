@@ -69,7 +69,12 @@ import typeKenya1 from "@/assets/photography/Type_Kenya-1.png";
 import typeMadagascar4 from "@/assets/photography/Type_Madagascar-4.png";
 import typeMadagascar3 from "@/assets/photography/Type_Madagascar-3.png";
 import typeMadagascar2 from "@/assets/photography/Type_Madagascar-2.png";
+import greenMainstreamAvatar from "@/assets/avatars/User_The_Green_Mainstream_Type_Avatar.png";
+import powerUserAvatar from "@/assets/avatars/User_The_Power_User_Type_Avatar.png";
+import activeUserAvatar from "@/assets/avatars/User_The_Active_User_Type_Avatar.png";
+import earlyUserAvatar from "@/assets/avatars/User_The_Early_User_Type_Avatar.png";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Avatar as AvatarUI, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -338,6 +343,49 @@ const Index = () => {
                       </div>
                     </div>
                   </ComponentDemo>
+              </ComponentSection>
+
+              {/* Avatar Section */}
+              <ComponentSection
+                id="avatar"
+                title="Avatar"
+                description="User avatar assets representing different user types"
+              >
+                <ComponentDemo title="Variants">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="flex flex-col items-center gap-4">
+                      <AvatarUI className="w-24 h-24">
+                        <AvatarImage src={greenMainstreamAvatar} alt="The Green Mainstream" />
+                        <AvatarFallback>GM</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-sm text-muted-foreground text-center">The Green Mainstream</p>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4">
+                      <AvatarUI className="w-24 h-24">
+                        <AvatarImage src={powerUserAvatar} alt="The Power User" />
+                        <AvatarFallback>PU</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-sm text-muted-foreground text-center">The Power User</p>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4">
+                      <AvatarUI className="w-24 h-24">
+                        <AvatarImage src={activeUserAvatar} alt="The Active User" />
+                        <AvatarFallback>AU</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-sm text-muted-foreground text-center">The Active User</p>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4">
+                      <AvatarUI className="w-24 h-24">
+                        <AvatarImage src={earlyUserAvatar} alt="The Early User" />
+                        <AvatarFallback>EU</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-sm text-muted-foreground text-center">The Early User</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
               </ComponentSection>
 
               {/* Photography Section */}

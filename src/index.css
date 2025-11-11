@@ -175,13 +175,13 @@ All colors MUST be HSL.
 
     /* Toast colors */
     --toast-neutral: 0 0% 10%;
-    --toast-neutral-foreground: 0 0% 97%;
-    --toast-informative: 195 100% 21%;
-    --toast-informative-foreground: 0 0% 97%;
-    --toast-positive: 125 100% 16%;
-    --toast-positive-foreground: 0 0% 97%;
+    --toast-neutral-foreground: 0 0% 100%;
+    --toast-informative: 210 100% 27%;
+    --toast-informative-foreground: 0 0% 100%;
+    --toast-positive: 120 100% 20%;
+    --toast-positive-foreground: 0 0% 100%;
     --toast-negative: 349 89% 28%;
-    --toast-negative-foreground: 0 0% 97%;
+    --toast-negative-foreground: 0 0% 100%;
 
     /* Form borders */
     --form-border-default: 0 0% 80%;
@@ -209,15 +209,17 @@ All colors MUST be HSL.
 
     /* Button semantic colors */
     --color-button-background-primary: 0 0% 20%;
-    --color-button-background-primary-hover: 0 0% 47%;
-    --color-button-background-primary-active: 0 0% 67%;
+    --color-button-background-primary-hover: 0 0% 30%;
+    --color-button-background-primary-active: 0 0% 42%;
     --color-button-background-featured: 72 79% 70%;
     --color-button-background-featured-hover: 72 51% 60%;
     --color-button-background-featured-active: 72 42% 51%;
     --color-button-background-secondary: 0 0% 100%;
     --color-button-background-secondary-hover: 0 0% 87%;
-    --color-button-background-secondary-active: 0 0% 80%;
-    --color-button-background-negative: 353 98% 63%;
+    --color-button-background-secondary-active: 0 0% 74%;
+    --color-button-background-negative: 349 89% 28%;
+    --color-button-background-negative-hover: 349 91% 38%;
+    --color-button-background-negative-active: 349 89% 49%;
     --color-button-content-primary: 0 0% 100%;
     --color-button-content-secondary: 0 0% 20%;
     --color-button-content-featured: 66 44% 20%;
@@ -277,14 +279,14 @@ All colors MUST be HSL.
     --sidebar-ring: 72 79% 70%;
 
     /* Toast colors - dark mode */
-    --toast-neutral: 0 0% 93%;
-    --toast-neutral-foreground: 0 0% 10%;
-    --toast-informative: 200 97% 76%;
-    --toast-informative-foreground: 0 0% 10%;
-    --toast-positive: 111 87% 78%;
-    --toast-positive-foreground: 0 0% 10%;
+    --toast-neutral: 60 21% 93%;
+    --toast-neutral-foreground: 0 0% 0%;
+    --toast-informative: 201 90% 88%;
+    --toast-informative-foreground: 0 0% 0%;
+    --toast-positive: 78 88% 82%;
+    --toast-positive-foreground: 0 0% 0%;
     --toast-negative: 2 93% 84%;
-    --toast-negative-foreground: 0 0% 10%;
+    --toast-negative-foreground: 0 0% 0%;
 
     /* Form borders - dark mode */
     --form-border-default: 0 0% 20%;
@@ -309,15 +311,17 @@ All colors MUST be HSL.
 
     /* Button semantic colors - dark mode */
     --color-button-background-primary: 0 0% 100%;
-    --color-button-background-primary-hover: 0 0% 93%;
-    --color-button-background-primary-active: 0 0% 80%;
+    --color-button-background-primary-hover: 0 0% 87%;
+    --color-button-background-primary-active: 0 0% 74%;
     --color-button-background-featured: 72 79% 70%;
     --color-button-background-featured-hover: 72 51% 60%;
     --color-button-background-featured-active: 72 42% 51%;
     --color-button-background-secondary: 0 0% 10%;
     --color-button-background-secondary-hover: 0 0% 20%;
-    --color-button-background-secondary-active: 0 0% 47%;
-    --color-button-background-negative: 353 98% 63%;
+    --color-button-background-secondary-active: 0 0% 30%;
+    --color-button-background-negative: 2 93% 84%;
+    --color-button-background-negative-hover: 1 98% 76%;
+    --color-button-background-negative-active: 353 98% 63%;
     --color-button-content-primary: 0 0% 10%;
     --color-button-content-secondary: 0 0% 100%;
     --color-button-content-featured: 66 44% 20%;
