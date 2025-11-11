@@ -59,8 +59,8 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <a 
                       href={item.url}
-                      className={`hover:bg-muted/50 ${
-                        currentHash === item.url ? 'bg-muted text-primary font-medium' : ''
+                      className={`hover:bg-muted/50 transition-colors ${
+                        currentHash === item.url ? 'bg-muted font-medium' : ''
                       }`}
                     >
                       <item.icon className="h-4 w-4" />
