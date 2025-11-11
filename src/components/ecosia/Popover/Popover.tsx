@@ -84,7 +84,6 @@ export const Popover: React.FC<PopoverProps> = ({
         role="dialog"
         className={`popover__content ${visible ? 'popover__content--visible' : ''}`}
         data-test-id="popover-content"
-        style={{ backgroundColor: 'var(--background-neutral-featured)', color: 'var(--background-neutral-featured-foreground)' }}
       >
         {showBadge && (
           <div className="popover__badge">
