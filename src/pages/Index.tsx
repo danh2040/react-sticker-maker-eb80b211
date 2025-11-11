@@ -13,6 +13,30 @@ import ecosiaLogoBrowserDark from "@/assets/ecosia-logo-browser-dark.svg";
 import ecosiaLogoBrowserLight from "@/assets/ecosia-logo-browser-light.svg";
 import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
 import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
+import activeProjects from "@/assets/illustrations/active_projects.svg";
+import ai from "@/assets/illustrations/AI.svg";
+import areaRestored from "@/assets/illustrations/area_restored.svg";
+import bookmark from "@/assets/illustrations/bookmark.svg";
+import celebration from "@/assets/illustrations/celebration.svg";
+import control from "@/assets/illustrations/control.svg";
+import download from "@/assets/illustrations/download.svg";
+import education from "@/assets/illustrations/education.svg";
+import excitement from "@/assets/illustrations/excitement.svg";
+import featureAdoption from "@/assets/illustrations/feature_adoption.svg";
+import history from "@/assets/illustrations/history.svg";
+import incognito from "@/assets/illustrations/incognito.svg";
+import location from "@/assets/illustrations/location.svg";
+import missionContinuity from "@/assets/illustrations/mission_continuity.svg";
+import people from "@/assets/illustrations/people.svg";
+import person from "@/assets/illustrations/person.svg";
+import personalImpact from "@/assets/illustrations/personal_impact.svg";
+import readingList from "@/assets/illustrations/reading_list.svg";
+import renewableSolar from "@/assets/illustrations/renewable_solar.svg";
+import renewableWind from "@/assets/illustrations/renewable_wind.svg";
+import safety from "@/assets/illustrations/safety.svg";
+import seedlingsPlanted from "@/assets/illustrations/seedlings_planted.svg";
+import socialProof from "@/assets/illustrations/social_proof.svg";
+import transparency from "@/assets/illustrations/transparency.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -66,7 +90,7 @@ const Index = () => {
                 {/* Desktop Sidebar Toggle */}
                 <SidebarTrigger className="hidden md:block" />
                 
-                <h1 className="text-xl font-bold">Ecosia Flora Component Library</h1>
+                <h1 className="text-xl font-bold">Flora vibe code component library</h1>
               </div>
               
               <ThemeToggle />
@@ -139,6 +163,142 @@ const Index = () => {
                     </div>
                   </div>
                 </ComponentDemo>
+              </ComponentSection>
+
+              {/* Illustrations Section */}
+              <ComponentSection
+                id="illustrations"
+                title="Illustrations"
+                description="Ecosia illustration assets for various use cases"
+              >
+                <ComponentDemo title={
+                  <div className="flex items-center gap-2">
+                    Variants
+                    <Badge variant="featured">new</Badge>
+                  </div>
+                }>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={activeProjects} alt="Active Projects" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Active Projects</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={ai} alt="AI" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">AI</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={areaRestored} alt="Area Restored" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Area Restored</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={bookmark} alt="Bookmark" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Bookmark</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={celebration} alt="Celebration" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Celebration</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={control} alt="Control" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Control</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={download} alt="Download" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Download</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={education} alt="Education" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Education</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={excitement} alt="Excitement" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Excitement</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={featureAdoption} alt="Feature Adoption" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Feature Adoption</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={history} alt="History" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">History</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={incognito} alt="Incognito" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Incognito</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={location} alt="Location" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Location</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={missionContinuity} alt="Mission Continuity" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Mission Continuity</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={people} alt="People" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">People</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={person} alt="Person" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Person</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={personalImpact} alt="Personal Impact" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Personal Impact</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={readingList} alt="Reading List" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Reading List</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={renewableSolar} alt="Renewable Solar" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Renewable Solar</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={renewableWind} alt="Renewable Wind" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Renewable Wind</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={safety} alt="Safety" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Safety</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={seedlingsPlanted} alt="Seedlings Planted" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Seedlings Planted</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={socialProof} alt="Social Proof" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Social Proof</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={transparency} alt="Transparency" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Transparency</p>
+                      </div>
+                    </div>
+                  </ComponentDemo>
               </ComponentSection>
 
               {/* Button Section */}

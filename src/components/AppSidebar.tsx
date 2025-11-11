@@ -20,8 +20,12 @@ import {
   Image as ImageIcon,
   ChevronDown
 } from "lucide-react";
+import logoLight from "@/assets/ecosia-logo-light.svg";
+import logoDark from "@/assets/ecosia-logo-dark.svg";
 
 const componentItems = [
+  { title: "Logo", url: "#logo", icon: Square },
+  { title: "Illustrations", url: "#illustrations", icon: ImageIcon },
   { title: "Button", url: "#button", icon: Square },
   { title: "Badge", url: "#badge", icon: Tag },
   { title: "Avatar", url: "#avatar", icon: User },
@@ -41,6 +45,10 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
+        <div className="px-4 py-6 border-b border-border">
+          <img src={logoLight} alt="Ecosia" className="h-7 dark:hidden" />
+          <img src={logoDark} alt="Ecosia" className="h-7 hidden dark:block" />
+        </div>
         <SidebarGroup>
           <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
