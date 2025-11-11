@@ -15,6 +15,12 @@ import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
 import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
 import treeIcon from "@/components/ecosia/icons/l/tree.svg";
 import banknoteIcon from "@/components/ecosia/icons/l/banknote.svg";
+import tree2Icon from "@/components/ecosia/icons/l/tree-2.svg";
+import banknote2Icon from "@/components/ecosia/icons/l/banknote-2.svg";
+import bellIcon from "@/components/ecosia/icons/m/bell.svg";
+import avatarIcon from "@/components/ecosia/icons/m/avatar.svg";
+import seedIcon from "@/components/ecosia/icons/m/seed.svg";
+import aiSparkleIcon from "@/components/ecosia/icons/s/ai-sparkle.svg";
 import { EcosiaToast } from "@/components/ecosia/EcosiaToast";
 import { EcosiaSheet } from "@/components/ecosia/EcosiaSheet";
 import { EcosiaRadio } from "@/components/ecosia/EcosiaRadio";
@@ -1219,6 +1225,7 @@ const Index = () => {
                         <EcosiaIcon name="check-circle" size="s" />
                         <EcosiaIcon name="info-circle" size="s" />
                         <EcosiaIcon name="problem" size="s" />
+                        <img src={aiSparkleIcon} alt="AI Sparkle icon" className="w-4 h-4" />
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -1227,16 +1234,21 @@ const Index = () => {
                         <EcosiaIcon name="check-circle" size="m" />
                         <EcosiaIcon name="info-circle" size="m" />
                         <EcosiaIcon name="problem" size="m" />
+                        <img src={bellIcon} alt="Bell icon" className="w-5 h-5" />
+                        <img src={avatarIcon} alt="Avatar icon" className="w-5 h-5" />
+                        <img src={seedIcon} alt="Seed icon" className="w-5 h-5" />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Large (24px)</h4>
+                      <h4 className="text-sm font-medium">Large (36px)</h4>
                       <div className="flex gap-4">
                         <EcosiaIcon name="check-circle" size="l" />
                         <EcosiaIcon name="info-circle" size="l" />
                         <EcosiaIcon name="problem" size="l" />
                         <img src={treeIcon} alt="Tree icon" className="w-9 h-9" />
                         <img src={banknoteIcon} alt="Banknote icon" className="w-9 h-9" />
+                        <img src={tree2Icon} alt="Tree 2 icon" className="w-9 h-9" />
+                        <img src={banknote2Icon} alt="Banknote 2 icon" className="w-9 h-9" />
                       </div>
                     </div>
                     <div className="space-y-2">

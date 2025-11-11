@@ -54,17 +54,18 @@ export function EcosiaRadio({
           
           // Focus state - keyboard navigation
           "focus:outline focus:outline-2 focus:outline-[hsl(var(--form-border-primary-active))] focus:outline-offset-2",
+          "focus:border-[hsl(var(--form-border-primary-active))]",
           
-          // Checked state - border becomes 7px
-          "checked:border-[7px] checked:border-[hsl(var(--form-border-primary-active))]",
+          // Checked state - border becomes 7px using --color-brand-primary (matches checkbox)
+          "checked:border-[7px] checked:border-[hsl(var(--color-brand-primary))]",
           
-          // Active/pressed state
+          // Active/pressed state (matches checkbox)
           "active:scale-95",
-          "active:border-[hsl(var(--form-border-primary-active))]",
-          "checked:active:border-[7px] checked:active:border-[hsl(var(--form-border-primary-active))]",
           
           // Disabled state
-          "disabled:opacity-50 disabled:cursor-not-allowed"
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          "disabled:border-[hsl(var(--color-disabled))] disabled:bg-[hsl(var(--color-background-secondary))]",
+          "disabled:checked:border-[hsl(var(--color-disabled))]"
         )}
       />
       <span

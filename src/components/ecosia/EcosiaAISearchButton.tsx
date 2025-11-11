@@ -7,6 +7,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import aiSparkle from "@/components/ecosia/icons/s/ai-sparkle.svg";
+
 interface EcosiaAISearchButtonProps {
   onClick?: () => void;
   showText?: boolean;
@@ -28,12 +30,12 @@ export function EcosiaAISearchButton({
     >
       {href ? (
         <a href={href}>
-          <Sparkles className="h-4 w-4" />
+          <img src={aiSparkle} alt="AI" className="h-4 w-4" />
           {showText && <span className="ml-1s hidden md:inline">AI Search</span>}
         </a>
       ) : (
         <>
-          <Sparkles className="h-4 w-4" />
+          <img src={aiSparkle} alt="AI" className="h-4 w-4" />
           {showText && <span className="ml-1s hidden md:inline">AI Search</span>}
         </>
       )}
