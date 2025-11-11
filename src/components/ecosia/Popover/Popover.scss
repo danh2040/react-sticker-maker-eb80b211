@@ -78,6 +78,10 @@ $max-width: 280px;
   display: flex;
   align-items: center;
   gap: $space-1s;
+  padding: 0;
+}
+
+.popover__image + .popover__header {
   padding: $space-m 0 0 0;
 }
 
