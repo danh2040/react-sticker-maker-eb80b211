@@ -577,25 +577,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy & Sizes">
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium">Size: Small (sm)</p>
-                      <Button size="sm">Small Button</Button>
-                      <p className="text-xs text-muted-foreground">Height: 32px, Padding: 12px horizontal</p>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium">Size: Default</p>
-                      <Button size="default">Default Button</Button>
-                      <p className="text-xs text-muted-foreground">Height: 40px, Padding: 16px horizontal</p>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium">Size: Large (lg)</p>
-                      <Button size="lg">Large Button</Button>
-                      <p className="text-xs text-muted-foreground">Height: 48px, Padding: 24px horizontal</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Badge Section */}
@@ -625,17 +606,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <Badge variant="featured">Badge Content</Badge>
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Height: Auto (content-based)</p>
-                      <p>• Padding: 4px horizontal, 2px vertical</p>
-                      <p>• Border radius: 4px</p>
-                      <p>• Font size: 12px</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Avatar Section */}
@@ -665,17 +635,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <Avatar size="m">AB</Avatar>
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Circular shape</p>
-                      <p>• Centered content (text or image)</p>
-                      <p>• Background color from theme</p>
-                      <p>• 2-character initials maximum</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Switch Section */}
@@ -697,24 +656,6 @@ const Index = () => {
                   </p>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-4">
-                    <Switch
-                      name="anatomy-demo"
-                      label="Label text"
-                      description="Optional description text"
-                      checked={false}
-                      onChange={() => {}}
-                    />
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Toggle track: 44px width × 24px height</p>
-                      <p>• Toggle thumb: 20px diameter</p>
-                      <p>• Label: Optional, positioned to the right</p>
-                      <p>• Description: Optional secondary text</p>
-                      <p>• Spacing: 12px between switch and labels</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Tooltip Section */}
@@ -834,22 +775,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Container: Background uses --background-neutral-featured color</p>
-                      <p>• Badge: Optional "New" badge at the top (showBadge prop)</p>
-                      <p>• Image: Optional image slot (showImage + imageUrl props)</p>
-                      <p>• Body: Main content area with flexible slot</p>
-                      <p>• Footer: Contains step counter and trailing button</p>
-                      <p>• Step: Optional step indicator like "1 / 2" (showStep prop)</p>
-                      <p>• Trailing Button: Optional action button (showTrailingButton prop)</p>
-                      <p>• Arrow: Optional pointer (showPointer prop, default: true)</p>
-                      <p>• Positions: 12 positions supported (top-left/center/right, bottom-left/center/right, left-top/center/bottom, right-top/center/bottom)</p>
-                      <p>• Colors: #D7EB80 (light mode), #424A1E (dark mode)</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Slider Section */}
@@ -862,18 +787,6 @@ const Index = () => {
                   <Slider slides={sliderData} />
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Slide container: Full width, aspect ratio preserved</p>
-                      <p>• Navigation buttons: Previous/Next positioned on sides</p>
-                      <p>• Indicators: Dots showing current slide position</p>
-                      <p>• Content overlay: Title and description over image</p>
-                      <p>• Transitions: Smooth slide animations</p>
-                      <p>• Touch support: Swipe gestures on mobile</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Accordion Section */}
@@ -896,18 +809,6 @@ const Index = () => {
                   </Accordion>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Header: Clickable trigger with title</p>
-                      <p>• Header padding: 16px vertical, full width</p>
-                      <p>• Content panel: Collapsible area with 16px padding</p>
-                      <p>• Divider: 1px border between items</p>
-                      <p>• Animation: Max-height transition for smooth expand/collapse</p>
-                      <p>• Single expansion: Only one item open at a time</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Toast Section */}
@@ -958,21 +859,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Max width: 500px on tablet and desktop</p>
-                      <p>• Padding: 16px horizontal, 12px vertical</p>
-                      <p>• Border radius: 8px (rounded-lg)</p>
-                      <p>• Shadow: Large elevation shadow</p>
-                      <p>• Backdrop blur effect for depth</p>
-                      <p>• Icon: 20px (optional based on variant)</p>
-                      <p>• Close button: 16px icon with hover state</p>
-                      <p>• Position: Bottom center or bottom right</p>
-                      <p>• Animation: Slide up from bottom with fade</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Sheet Section */}
@@ -1006,21 +892,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Full viewport coverage (100vh, 100vw)</p>
-                      <p>• Close button: Top right, 8px padding</p>
-                      <p>• Content padding: 24px with top padding of 64px to clear close button</p>
-                      <p>• Z-index: 50 (highest layer)</p>
-                      <p>• Background: Uses semantic background color</p>
-                      <p>• Scroll: Vertical overflow enabled, horizontal hidden</p>
-                      <p>• Focus trap: Traps keyboard focus within sheet</p>
-                      <p>• Escape key: Closes the sheet</p>
-                      <p>• Animation: Fade in transition</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Radios Section */}
@@ -1087,21 +958,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Radio button sizes: s (16px), m (20px), l (24px)</p>
-                      <p>• Border: 2px solid with semantic form border color</p>
-                      <p>• Checked state: 6px border width with primary color</p>
-                      <p>• Label spacing: 8px gap between radio and label</p>
-                      <p>• Group spacing: 12px gap between radio items</p>
-                      <p>• Focus ring: 2px offset with primary color</p>
-                      <p>• Hover: Border color changes to hover state</p>
-                      <p>• Transition: 200ms for border color changes</p>
-                      <p>• Description: Muted foreground color, 14px font</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Panel Section */}
@@ -1141,22 +997,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Width: 250px fixed</p>
-                      <p>• Height: 100vh (full height)</p>
-                      <p>• Z-index: 50 for panel, 40 for backdrop</p>
-                      <p>• Backdrop: Semi-transparent overlay with blur</p>
-                      <p>• Transition: 300ms slide and opacity transitions</p>
-                      <p>• Shadow: Elevation shadow for depth</p>
-                      <p>• Scroll: Vertical overflow enabled</p>
-                      <p>• Position: Fixed to left or right edge</p>
-                      <p>• Escape key: Closes the panel</p>
-                      <p>• Click away: Closes when clicking backdrop</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Main Nav Section */}
@@ -1193,22 +1033,6 @@ const Index = () => {
                   />
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Menu button: Hamburger icon with hover state</p>
-                      <p>• Desktop dropdown: Max width 448px, max height 75vh</p>
-                      <p>• Mobile: Full-screen sheet overlay</p>
-                      <p>• Menu groups: Organized by category with headers</p>
-                      <p>• Group spacing: 24px margin between groups</p>
-                      <p>• Link padding: 8px vertical, 16px horizontal</p>
-                      <p>• Border radius: 20px for dropdown</p>
-                      <p>• Shadow: Elevation shadow for dropdown</p>
-                      <p>• Focus management: Escape key closes menu</p>
-                      <p>• Click away: Closes when clicking outside</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Main Header Section */}
@@ -1253,21 +1077,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Logo: 70px width, 20px height</p>
-                      <p>• Mobile padding: 16px</p>
-                      <p>• Desktop padding: 32px horizontal</p>
-                      <p>• Search: Max width 768px, centered on desktop</p>
-                      <p>• Search height: 48px with rounded full border</p>
-                      <p>• Sticky: Backdrop blur with border bottom</p>
-                      <p>• Responsive: Stacked on mobile, horizontal on desktop</p>
-                      <p>• Z-index: 40 when sticky</p>
-                      <p>• Transition: Background and shadow on scroll</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Main Footer Section */}
@@ -1290,21 +1099,6 @@ const Index = () => {
                   />
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Background: Quaternary background color</p>
-                      <p>• Text color: Secondary text color</p>
-                      <p>• Mobile padding: 32px vertical, 32px horizontal</p>
-                      <p>• Desktop padding: 32px vertical, 64px horizontal</p>
-                      <p>• Social icons: 30px on mobile, 24px on desktop</p>
-                      <p>• Link spacing: 16px gap between links</p>
-                      <p>• Responsive: Stacked center on mobile, horizontal on desktop</p>
-                      <p>• Transitions: Color transitions on hover (200ms)</p>
-                      <p>• Visual section: Optional image/tree section above footer</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Icons Section */}
@@ -1357,20 +1151,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Small size: 16px (w-4 h-4)</p>
-                      <p>• Medium size: 20px (w-5 h-5)</p>
-                      <p>• Large size: 24px (w-6 h-6)</p>
-                      <p>• Vertical align: Middle</p>
-                      <p>• Color: Inherits from parent (currentColor)</p>
-                      <p>• Spinner animation: 0.9s linear infinite rotation</p>
-                      <p>• Check animation: Stroke dash animation 0.5s ease-out</p>
-                      <p>• Icon mapping: Maps Ecosia names to Lucide icons</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Counters Section */}
@@ -1436,23 +1216,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Counter padding: 16px</p>
-                      <p>• Min height: 69px on tablet+</p>
-                      <p>• Count font: 20px, weight 700</p>
-                      <p>• Description font: 14px, muted foreground</p>
-                      <p>• Icon sizes: s (24px), m (32px), l (40px)</p>
-                      <p>• Grid layout: CSS Grid with named areas</p>
-                      <p>• Border radius: 16px (rounded-2xl)</p>
-                      <p>• Global counter: Two counters with divider</p>
-                      <p>• Divider: Horizontal on mobile, vertical on tablet+</p>
-                      <p>• Glass effect: Backdrop filter blur 24px</p>
-                      <p>• Border: 1px solid decorative border color</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* Checkbox Section */}
@@ -1484,23 +1247,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Checkbox size: 24px (w-6 h-6)</p>
-                      <p>• Border: 2px solid with form border color</p>
-                      <p>• Border radius: 4px (rounded-sm)</p>
-                      <p>• Checked: Primary background with white check icon</p>
-                      <p>• Check icon: 16px with stroke width 3</p>
-                      <p>• Focus ring: 2px offset with primary color</p>
-                      <p>• Tappable area: Extends 4px beyond visual box</p>
-                      <p>• Label spacing: 8px gap from checkbox</p>
-                      <p>• Transition: 200ms for border and background</p>
-                      <p>• Disabled: Muted background with reduced opacity</p>
-                      <p>• Keyboard: Space/Enter to toggle</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
 
               {/* AI Search Button Section */}
@@ -1532,21 +1278,6 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
-                <ComponentDemo title="Anatomy">
-                  <div className="space-y-3">
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>• Button variant: Outline with white background</p>
-                      <p>• Button size: Small (sm)</p>
-                      <p>• Icon: Sparkles from Lucide React</p>
-                      <p>• Icon size: 16px (h-4 w-4)</p>
-                      <p>• Text visibility: Hidden on mobile, visible on desktop</p>
-                      <p>• Text spacing: 8px margin left from icon</p>
-                      <p>• Margin right: 4px for layout spacing</p>
-                      <p>• Tooltip: Shows "AI Search" on mobile when text hidden</p>
-                      <p>• Link support: Can render as anchor tag with href</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
               </ComponentSection>
             </div>
           </main>
