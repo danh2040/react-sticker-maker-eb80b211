@@ -76,7 +76,7 @@ const Index = () => {
                 {/* Desktop Sidebar Toggle */}
                 <SidebarTrigger className="hidden md:block" />
                 
-                <h1 className="text-xl font-bold">Ecosia Flora Component Library</h1>
+                <h1 className="text-xl font-bold">Flora vibe code component library</h1>
               </div>
               
               <ThemeToggle />
