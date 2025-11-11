@@ -44,6 +44,16 @@ import typeLeaf from "@/assets/photography/Type_Leaf.png";
 import typeMountains from "@/assets/photography/Type_Mountains.png";
 import typeSoil from "@/assets/photography/Type_Soil.png";
 import typeWood from "@/assets/photography/Type_Wood.png";
+import typeIndia from "@/assets/photography/Type_India.png";
+import typeUganda from "@/assets/photography/Type_Uganda.png";
+import typeSenegal from "@/assets/photography/Type_Senegal.png";
+import typeSpain from "@/assets/photography/Type_Spain.png";
+import typeKenya3 from "@/assets/photography/Type_Kenya-3.png";
+import typeKenya2 from "@/assets/photography/Type_Kenya-2.png";
+import typeKenya1 from "@/assets/photography/Type_Kenya-1.png";
+import typeMadagascar4 from "@/assets/photography/Type_Madagascar-4.png";
+import typeMadagascar3 from "@/assets/photography/Type_Madagascar-3.png";
+import typeMadagascar2 from "@/assets/photography/Type_Madagascar-2.png";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Index = () => {
@@ -392,6 +402,120 @@ const Index = () => {
                         />
                       </AspectRatio>
                       <p className="text-sm text-muted-foreground text-center">Wood</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Ecosia Projects Variants">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeIndia} 
+                          alt="India Project" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">India</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeUganda} 
+                          alt="Uganda Project" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Uganda</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeSenegal} 
+                          alt="Senegal Project" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Senegal</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeSpain} 
+                          alt="Spain Project" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Spain</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeKenya3} 
+                          alt="Kenya Project 3" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Kenya 3</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeKenya2} 
+                          alt="Kenya Project 2" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Kenya 2</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeKenya1} 
+                          alt="Kenya Project 1" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Kenya 1</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeMadagascar4} 
+                          alt="Madagascar Project 4" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Madagascar 4</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeMadagascar3} 
+                          alt="Madagascar Project 3" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Madagascar 3</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeMadagascar2} 
+                          alt="Madagascar Project 2" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Madagascar 2</p>
                     </div>
                   </div>
                 </ComponentDemo>
