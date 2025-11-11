@@ -43,18 +43,18 @@ export function EcosiaToast({
       role="log"
       aria-live="polite"
       className={cn(
-        "fixed bottom-4 z-50 flex items-center gap-2 rounded-lg px-4 py-3 shadow-lg backdrop-blur-sm",
+        "fixed bottom-m z-50 flex items-center gap-1s rounded-l px-m py-s shadow-elevation-2 backdrop-blur-sm",
         "max-w-[500px] w-full mx-auto animate-slide-in-bottom",
-        alignRight ? "right-4 left-auto" : "left-1/2 -translate-x-1/2",
+        alignRight ? "right-m left-auto" : "left-1/2 -translate-x-1/2",
         config.className
       )}
     >
-      {Icon && <Icon className="h-5 w-5 flex-shrink-0" />}
-      <span className="flex-1 text-sm font-medium">{message}</span>
+      {Icon && <Icon className="h-4 w-4 flex-shrink-0" />}
+      <span className="flex-1 text-m font-medium">{message}</span>
       {onClose && (
         <button
           onClick={onClose}
-          className="flex-shrink-0 rounded-full p-1 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+          className="flex-shrink-0 rounded-full p-1 hover:bg-[hsl(var(--color-highlight-primary))] transition-all duration-2s"
           aria-label="Close"
         >
           <X className="h-4 w-4" />

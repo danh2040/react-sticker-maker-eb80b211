@@ -42,12 +42,12 @@ export function EcosiaSheet({ open, onClose, children, ariaLabel = "Sheet" }: Ec
     >
       <button
         onClick={onClose}
-        className="absolute top-2 right-2 p-2 rounded-full hover:bg-muted transition-colors"
+        className="absolute top-1s right-1s p-1s rounded-full hover:bg-[hsl(var(--color-highlight-primary))] transition-all duration-2s"
         aria-label="Close"
       >
         <X className="h-6 w-6" />
       </button>
-      <div className="p-6 pt-16">{children}</div>
+      <div className="p-1l pt-m">{children}</div>
     </div>
   );
 }

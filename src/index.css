@@ -198,6 +198,32 @@ All colors MUST be HSL.
 
     /* Text variants */
     --text-secondary: 0 0% 47%;
+
+    /* Elevation layers */
+    --color-elevation-layer-1: 0 0% 10% / 0.18;
+    --color-elevation-layer-2: 0 0% 10% / 0.06;
+
+    /* Button semantic colors */
+    --color-button-background-primary: 0 0% 20%;
+    --color-button-background-primary-hover: 0 0% 47%;
+    --color-button-background-primary-active: 0 0% 67%;
+    --color-button-background-featured: 72 79% 70%;
+    --color-button-background-featured-hover: 72 51% 60%;
+    --color-button-background-featured-active: 72 42% 51%;
+    --color-button-background-secondary: 0 0% 100%;
+    --color-button-background-secondary-hover: 0 0% 87%;
+    --color-button-background-secondary-active: 0 0% 80%;
+    --color-button-background-negative: 353 98% 63%;
+    --color-button-content-primary: 0 0% 100%;
+    --color-button-content-secondary: 0 0% 20%;
+    --color-button-content-featured: 66 44% 20%;
+    --color-button-border: 0 0% 15%;
+
+    /* Additional semantic colors */
+    --color-highlight-primary: 0 0% 20% / 0.16;
+    --color-disabled: 0 0% 87%;
+    --color-success: 125 100% 16%;
+    --color-error: 349 91% 38%;
   }
 
   .dark {
@@ -267,6 +293,32 @@ All colors MUST be HSL.
 
     /* Text variants - dark mode */
     --text-secondary: 0 0% 67%;
+
+    /* Elevation layers - dark mode */
+    --color-elevation-layer-1: 0 0% 100% / 0.1;
+    --color-elevation-layer-2: 0 0% 100% / 0.05;
+
+    /* Button semantic colors - dark mode */
+    --color-button-background-primary: 0 0% 100%;
+    --color-button-background-primary-hover: 0 0% 93%;
+    --color-button-background-primary-active: 0 0% 80%;
+    --color-button-background-featured: 72 79% 70%;
+    --color-button-background-featured-hover: 72 51% 60%;
+    --color-button-background-featured-active: 72 42% 51%;
+    --color-button-background-secondary: 0 0% 10%;
+    --color-button-background-secondary-hover: 0 0% 20%;
+    --color-button-background-secondary-active: 0 0% 47%;
+    --color-button-background-negative: 353 98% 63%;
+    --color-button-content-primary: 0 0% 10%;
+    --color-button-content-secondary: 0 0% 100%;
+    --color-button-content-featured: 66 44% 20%;
+    --color-button-border: 0 0% 100%;
+
+    /* Additional semantic colors - dark mode */
+    --color-highlight-primary: 0 0% 100% / 0.16;
+    --color-disabled: 0 0% 47%;
+    --color-success: 111 87% 78%;
+    --color-error: 2 93% 84%;
   }
 }
 

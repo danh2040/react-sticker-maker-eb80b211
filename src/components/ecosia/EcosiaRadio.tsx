@@ -34,8 +34,8 @@ export function EcosiaRadio({
   reversed = false,
 }: EcosiaRadioProps) {
   return (
-    <div className="flex items-start gap-2">
-      <div className={cn("flex items-start", reversed && "order-1")}>
+    <div className="flex items-start gap-s min-h-[48px]">
+      <div className={cn("flex items-start pt-1s", reversed && "order-1")}>
         <input
           type="radio"
           id={id}
@@ -46,10 +46,10 @@ export function EcosiaRadio({
           disabled={disabled}
           className={cn(
             "appearance-none rounded-full border-2 border-[hsl(var(--form-border-default))]",
-            "transition-all duration-200 cursor-pointer",
+            "transition-all duration-1s cursor-pointer",
             "hover:border-[hsl(var(--form-border-hover))]",
             "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-            "checked:border-[6px] checked:border-primary",
+            "checked:border-[7px] checked:border-[hsl(var(--form-border-primary-active))]",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             sizeClasses[size]
           )}
@@ -63,9 +63,9 @@ export function EcosiaRadio({
           reversed && "order-0"
         )}
       >
-        <div className="text-sm font-medium text-foreground">{label}</div>
+        <div className="text-m font-medium text-foreground">{label}</div>
         {description && (
-          <div className="text-sm text-muted-foreground mt-1">{description}</div>
+          <div className="text-s text-muted-foreground mt-2s">{description}</div>
         )}
       </label>
     </div>

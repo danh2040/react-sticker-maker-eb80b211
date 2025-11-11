@@ -30,8 +30,8 @@ export function EcosiaCounter({
   return (
     <div
       className={cn(
-        "grid p-4 rounded-2xl min-h-[69px]",
-        vertical ? "grid-cols-1 grid-rows-[auto_auto_auto] gap-2" : "grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-x-2",
+        "grid p-m rounded-2l min-h-[69px]",
+        vertical ? "grid-cols-1 grid-rows-[auto_auto_auto] gap-1s" : "grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-x-1s",
         glass && "bg-[hsl(var(--background-glass))] backdrop-blur-[24px]",
         !glass && "bg-[hsl(var(--background-elevation-1))]",
         border && "border border-[hsl(var(--decorative-border-1))]"
@@ -45,10 +45,10 @@ export function EcosiaCounter({
       <div className="flex items-center justify-center" style={{ gridArea: "icon" }}>
         <div className={cn(iconSizeClasses[size])}>{icon}</div>
       </div>
-      <div className="text-2xl font-bold font-brand text-foreground" style={{ gridArea: "count" }}>
+      <div className="text-3l font-bold font-brand text-foreground" style={{ gridArea: "count" }}>
         {count}
       </div>
-      <div className="text-sm text-muted-foreground" style={{ gridArea: "description" }}>
+      <div className="text-m text-muted-foreground" style={{ gridArea: "description" }}>
         {description}
       </div>
     </div>

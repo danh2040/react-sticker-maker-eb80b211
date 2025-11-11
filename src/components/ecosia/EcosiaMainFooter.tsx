@@ -47,16 +47,16 @@ export function EcosiaMainFooter({
       )}
 
       {/* Main Footer Content */}
-      <div className="px-8 md:px-16 py-12 md:py-8">
+      <div className="px-2l md:px-4l py-3l md:py-2l">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-1l">
             {/* Support Links */}
-            <nav className="flex flex-wrap justify-center md:justify-start gap-4 text-center md:text-left">
+            <nav className="flex flex-wrap justify-center md:justify-start gap-m text-center md:text-left">
               {supportLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  className="text-sm hover:text-foreground transition-colors"
+                  className="text-m hover:text-foreground transition-all duration-2s"
                 >
                   {link.label}
                 </a>
@@ -64,7 +64,7 @@ export function EcosiaMainFooter({
             </nav>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-m">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -76,7 +76,7 @@ export function EcosiaMainFooter({
                     className="h-8 w-8 hover:text-foreground"
                   >
                     <a href={social.href} aria-label={social.label}>
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-4 w-4" />
                     </a>
                   </Button>
                 );
@@ -86,12 +86,12 @@ export function EcosiaMainFooter({
 
           {/* Cookie Preferences */}
           {showSettings && onCookiePreferences && (
-            <div className="mt-6 text-center">
+            <div className="mt-1l text-center">
               <Button
                 variant="link"
                 size="sm"
                 onClick={onCookiePreferences}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-m text-muted-foreground hover:text-foreground"
               >
                 Cookie Preferences
               </Button>

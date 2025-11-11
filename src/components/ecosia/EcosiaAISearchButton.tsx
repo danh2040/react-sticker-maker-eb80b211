@@ -20,21 +20,21 @@ export function EcosiaAISearchButton({
 }: EcosiaAISearchButtonProps) {
   const buttonContent = (
     <Button
-      variant="outline"
+      variant="secondary"
       size="sm"
-      className="mr-1 bg-white dark:bg-white text-foreground hover:bg-white/90 border-white"
+      className="mr-2s"
       onClick={onClick}
       asChild={!!href}
     >
       {href ? (
         <a href={href}>
           <Sparkles className="h-4 w-4" />
-          {showText && <span className="ml-2 hidden md:inline">AI Search</span>}
+          {showText && <span className="ml-1s hidden md:inline">AI Search</span>}
         </a>
       ) : (
         <>
           <Sparkles className="h-4 w-4" />
-          {showText && <span className="ml-2 hidden md:inline">AI Search</span>}
+          {showText && <span className="ml-1s hidden md:inline">AI Search</span>}
         </>
       )}
     </Button>

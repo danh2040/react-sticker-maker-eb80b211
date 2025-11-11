@@ -173,10 +173,59 @@ export default {
           90: "hsl(var(--gray-90))",
         },
       },
+      spacing: {
+        '3s': '2px',
+        '2s': '4px',
+        '1s': '8px',
+        's': '12px',
+        'm': '16px',
+        'l': '20px',
+        '1l': '24px',
+        '2l': '32px',
+        '3l': '40px',
+        '4l': '48px',
+        '5l': '56px',
+        '6l': '64px',
+        '7l': '80px',
+        '8l': '100px',
+      },
+      fontSize: {
+        '1s': '0.625rem', // 10px
+        's': '0.75rem',   // 12px
+        'm': '0.875rem',  // 14px
+        'l': '1rem',      // 16px
+        '1l': '1.125rem', // 18px
+        '2l': '1.25rem',  // 20px
+        '3l': '1.5rem',   // 24px
+        '4l': '2.25rem',  // 36px
+        '5l': '3rem',     // 48px
+        '6l': '3.375rem', // 54px
+        '7l': '4.5rem',   // 72px
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        '2s': '2px',
+        '1s': '3px',
+        's': '4px',
+        'm': '6px',
+        'l': '10px',
+        '1l': '20px',
+        '2l': '40px',
+      },
+      transitionDuration: {
+        '2s': '100ms',
+        '1s': '200ms',
+        's': '300ms',
+        'm': '500ms',
+        'l': '1000ms',
+        '1l': '2000ms',
+      },
+      boxShadow: {
+        'elevation-1': '0 1px 2px hsl(var(--color-elevation-layer-1)), 0 0 8px hsl(var(--color-elevation-layer-2))',
+        'elevation-2': '0 2px 4px 0 hsl(var(--color-elevation-layer-1)), 0 0 12px 0 hsl(var(--color-elevation-layer-2))',
+        'elevation-3': '0 4px 8px 0 hsl(var(--color-elevation-layer-1)), 0 0 16px 0 hsl(var(--color-elevation-layer-2))',
       },
       keyframes: {
         "accordion-down": {

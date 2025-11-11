@@ -17,7 +17,7 @@ export function EcosiaCheckbox({
   disabled = false,
 }: EcosiaCheckboxProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1s">
       <div className="relative">
         <input
           type="checkbox"
@@ -30,12 +30,12 @@ export function EcosiaCheckbox({
         <label
           htmlFor={id}
           className={cn(
-            "flex items-center justify-center w-6 h-6 rounded border-2 cursor-pointer transition-all duration-200",
+            "flex items-center justify-center w-6 h-6 rounded-s border-2 cursor-pointer transition-all duration-1s",
             "border-[hsl(var(--form-border-default))]",
             "hover:border-[hsl(var(--form-border-hover))]",
             "peer-focus:ring-2 peer-focus:ring-primary peer-focus:ring-offset-2",
             "peer-checked:border-primary peer-checked:bg-primary",
-            "peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:bg-muted",
+            "peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:bg-[hsl(var(--color-disabled))]",
             // Extended tappable area
             "before:absolute before:inset-[-4px] before:content-['']"
           )}
@@ -47,7 +47,7 @@ export function EcosiaCheckbox({
         <label
           htmlFor={id}
           className={cn(
-            "text-sm font-medium cursor-pointer",
+            "text-m font-medium cursor-pointer",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >

@@ -5,21 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-m font-semibold ring-offset-background transition-all duration-2s focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        default: "bg-[hsl(var(--color-button-background-primary))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-primary-hover))] active:bg-[hsl(var(--color-button-background-primary-active))]",
+        destructive: "bg-[hsl(var(--color-button-background-negative))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-negative))]/90",
+        outline: "border-2 border-[hsl(var(--color-button-border))] bg-transparent text-foreground hover:bg-[hsl(var(--color-highlight-primary))]",
+        secondary: "bg-[hsl(var(--color-button-background-secondary))] text-[hsl(var(--color-button-content-secondary))] hover:bg-[hsl(var(--color-button-background-secondary-hover))] active:bg-[hsl(var(--color-button-background-secondary-active))]",
+        ghost: "hover:bg-[hsl(var(--color-highlight-primary))] text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        featured: "bg-[hsl(var(--color-button-background-featured))] text-[hsl(var(--color-button-content-featured))] hover:bg-[hsl(var(--color-button-background-featured-hover))] active:bg-[hsl(var(--color-button-background-featured-active))]",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-10 px-m py-2",
+        sm: "h-9 px-s py-1",
+        lg: "h-11 px-1l py-2",
         icon: "h-10 w-10",
       },
     },
