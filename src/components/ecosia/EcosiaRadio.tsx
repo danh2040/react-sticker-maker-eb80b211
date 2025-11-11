@@ -53,11 +53,11 @@ export function EcosiaRadio({
           "hover:border-[hsl(var(--form-border-hover))]",
           
           // Focus state - keyboard navigation
-          "focus:outline focus:outline-2 focus:outline-[hsl(var(--form-border-primary-active))] focus:outline-offset-2",
-          "focus:border-[hsl(var(--form-border-primary-active))]",
+          "focus:outline focus:outline-2 focus:outline-[hsl(var(--color-text-primary))] focus:outline-offset-2",
+          "focus:border-[hsl(var(--color-text-primary))]",
           
-          // Checked state - border becomes 7px using --color-brand-primary (matches checkbox)
-          "checked:border-[7px] checked:border-[hsl(var(--color-brand-primary))]",
+          // Checked state - border becomes 7px using text primary (black/dark)
+          "checked:!border-[7px] checked:!border-[hsl(var(--color-text-primary))]",
           
           // Active/pressed state (matches checkbox)
           "active:scale-95",
