@@ -43,23 +43,29 @@ export function EcosiaToast({
       role="log"
       aria-live="polite"
       className={cn(
-        "fixed bottom-m z-50 flex items-center gap-1s rounded-l px-m py-s shadow-elevation-2 backdrop-blur-sm",
-        "max-w-[500px] w-full mx-auto animate-slide-in-bottom",
-        alignRight ? "right-m left-auto" : "left-1/2 -translate-x-1/2",
-        config.className
+        "fixed bottom-0 left-0 z-50 w-full flex pointer-events-none animate-slide-in-bottom",
+        alignRight ? "justify-end" : "justify-center"
       )}
     >
-      {Icon && <Icon className="h-4 w-4 flex-shrink-0" />}
-      <span className="flex-1 text-m font-medium">{message}</span>
-      {onClose && (
-        <button
-          onClick={onClose}
-          className="flex-shrink-0 rounded-full p-1 hover:bg-[hsl(var(--color-highlight-primary))] transition-all duration-2s"
-          aria-label="Close"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      )}
+      <div
+        className={cn(
+          "flex items-center gap-1s rounded-l px-m py-s shadow-elevation-2 pointer-events-auto mb-m max-w-[500px] w-full",
+          alignRight && "mr-m",
+          config.className
+        )}
+      >
+        {Icon && <Icon className="h-4 w-4 flex-shrink-0" />}
+        <span className="flex-1 text-m font-medium">{message}</span>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="flex-shrink-0 rounded-full p-1 hover:bg-black/10 transition-all duration-2s"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
