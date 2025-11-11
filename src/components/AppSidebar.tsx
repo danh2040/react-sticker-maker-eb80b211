@@ -18,7 +18,16 @@ import {
   MessageSquare, 
   Info,
   Image as ImageIcon,
-  ChevronDown
+  ChevronDown,
+  Bell,
+  Layers,
+  Circle,
+  PanelLeft,
+  Menu,
+  Layout,
+  Sparkles,
+  Hash,
+  CheckSquare
 } from "lucide-react";
 import logoLight from "@/assets/ecosia-logo-light.svg";
 import logoDark from "@/assets/ecosia-logo-dark.svg";
@@ -35,6 +44,17 @@ const componentItems = [
   { title: "Popover", url: "#popover", icon: Info },
   { title: "Slider", url: "#slider", icon: ImageIcon },
   { title: "Accordion", url: "#accordion", icon: ChevronDown },
+  { title: "Toast", url: "#toast", icon: Bell },
+  { title: "Sheet", url: "#sheet", icon: Layers },
+  { title: "Radios", url: "#radios", icon: Circle },
+  { title: "Panel", url: "#panel", icon: PanelLeft },
+  { title: "Main Nav", url: "#main-nav", icon: Menu },
+  { title: "Main Header", url: "#main-header", icon: Layout },
+  { title: "Main Footer", url: "#main-footer", icon: Layout },
+  { title: "Icons", url: "#icons", icon: Sparkles },
+  { title: "Counters", url: "#counters", icon: Hash },
+  { title: "Checkbox", url: "#checkbox", icon: CheckSquare },
+  { title: "AI Search Button", url: "#ai-search-button", icon: Sparkles },
 ];
 
 export function AppSidebar() {

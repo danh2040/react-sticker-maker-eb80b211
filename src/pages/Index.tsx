@@ -5,7 +5,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { ComponentSection } from "@/components/ComponentSection";
 import { ComponentDemo } from "@/components/ComponentDemo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, TreePine, DollarSign } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ecosiaLogoDark from "@/assets/ecosia-logo-dark.svg";
 import ecosiaLogoLight from "@/assets/ecosia-logo-light.svg";
@@ -13,6 +13,19 @@ import ecosiaLogoBrowserDark from "@/assets/ecosia-logo-browser-dark.svg";
 import ecosiaLogoBrowserLight from "@/assets/ecosia-logo-browser-light.svg";
 import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
 import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
+import { EcosiaToast } from "@/components/ecosia/EcosiaToast";
+import { EcosiaSheet } from "@/components/ecosia/EcosiaSheet";
+import { EcosiaRadio } from "@/components/ecosia/EcosiaRadio";
+import { EcosiaRadios } from "@/components/ecosia/EcosiaRadios";
+import { EcosiaPanel } from "@/components/ecosia/EcosiaPanel";
+import { EcosiaCheckbox } from "@/components/ecosia/EcosiaCheckbox";
+import { EcosiaIcon } from "@/components/ecosia/EcosiaIcon";
+import { EcosiaCounter } from "@/components/ecosia/EcosiaCounter";
+import { EcosiaGlobalCounter } from "@/components/ecosia/EcosiaGlobalCounter";
+import { EcosiaAISearchButton } from "@/components/ecosia/EcosiaAISearchButton";
+import { EcosiaMainNav } from "@/components/ecosia/EcosiaMainNav";
+import { EcosiaMainHeader } from "@/components/ecosia/EcosiaMainHeader";
+import { EcosiaMainFooter } from "@/components/ecosia/EcosiaMainFooter";
 import activeProjects from "@/assets/illustrations/active_projects.svg";
 import ai from "@/assets/illustrations/AI.svg";
 import areaRestored from "@/assets/illustrations/area_restored.svg";
@@ -59,6 +72,12 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [popoverVisible, setPopoverVisible] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [showSheet, setShowSheet] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
+  const [panelSide, setPanelSide] = useState<"left" | "right">("left");
+  const [radioValue, setRadioValue] = useState("option1");
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
   
   const sliderData = [
     {
@@ -886,6 +905,645 @@ const Index = () => {
                       <p>• Divider: 1px border between items</p>
                       <p>• Animation: Max-height transition for smooth expand/collapse</p>
                       <p>• Single expansion: Only one item open at a time</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Toast Section */}
+              <ComponentSection
+                id="toast"
+                title="Toast"
+                description="Toast notifications provide brief, non-intrusive feedback messages to users. They appear temporarily and automatically dismiss."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <Button onClick={() => setShowToast(true)}>Show Toast</Button>
+                    {showToast && (
+                      <EcosiaToast
+                        variant="positive"
+                        message="Action completed successfully!"
+                        onClose={() => setShowToast(false)}
+                      />
+                    )}
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Neutral</h4>
+                      <div className="relative h-16">
+                        <EcosiaToast variant="neutral" message="This is a neutral toast message" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Informative</h4>
+                      <div className="relative h-16">
+                        <EcosiaToast variant="informative" message="This is an informative message" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Positive</h4>
+                      <div className="relative h-16">
+                        <EcosiaToast variant="positive" message="Action completed successfully!" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Negative</h4>
+                      <div className="relative h-16">
+                        <EcosiaToast variant="negative" message="An error occurred" />
+                      </div>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Max width: 500px on tablet and desktop</p>
+                      <p>• Padding: 16px horizontal, 12px vertical</p>
+                      <p>• Border radius: 8px (rounded-lg)</p>
+                      <p>• Shadow: Large elevation shadow</p>
+                      <p>• Backdrop blur effect for depth</p>
+                      <p>• Icon: 20px (optional based on variant)</p>
+                      <p>• Close button: 16px icon with hover state</p>
+                      <p>• Position: Bottom center or bottom right</p>
+                      <p>• Animation: Slide up from bottom with fade</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Sheet Section */}
+              <ComponentSection
+                id="sheet"
+                title="Sheet"
+                description="Sheet is a full-screen overlay modal, primarily used on mobile devices. It provides a focused context for user interactions."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <Button onClick={() => setShowSheet(true)}>Open Sheet</Button>
+                    <EcosiaSheet
+                      open={showSheet}
+                      onClose={() => setShowSheet(false)}
+                      ariaLabel="Example sheet"
+                    >
+                      <div className="space-y-4">
+                        <h2 className="text-2xl font-bold">Sheet Title</h2>
+                        <p className="text-muted-foreground">
+                          This is a full-screen sheet that overlays the entire viewport. It's perfect for mobile
+                          navigation menus, forms, or detailed content that needs full attention.
+                        </p>
+                        <div className="space-y-2">
+                          <Button className="w-full">Primary Action</Button>
+                          <Button variant="outline" className="w-full" onClick={() => setShowSheet(false)}>
+                            Close
+                          </Button>
+                        </div>
+                      </div>
+                    </EcosiaSheet>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Full viewport coverage (100vh, 100vw)</p>
+                      <p>• Close button: Top right, 8px padding</p>
+                      <p>• Content padding: 24px with top padding of 64px to clear close button</p>
+                      <p>• Z-index: 50 (highest layer)</p>
+                      <p>• Background: Uses semantic background color</p>
+                      <p>• Scroll: Vertical overflow enabled, horizontal hidden</p>
+                      <p>• Focus trap: Traps keyboard focus within sheet</p>
+                      <p>• Escape key: Closes the sheet</p>
+                      <p>• Animation: Fade in transition</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Radios Section */}
+              <ComponentSection
+                id="radios"
+                title="Radios"
+                description="Radio buttons allow users to select a single option from a group of mutually exclusive choices. Supports different sizes and layouts."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <EcosiaRadios
+                    name="example"
+                    options={[
+                      { label: "Option 1", value: "option1", description: "First choice" },
+                      { label: "Option 2", value: "option2", description: "Second choice" },
+                      { label: "Option 3", value: "option3", description: "Third choice" },
+                    ]}
+                    value={radioValue}
+                    onChange={setRadioValue}
+                  />
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Small Size</h4>
+                      <EcosiaRadios
+                        name="small"
+                        options={["Small 1", "Small 2", "Small 3"]}
+                        size="s"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Medium Size (Default)</h4>
+                      <EcosiaRadios
+                        name="medium"
+                        options={["Medium 1", "Medium 2", "Medium 3"]}
+                        size="m"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Large Size</h4>
+                      <EcosiaRadios
+                        name="large"
+                        options={["Large 1", "Large 2", "Large 3"]}
+                        size="l"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Reversed Order</h4>
+                      <EcosiaRadios
+                        name="reversed"
+                        options={["Reversed 1", "Reversed 2"]}
+                        reversed
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Disabled</h4>
+                      <EcosiaRadios
+                        name="disabled"
+                        options={["Disabled 1", "Disabled 2"]}
+                        disabled
+                      />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Radio button sizes: s (16px), m (20px), l (24px)</p>
+                      <p>• Border: 2px solid with semantic form border color</p>
+                      <p>• Checked state: 6px border width with primary color</p>
+                      <p>• Label spacing: 8px gap between radio and label</p>
+                      <p>• Group spacing: 12px gap between radio items</p>
+                      <p>• Focus ring: 2px offset with primary color</p>
+                      <p>• Hover: Border color changes to hover state</p>
+                      <p>• Transition: 200ms for border color changes</p>
+                      <p>• Description: Muted foreground color, 14px font</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Panel Section */}
+              <ComponentSection
+                id="panel"
+                title="Panel"
+                description="Panel is a sliding side drawer that appears from the left or right edge. It's useful for navigation menus or additional content."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <div className="flex gap-2">
+                      <Button onClick={() => { setPanelSide("left"); setShowPanel(true); }}>
+                        Open Left Panel
+                      </Button>
+                      <Button onClick={() => { setPanelSide("right"); setShowPanel(true); }}>
+                        Open Right Panel
+                      </Button>
+                    </div>
+                    <EcosiaPanel
+                      open={showPanel}
+                      onClose={() => setShowPanel(false)}
+                      side={panelSide}
+                      showBackdrop={true}
+                    >
+                      <div className="p-6 space-y-4">
+                        <h3 className="text-lg font-bold">Panel Content</h3>
+                        <p className="text-sm text-muted-foreground">
+                          This is a {panelSide} sliding panel. Click outside or press Escape to close.
+                        </p>
+                        <nav className="space-y-2">
+                          <a href="#" className="block p-2 hover:bg-muted rounded-md">Menu Item 1</a>
+                          <a href="#" className="block p-2 hover:bg-muted rounded-md">Menu Item 2</a>
+                          <a href="#" className="block p-2 hover:bg-muted rounded-md">Menu Item 3</a>
+                        </nav>
+                      </div>
+                    </EcosiaPanel>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Width: 250px fixed</p>
+                      <p>• Height: 100vh (full height)</p>
+                      <p>• Z-index: 50 for panel, 40 for backdrop</p>
+                      <p>• Backdrop: Semi-transparent overlay with blur</p>
+                      <p>• Transition: 300ms slide and opacity transitions</p>
+                      <p>• Shadow: Elevation shadow for depth</p>
+                      <p>• Scroll: Vertical overflow enabled</p>
+                      <p>• Position: Fixed to left or right edge</p>
+                      <p>• Escape key: Closes the panel</p>
+                      <p>• Click away: Closes when clicking backdrop</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Main Nav Section */}
+              <ComponentSection
+                id="main-nav"
+                title="Main Nav"
+                description="Main navigation menu with hamburger toggle. Displays as dropdown on desktop and full-screen sheet on mobile."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <EcosiaMainNav
+                    groups={[
+                      {
+                        title: "Products",
+                        links: [
+                          { label: "Search", href: "#" },
+                          { label: "Browser", href: "#" },
+                          { label: "Mobile App", href: "#" },
+                        ],
+                      },
+                      {
+                        title: "About",
+                        links: [
+                          { label: "Our Mission", href: "#" },
+                          { label: "Financial Reports", href: "#" },
+                          { label: "Blog", href: "#" },
+                        ],
+                      },
+                    ]}
+                    footerLinks={[
+                      { label: "Privacy", href: "#" },
+                      { label: "Terms", href: "#" },
+                      { label: "Help", href: "#" },
+                    ]}
+                  />
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Menu button: Hamburger icon with hover state</p>
+                      <p>• Desktop dropdown: Max width 448px, max height 75vh</p>
+                      <p>• Mobile: Full-screen sheet overlay</p>
+                      <p>• Menu groups: Organized by category with headers</p>
+                      <p>• Group spacing: 24px margin between groups</p>
+                      <p>• Link padding: 8px vertical, 16px horizontal</p>
+                      <p>• Border radius: 20px for dropdown</p>
+                      <p>• Shadow: Elevation shadow for dropdown</p>
+                      <p>• Focus management: Escape key closes menu</p>
+                      <p>• Click away: Closes when clicking outside</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Main Header Section */}
+              <ComponentSection
+                id="main-header"
+                title="Main Header"
+                description="Complete header component with logo, search, navigation, and action buttons. Fully responsive with sticky option."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <EcosiaMainHeader
+                    logo={
+                      <img
+                        src={ecosiaLogoLight}
+                        alt="Ecosia"
+                        className="h-5 w-auto dark:hidden"
+                      />
+                    }
+                    showSearch={true}
+                    showSignUp={true}
+                    sticky={false}
+                  />
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Compact (No Search)</h4>
+                      <EcosiaMainHeader
+                        logo={<img src={ecosiaLogoLight} alt="Ecosia" className="h-5 w-auto dark:hidden" />}
+                        showSearch={false}
+                        compact={true}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Rounded</h4>
+                      <EcosiaMainHeader
+                        logo={<img src={ecosiaLogoLight} alt="Ecosia" className="h-5 w-auto dark:hidden" />}
+                        showSearch={false}
+                        rounded={true}
+                      />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Logo: 70px width, 20px height</p>
+                      <p>• Mobile padding: 16px</p>
+                      <p>• Desktop padding: 32px horizontal</p>
+                      <p>• Search: Max width 768px, centered on desktop</p>
+                      <p>• Search height: 48px with rounded full border</p>
+                      <p>• Sticky: Backdrop blur with border bottom</p>
+                      <p>• Responsive: Stacked on mobile, horizontal on desktop</p>
+                      <p>• Z-index: 40 when sticky</p>
+                      <p>• Transition: Background and shadow on scroll</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Main Footer Section */}
+              <ComponentSection
+                id="main-footer"
+                title="Main Footer"
+                description="Complete footer with support links, social media icons, and optional visual section. Fully responsive design."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <EcosiaMainFooter
+                    supportLinks={[
+                      { label: "About Us", href: "#" },
+                      { label: "Blog", href: "#" },
+                      { label: "Privacy", href: "#" },
+                      { label: "Terms", href: "#" },
+                      { label: "Help", href: "#" },
+                    ]}
+                    showSettings={true}
+                    onCookiePreferences={() => alert("Cookie preferences")}
+                  />
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Background: Quaternary background color</p>
+                      <p>• Text color: Secondary text color</p>
+                      <p>• Mobile padding: 32px vertical, 32px horizontal</p>
+                      <p>• Desktop padding: 32px vertical, 64px horizontal</p>
+                      <p>• Social icons: 30px on mobile, 24px on desktop</p>
+                      <p>• Link spacing: 16px gap between links</p>
+                      <p>• Responsive: Stacked center on mobile, horizontal on desktop</p>
+                      <p>• Transitions: Color transitions on hover (200ms)</p>
+                      <p>• Visual section: Optional image/tree section above footer</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Icons Section */}
+              <ComponentSection
+                id="icons"
+                title="Icons"
+                description="Dynamic icon component with multiple sizes. Maps to Lucide React icons with consistent sizing and styling."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
+                    {["check-circle", "info-circle", "problem", "close", "search", "menu", "home", "settings", "user", "heart", "star", "spinner"].map((icon) => (
+                      <div key={icon} className="flex flex-col items-center gap-2 p-4 border rounded-lg">
+                        <EcosiaIcon name={icon} size="m" />
+                        <span className="text-xs text-center">{icon}</span>
+                      </div>
+                    ))}
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Small (16px)</h4>
+                      <div className="flex gap-4">
+                        <EcosiaIcon name="check-circle" size="s" />
+                        <EcosiaIcon name="info-circle" size="s" />
+                        <EcosiaIcon name="problem" size="s" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Medium (20px)</h4>
+                      <div className="flex gap-4">
+                        <EcosiaIcon name="check-circle" size="m" />
+                        <EcosiaIcon name="info-circle" size="m" />
+                        <EcosiaIcon name="problem" size="m" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Large (24px)</h4>
+                      <div className="flex gap-4">
+                        <EcosiaIcon name="check-circle" size="l" />
+                        <EcosiaIcon name="info-circle" size="l" />
+                        <EcosiaIcon name="problem" size="l" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Animated (Spinner)</h4>
+                      <EcosiaIcon name="spinner" size="m" spinning />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Small size: 16px (w-4 h-4)</p>
+                      <p>• Medium size: 20px (w-5 h-5)</p>
+                      <p>• Large size: 24px (w-6 h-6)</p>
+                      <p>• Vertical align: Middle</p>
+                      <p>• Color: Inherits from parent (currentColor)</p>
+                      <p>• Spinner animation: 0.9s linear infinite rotation</p>
+                      <p>• Check animation: Stroke dash animation 0.5s ease-out</p>
+                      <p>• Icon mapping: Maps Ecosia names to Lucide icons</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Counters Section */}
+              <ComponentSection
+                id="counters"
+                title="Counters"
+                description="Counter components for displaying metrics and statistics. Includes single counter and global counter (two counters side-by-side)."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Single Counter</h4>
+                      <EcosiaCounter
+                        icon={<TreePine className="w-8 h-8 text-green-500" />}
+                        count="200,000,000+"
+                        description="Trees planted"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Global Counter</h4>
+                      <EcosiaGlobalCounter
+                        treeCount="200M+"
+                        investmentCount="€50M+"
+                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
+                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                      />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Glass Effect</h4>
+                      <EcosiaGlobalCounter
+                        treeCount="200M+"
+                        investmentCount="€50M+"
+                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
+                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        glass={true}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">With Border</h4>
+                      <EcosiaGlobalCounter
+                        treeCount="200M+"
+                        investmentCount="€50M+"
+                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
+                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        border={true}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Vertical Layout</h4>
+                      <EcosiaGlobalCounter
+                        treeCount="200M+"
+                        investmentCount="€50M+"
+                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
+                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        vertical={true}
+                      />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Counter padding: 16px</p>
+                      <p>• Min height: 69px on tablet+</p>
+                      <p>• Count font: 20px, weight 700</p>
+                      <p>• Description font: 14px, muted foreground</p>
+                      <p>• Icon sizes: s (24px), m (32px), l (40px)</p>
+                      <p>• Grid layout: CSS Grid with named areas</p>
+                      <p>• Border radius: 16px (rounded-2xl)</p>
+                      <p>• Global counter: Two counters with divider</p>
+                      <p>• Divider: Horizontal on mobile, vertical on tablet+</p>
+                      <p>• Glass effect: Backdrop filter blur 24px</p>
+                      <p>• Border: 1px solid decorative border color</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Checkbox Section */}
+              <ComponentSection
+                id="checkbox"
+                title="Checkbox"
+                description="Checkbox component for binary choices. Supports checked, unchecked, and disabled states with keyboard accessibility."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <EcosiaCheckbox
+                      id="interactive-checkbox"
+                      label="Accept terms and conditions"
+                      checked={checkboxChecked}
+                      onChange={setCheckboxChecked}
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      Checkbox is {checkboxChecked ? "checked" : "unchecked"}
+                    </p>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-4">
+                    <EcosiaCheckbox id="unchecked" label="Unchecked" checked={false} />
+                    <EcosiaCheckbox id="checked" label="Checked" checked={true} />
+                    <EcosiaCheckbox id="disabled-unchecked" label="Disabled Unchecked" checked={false} disabled />
+                    <EcosiaCheckbox id="disabled-checked" label="Disabled Checked" checked={true} disabled />
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Checkbox size: 24px (w-6 h-6)</p>
+                      <p>• Border: 2px solid with form border color</p>
+                      <p>• Border radius: 4px (rounded-sm)</p>
+                      <p>• Checked: Primary background with white check icon</p>
+                      <p>• Check icon: 16px with stroke width 3</p>
+                      <p>• Focus ring: 2px offset with primary color</p>
+                      <p>• Tappable area: Extends 4px beyond visual box</p>
+                      <p>• Label spacing: 8px gap from checkbox</p>
+                      <p>• Transition: 200ms for border and background</p>
+                      <p>• Disabled: Muted background with reduced opacity</p>
+                      <p>• Keyboard: Space/Enter to toggle</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* AI Search Button Section */}
+              <ComponentSection
+                id="ai-search-button"
+                title="AI Search Button"
+                description="Specialized button for AI-powered search features. Shows icon with text on desktop, icon only with tooltip on mobile."
+              >
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <EcosiaAISearchButton onClick={() => alert("AI Search clicked!")} showText={true} />
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Desktop (With Text)</h4>
+                      <EcosiaAISearchButton showText={true} />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Mobile (Icon Only with Tooltip)</h4>
+                      <EcosiaAISearchButton showText={false} />
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">With Link</h4>
+                      <EcosiaAISearchButton showText={true} href="/ai-search" />
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Anatomy">
+                  <div className="space-y-3">
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• Button variant: Outline with white background</p>
+                      <p>• Button size: Small (sm)</p>
+                      <p>• Icon: Sparkles from Lucide React</p>
+                      <p>• Icon size: 16px (h-4 w-4)</p>
+                      <p>• Text visibility: Hidden on mobile, visible on desktop</p>
+                      <p>• Text spacing: 8px margin left from icon</p>
+                      <p>• Margin right: 4px for layout spacing</p>
+                      <p>• Tooltip: Shows "AI Search" on mobile when text hidden</p>
+                      <p>• Link support: Can render as anchor tag with href</p>
                     </div>
                   </div>
                 </ComponentDemo>

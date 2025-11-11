@@ -159,6 +159,36 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 20%;
     --sidebar-border: 0 0% 87%;
     --sidebar-ring: 72 79% 70%;
+
+    /* Toast colors */
+    --toast-neutral: 0 0% 10%;
+    --toast-neutral-foreground: 0 0% 97%;
+    --toast-informative: 195 100% 21%;
+    --toast-informative-foreground: 0 0% 97%;
+    --toast-positive: 125 100% 16%;
+    --toast-positive-foreground: 0 0% 97%;
+    --toast-negative: 349 89% 28%;
+    --toast-negative-foreground: 0 0% 97%;
+
+    /* Form borders */
+    --form-border-default: 0 0% 80%;
+    --form-border-hover: 0 0% 67%;
+    --form-border-primary-active: 72 79% 70%;
+
+    /* Overlay */
+    --overlay-primary: 0 0% 0% / 0.5;
+
+    /* Decorative borders */
+    --decorative-border-1: 0 0% 87%;
+
+    /* Background variants */
+    --background-elevation-1: 0 0% 97%;
+    --background-elevation-2: 0 0% 100%;
+    --background-quaternary: 0 0% 93%;
+    --background-glass: 0 0% 100% / 0.8;
+
+    /* Text variants */
+    --text-secondary: 0 0% 47%;
   }
 
   .dark {
@@ -202,6 +232,32 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 93%;
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 72 79% 70%;
+
+    /* Toast colors - dark mode */
+    --toast-neutral: 0 0% 93%;
+    --toast-neutral-foreground: 0 0% 10%;
+    --toast-informative: 200 97% 76%;
+    --toast-informative-foreground: 0 0% 10%;
+    --toast-positive: 111 87% 78%;
+    --toast-positive-foreground: 0 0% 10%;
+    --toast-negative: 2 93% 84%;
+    --toast-negative-foreground: 0 0% 10%;
+
+    /* Form borders - dark mode */
+    --form-border-default: 0 0% 20%;
+    --form-border-hover: 0 0% 47%;
+
+    /* Decorative borders - dark mode */
+    --decorative-border-1: 0 0% 20%;
+
+    /* Background variants - dark mode */
+    --background-elevation-1: 0 0% 15%;
+    --background-elevation-2: 0 0% 20%;
+    --background-quaternary: 0 0% 10%;
+    --background-glass: 0 0% 10% / 0.8;
+
+    /* Text variants - dark mode */
+    --text-secondary: 0 0% 67%;
   }
 }
 
