@@ -5,7 +5,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { ComponentSection } from "@/components/ComponentSection";
 import { ComponentDemo } from "@/components/ComponentDemo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, TreePine, DollarSign } from "lucide-react";
+import { Menu } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ecosiaLogoDark from "@/assets/ecosia-logo-dark.svg";
 import ecosiaLogoLight from "@/assets/ecosia-logo-light.svg";
@@ -13,6 +13,8 @@ import ecosiaLogoBrowserDark from "@/assets/ecosia-logo-browser-dark.svg";
 import ecosiaLogoBrowserLight from "@/assets/ecosia-logo-browser-light.svg";
 import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
 import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
+import treeIcon from "@/components/ecosia/icons/l/tree.svg";
+import banknoteIcon from "@/components/ecosia/icons/l/banknote.svg";
 import { EcosiaToast } from "@/components/ecosia/EcosiaToast";
 import { EcosiaSheet } from "@/components/ecosia/EcosiaSheet";
 import { EcosiaRadio } from "@/components/ecosia/EcosiaRadio";
@@ -1119,6 +1121,8 @@ const Index = () => {
                         <EcosiaIcon name="check-circle" size="l" />
                         <EcosiaIcon name="info-circle" size="l" />
                         <EcosiaIcon name="problem" size="l" />
+                        <img src={treeIcon} alt="Tree icon" className="w-9 h-9" />
+                        <img src={banknoteIcon} alt="Banknote icon" className="w-9 h-9" />
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -1141,7 +1145,7 @@ const Index = () => {
                     <div className="space-y-2">
                       <h4 className="text-sm font-medium">Single Counter</h4>
                       <EcosiaCounter
-                        icon={<TreePine className="w-8 h-8 text-green-500" />}
+                        icon={<img src={treeIcon} alt="Tree" className="w-8 h-8" />}
                         count="200,000,000+"
                         description="Trees planted"
                       />
@@ -1151,8 +1155,8 @@ const Index = () => {
                       <EcosiaGlobalCounter
                         treeCount="200M+"
                         investmentCount="€50M+"
-                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
-                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        treeIcon={<img src={treeIcon} alt="Tree" className="w-8 h-8" />}
+                        moneyIcon={<img src={banknoteIcon} alt="Money" className="w-8 h-8" />}
                       />
                     </div>
                   </div>
@@ -1165,8 +1169,8 @@ const Index = () => {
                       <EcosiaGlobalCounter
                         treeCount="200M+"
                         investmentCount="€50M+"
-                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
-                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        treeIcon={<img src={treeIcon} alt="Tree" className="w-8 h-8" />}
+                        moneyIcon={<img src={banknoteIcon} alt="Money" className="w-8 h-8" />}
                         glass={true}
                       />
                     </div>
@@ -1175,8 +1179,8 @@ const Index = () => {
                       <EcosiaGlobalCounter
                         treeCount="200M+"
                         investmentCount="€50M+"
-                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
-                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        treeIcon={<img src={treeIcon} alt="Tree" className="w-8 h-8" />}
+                        moneyIcon={<img src={banknoteIcon} alt="Money" className="w-8 h-8" />}
                         border={true}
                       />
                     </div>
@@ -1185,8 +1189,8 @@ const Index = () => {
                       <EcosiaGlobalCounter
                         treeCount="200M+"
                         investmentCount="€50M+"
-                        treeIcon={<TreePine className="w-8 h-8 text-green-500" />}
-                        moneyIcon={<DollarSign className="w-8 h-8 text-yellow-500" />}
+                        treeIcon={<img src={treeIcon} alt="Tree" className="w-8 h-8" />}
+                        moneyIcon={<img src={banknoteIcon} alt="Money" className="w-8 h-8" />}
                         vertical={true}
                       />
                     </div>
