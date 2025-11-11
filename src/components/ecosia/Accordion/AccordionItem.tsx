@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAccordion } from './Accordion';
+import { ChevronDown } from 'lucide-react';
 import './AccordionItem.scss';
 
 export interface AccordionItemProps {
@@ -29,7 +30,11 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
         onClick={toggle}
         aria-expanded={isOpen}
       >
-        {title}
+        <span>{title}</span>
+        <ChevronDown 
+          className={`accordion-item__icon ${isOpen ? 'accordion-item__icon--rotated' : ''}`}
+          size={20}
+        />
       </button>
       <div
         className={`accordion-item__content ${isOpen ? 'accordion-item__content--open' : ''}`}

@@ -58,6 +58,11 @@ export function EcosiaRadio({
           // Checked state - border becomes 7px
           "checked:border-[7px] checked:border-[hsl(var(--form-border-primary-active))]",
           
+          // Active/pressed state
+          "active:scale-95",
+          "active:border-[hsl(var(--form-border-primary-active))]",
+          "checked:active:border-[7px] checked:active:border-[hsl(var(--form-border-primary-active))]",
+          
           // Disabled state
           "disabled:opacity-50 disabled:cursor-not-allowed"
         )}

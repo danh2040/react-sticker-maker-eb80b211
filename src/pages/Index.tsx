@@ -85,22 +85,33 @@ const Index = () => {
   const [panelSide, setPanelSide] = useState<"left" | "right">("left");
   const [radioValue, setRadioValue] = useState("option1");
   const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [toastVariant, setToastVariant] = useState<"neutral" | "informative" | "positive" | "negative">("neutral");
   
   const sliderData = [
     {
-      title: "Beautiful Design",
-      description: "Discover our amazing features that will transform your experience.",
-      imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop"
+      title: "Flower Photography",
+      description: "Beautiful natural flower imagery from our projects.",
+      imageUrl: typeFlower
     },
     {
-      title: "Easy to Use",
-      description: "Simple and intuitive interface designed for everyone.",
-      imageUrl: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=400&fit=crop"
+      title: "Forest Landscapes",
+      description: "Lush forest environments where we plant trees.",
+      imageUrl: typeForest
     },
     {
-      title: "Fast Performance",
-      description: "Lightning fast performance that keeps you productive.",
-      imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=400&fit=crop"
+      title: "Mountain Views",
+      description: "Stunning mountain landscapes from restoration sites.",
+      imageUrl: typeMountains
+    },
+    {
+      title: "Leaf Details",
+      description: "Close-up photography of leaves and plant life.",
+      imageUrl: typeLeaf
+    },
+    {
+      title: "Project in India",
+      description: "Our reforestation project location in India.",
+      imageUrl: typeIndia
     }
   ];
 
@@ -349,9 +360,9 @@ const Index = () => {
               <ComponentSection
                 id="avatar"
                 title="Avatar"
-                description="User avatar assets representing different user types"
+                description="User avatars represent different user types and can display profile pictures in various sizes."
               >
-                <ComponentDemo title="Variants">
+                <ComponentDemo title="User Type Variants">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div className="flex flex-col items-center gap-4">
                       <AvatarUI className="w-24 h-24">
@@ -383,6 +394,46 @@ const Index = () => {
                         <AvatarFallback>EU</AvatarFallback>
                       </AvatarUI>
                       <p className="text-sm text-muted-foreground text-center">The Early User</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Sizes">
+                  <div className="flex items-center gap-4">
+                    <div className="space-y-2 text-center">
+                      <AvatarUI className="w-8 h-8">
+                        <AvatarImage src={greenMainstreamAvatar} />
+                        <AvatarFallback>XS</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-xs text-muted-foreground">XS (32px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <AvatarUI className="w-12 h-12">
+                        <AvatarImage src={greenMainstreamAvatar} />
+                        <AvatarFallback>S</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-xs text-muted-foreground">S (48px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <AvatarUI className="w-16 h-16">
+                        <AvatarImage src={greenMainstreamAvatar} />
+                        <AvatarFallback>M</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-xs text-muted-foreground">M (64px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <AvatarUI className="w-24 h-24">
+                        <AvatarImage src={greenMainstreamAvatar} />
+                        <AvatarFallback>L</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-xs text-muted-foreground">L (96px)</p>
+                    </div>
+                    <div className="space-y-2 text-center">
+                      <AvatarUI className="w-32 h-32">
+                        <AvatarImage src={greenMainstreamAvatar} />
+                        <AvatarFallback>XL</AvatarFallback>
+                      </AvatarUI>
+                      <p className="text-xs text-muted-foreground">XL (128px)</p>
                     </div>
                   </div>
                 </ComponentDemo>
@@ -627,6 +678,31 @@ const Index = () => {
                   </div>
                 </ComponentDemo>
 
+                <ComponentDemo title="Sizes">
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Small (h-9, px-s)</p>
+                      <Button size="sm">Small Button</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Default (h-10, px-m)</p>
+                      <Button size="default">Default Button</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Large (h-11, px-1l)</p>
+                      <Button size="lg">Large Button</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Icon (h-10, w-10)</p>
+                      <Button size="sm" className="w-10 px-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                      </Button>
+                    </div>
+                  </div>
+                </ComponentDemo>
+
               </ComponentSection>
 
               {/* Badge Section */}
@@ -658,34 +734,6 @@ const Index = () => {
 
               </ComponentSection>
 
-              {/* Avatar Section */}
-              <ComponentSection
-                id="avatar"
-                title="Avatar"
-                description="Avatars represent users or entities. They can display initials, images, or icons."
-              >
-                <ComponentDemo title="Interactive Example">
-                  <Avatar size="m">JD</Avatar>
-                </ComponentDemo>
-
-                <ComponentDemo title="Sizes">
-                  <div className="flex flex-wrap gap-6 items-center">
-                    <div className="space-y-2 text-center">
-                      <Avatar size="s">JD</Avatar>
-                      <p className="text-xs text-muted-foreground">Small (24px)</p>
-                    </div>
-                    <div className="space-y-2 text-center">
-                      <Avatar size="m">JD</Avatar>
-                      <p className="text-xs text-muted-foreground">Medium (32px)</p>
-                    </div>
-                    <div className="space-y-2 text-center">
-                      <Avatar size="l">JD</Avatar>
-                      <p className="text-xs text-muted-foreground">Large (48px)</p>
-                    </div>
-                  </div>
-                </ComponentDemo>
-
-              </ComponentSection>
 
               {/* Switch Section */}
               <ComponentSection
@@ -853,11 +901,19 @@ const Index = () => {
               >
                 <ComponentDemo title="Interactive Example">
                   <div className="space-y-4">
-                    <Button onClick={() => setShowToast(true)}>Show Toast</Button>
+                    <Button onClick={() => {
+                      setToastVariant("positive");
+                      setShowToast(true);
+                    }}>Show Toast</Button>
                     {showToast && (
                       <EcosiaToast
-                        variant="positive"
-                        message="Action completed successfully!"
+                        variant={toastVariant}
+                        message={
+                          toastVariant === "neutral" ? "This is a neutral message" :
+                          toastVariant === "informative" ? "This is informative information" :
+                          toastVariant === "positive" ? "Action completed successfully!" :
+                          "An error occurred"
+                        }
                         onClose={() => setShowToast(false)}
                       />
                     )}
@@ -867,21 +923,33 @@ const Index = () => {
                 <ComponentDemo title="Variants">
                   <div className="space-y-4">
                     <div className="flex gap-4">
-                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                      <Button variant="outline" onClick={() => {
+                        setToastVariant("neutral");
+                        setShowToast(true);
+                      }}>
                         Neutral
                       </Button>
-                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                      <Button variant="outline" onClick={() => {
+                        setToastVariant("informative");
+                        setShowToast(true);
+                      }}>
                         Informative
                       </Button>
-                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                      <Button variant="outline" onClick={() => {
+                        setToastVariant("positive");
+                        setShowToast(true);
+                      }}>
                         Positive
                       </Button>
-                      <Button variant="outline" onClick={() => setShowToast(true)}>
+                      <Button variant="outline" onClick={() => {
+                        setToastVariant("negative");
+                        setShowToast(true);
+                      }}>
                         Negative
                       </Button>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Click the "Show Toast" button in the Interactive Example section above to see toast notifications in action. Toast variants include: neutral (gray), informative (blue), positive (green), and negative (red).
+                      Click buttons above to see different toast variants: neutral (gray), informative (blue), positive (green), and negative (red).
                     </p>
                   </div>
                 </ComponentDemo>

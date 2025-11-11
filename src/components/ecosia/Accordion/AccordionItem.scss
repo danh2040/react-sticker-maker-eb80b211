@@ -37,3 +37,13 @@
 .accordion-item__content-inner {
   padding: $space-m;
 }
+
+.accordion-item__icon {
+  transition: transform $timing-1s $easing;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.accordion-item__icon--rotated {
+  transform: rotate(180deg);
+}

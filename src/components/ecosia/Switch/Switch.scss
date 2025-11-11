@@ -57,8 +57,8 @@
       position: relative;
       width: 54px;
       height: 32px;
-      transition: background $timing-1s;
-      border: $border-width solid hsl(var(--color-form-border-default));
+      transition: background $timing-1s, border-color $timing-1s;
+      border: 1px solid hsl(var(--color-form-border-default));
       border-radius: $border-radius-1l;
       background: hsl(var(--color-button-content-primary));
       cursor: pointer;
@@ -109,7 +109,7 @@
   .checkbox--checked {
     &.field__input {
       background: hsl(var(--color-button-background-primary));
-      border-color: hsl(var(--color-button-background-primary));
+      border: 1px solid hsl(var(--color-button-background-primary));
     }
 
     &::before {

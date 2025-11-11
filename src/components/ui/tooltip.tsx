@@ -21,12 +21,8 @@ const TooltipContent = React.forwardRef<
       "z-50 overflow-hidden",
       "px-m py-s", // 16px horizontal, 12px vertical
       "rounded-l", // 10px border radius
-      "bg-[hsl(var(--background-elevation-1))]",
+      "bg-transparent",
       "text-m text-popover-foreground", // 14px font
-      "border border-[hsl(var(--decorative-border-1))]",
-      
-      // Elevation system - elevation-2
-      "shadow-elevation-2",
       
       // Animations
       "animate-in fade-in-0 zoom-in-95",

@@ -91,7 +91,7 @@
 .button--variant-outline {
   background-color: transparent;
   color: hsl(var(--color-button-content-secondary));
-  border: 1px solid hsl(var(--color-form-border-default));
+  border: 2px solid hsl(var(--color-form-border-default));
   
   &:hover:not(:disabled) {
     background-color: hsl(var(--color-button-background-transparent-hover));
