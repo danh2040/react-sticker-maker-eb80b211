@@ -26,6 +26,7 @@ import logoDark from "@/assets/ecosia-logo-dark.svg";
 const componentItems = [
   { title: "Logo", url: "#logo", icon: Square },
   { title: "Illustrations", url: "#illustrations", icon: ImageIcon },
+  { title: "Photography", url: "#photography", icon: ImageIcon },
   { title: "Button", url: "#button", icon: Square },
   { title: "Badge", url: "#badge", icon: Tag },
   { title: "Avatar", url: "#avatar", icon: User },

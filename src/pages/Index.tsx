@@ -37,6 +37,14 @@ import safety from "@/assets/illustrations/safety.svg";
 import seedlingsPlanted from "@/assets/illustrations/seedlings_planted.svg";
 import socialProof from "@/assets/illustrations/social_proof.svg";
 import transparency from "@/assets/illustrations/transparency.svg";
+import typeFlower from "@/assets/photography/Type_Flower.png";
+import typeForest from "@/assets/photography/Type_Forest.png";
+import typeFungus from "@/assets/photography/Type_Fungus.png";
+import typeLeaf from "@/assets/photography/Type_Leaf.png";
+import typeMountains from "@/assets/photography/Type_Mountains.png";
+import typeSoil from "@/assets/photography/Type_Soil.png";
+import typeWood from "@/assets/photography/Type_Wood.png";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -299,6 +307,94 @@ const Index = () => {
                       </div>
                     </div>
                   </ComponentDemo>
+              </ComponentSection>
+
+              {/* Photography Section */}
+              <ComponentSection
+                id="photography"
+                title="Photography"
+                description="Abstract nature photography assets that adapt to different sizes and aspect ratios"
+              >
+                <ComponentDemo title="Abstract Nature Variants">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeFlower} 
+                          alt="Flower" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Flower</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeForest} 
+                          alt="Forest" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Forest</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeFungus} 
+                          alt="Fungus" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Fungus</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeLeaf} 
+                          alt="Leaf" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Leaf</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeMountains} 
+                          alt="Mountains" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Mountains</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeSoil} 
+                          alt="Soil" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Soil</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={typeWood} 
+                          alt="Wood" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                      <p className="text-sm text-muted-foreground text-center">Wood</p>
+                    </div>
+                  </div>
+                </ComponentDemo>
               </ComponentSection>
 
               {/* Button Section */}
