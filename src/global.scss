@@ -82,7 +82,7 @@ a {
   outline: none;
   
   &:focus-visible {
-    outline: solid 2px var(--color-focused);
+    outline: solid 2px hsl(var(--color-focused));
     outline-offset: 2px;
   }
 }

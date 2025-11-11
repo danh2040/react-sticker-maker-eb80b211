@@ -7,8 +7,8 @@
   justify-content: center;
   border-radius: $border-radius-full;
   overflow: hidden;
-  background-color: var(--color-background-secondary);
-  color: var(--color-text-primary);
+  background-color: hsl(var(--color-background-secondary));
+  color: hsl(var(--color-text-primary));
 }
 
 .avatar--size-s {

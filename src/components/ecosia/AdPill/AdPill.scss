@@ -4,10 +4,10 @@
 .ad-pill {
   padding: 0 $space-3s;
 
-  border: 1px solid var(--color-text-secondary);
+  border: 1px solid hsl(var(--color-text-secondary));
   border-radius: $border-radius-s;
 
-  color: var(--color-text-secondary);
+  color: hsl(var(--color-text-secondary));
 
   /*
     intentionally not using a design system font variable

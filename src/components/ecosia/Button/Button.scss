@@ -30,7 +30,7 @@
   -moz-osx-font-smoothing: grayscale;
   
   &:focus-visible {
-    outline: solid 2px var(--color-focused);
+    outline: solid 2px hsl(var(--color-focused));
     outline-offset: 2px;
   }
   
@@ -62,70 +62,70 @@
 
 // Variant styles
 .button--variant-primary {
-  background-color: var(--color-button-background-primary);
-  color: var(--color-button-content-primary);
+  background-color: hsl(var(--color-button-background-primary));
+  color: hsl(var(--color-button-content-primary));
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-primary-hover);
+    background-color: hsl(var(--color-button-background-primary-hover));
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-primary-active);
+    background-color: hsl(var(--color-button-background-primary-active));
   }
 }
 
 .button--variant-secondary {
-  background-color: var(--color-button-background-secondary);
-  color: var(--color-button-content-secondary);
+  background-color: hsl(var(--color-button-background-secondary));
+  color: hsl(var(--color-button-content-secondary));
   border: none;
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-secondary-hover);
+    background-color: hsl(var(--color-button-background-secondary-hover));
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-secondary-active);
+    background-color: hsl(var(--color-button-background-secondary-active));
   }
 }
 
 .button--variant-outline {
   background-color: transparent;
-  color: var(--color-button-content-secondary);
-  border: 1px solid var(--color-form-border-default);
+  color: hsl(var(--color-button-content-secondary));
+  border: 1px solid hsl(var(--color-form-border-default));
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-transparent-hover);
-    border-color: var(--color-form-border-hover);
+    background-color: hsl(var(--color-button-background-transparent-hover));
+    border-color: hsl(var(--color-form-border-hover));
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-transparent-active);
-    border-color: var(--color-form-border-primary-active);
+    background-color: hsl(var(--color-button-background-transparent-active));
+    border-color: hsl(var(--color-form-border-primary-active));
   }
 }
 
 .button--variant-ghost {
   background-color: transparent;
-  color: var(--color-text-primary);
+  color: hsl(var(--color-text-primary));
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-transparent-hover);
+    background-color: hsl(var(--color-button-background-transparent-hover));
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-transparent-active);
+    background-color: hsl(var(--color-button-background-transparent-active));
   }
 }
 
 .button--variant-destructive {
-  background-color: var(--color-button-background-negative, #{$c-red-50});
-  color: var(--color-button-content-primary);
+  background-color: hsl(var(--color-button-background-negative, #{$c-red-50}));
+  color: hsl(var(--color-button-content-primary));
   
   &:hover:not(:disabled) {
-    background-color: var(--color-button-background-negative-hover, #{$c-red-40});
+    background-color: hsl(var(--color-button-background-negative-hover, #{$c-red-40}));
   }
   
   &:active:not(:disabled) {
-    background-color: var(--color-button-background-negative-active, #{$c-red-30});
+    background-color: hsl(var(--color-button-background-negative-active, #{$c-red-30}));
   }
 }

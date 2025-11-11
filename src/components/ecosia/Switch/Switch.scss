@@ -17,8 +17,8 @@
     transition: transform $timing-1s, background $timing-1s;
     border-width: $border-width-l;
     border-radius: $border-radius-full;
-    border-color: var(--color-form-border-default);
-    background: var(--color-button-content-primary);
+    border-color: hsl(var(--color-form-border-default));
+    background: hsl(var(--color-button-content-primary));
   }
 
   .field__input-wrapper {
@@ -42,14 +42,14 @@
     .field__label {
       font-size: $font-m;
       font-weight: $font-weight-600;
-      color: var(--color-text-primary);
+      color: hsl(var(--color-text-primary));
       margin-bottom: $space-2s;
       display: block;
     }
 
     .field__description {
       font-size: $font-m;
-      color: var(--color-text-secondary);
+      color: hsl(var(--color-text-secondary));
       margin-top: $space-2s;
     }
 
@@ -58,14 +58,14 @@
       width: 54px;
       height: 32px;
       transition: background $timing-1s;
-      border: $border-width solid var(--color-form-border-default);
+      border: $border-width solid hsl(var(--color-form-border-default));
       border-radius: $border-radius-1l;
-      background: var(--color-button-content-primary);
+      background: hsl(var(--color-button-content-primary));
       cursor: pointer;
       flex-shrink: 0;
 
       &:hover:not(:disabled) {
-        border-color: var(--color-form-border-hover);
+        border-color: hsl(var(--color-form-border-hover));
       }
       
       &:active:not(:disabled) {
@@ -84,8 +84,8 @@
         cursor: not-allowed;
         pointer-events: none;
         
-        background: var(--color-background-secondary);
-        border-color: var(--color-disabled);
+        background: hsl(var(--color-background-secondary));
+        border-color: hsl(var(--color-disabled));
       }
     }
   }
@@ -103,19 +103,19 @@
     left: 27px;
     transition: none;
     opacity: 0;
-    color: var(--color-brand-primary);
+    color: hsl(var(--color-brand-primary));
   }
 
   .checkbox--checked {
     &.field__input {
-      background: var(--color-button-background-primary);
-      border-color: var(--color-button-background-primary);
+      background: hsl(var(--color-button-background-primary));
+      border-color: hsl(var(--color-button-background-primary));
     }
 
     &::before {
       transform: translate(22px, 0);
       background: $white;
-      border-color: var(--color-button-background-primary);
+      border-color: hsl(var(--color-button-background-primary));
     }
 
     .checkbox__input {
@@ -142,13 +142,13 @@
   // Disabled state for the switch knob
   &--disabled {
     .checkbox::before {
-      background: var(--color-disabled);
-      border-color: var(--color-disabled);
+      background: hsl(var(--color-disabled));
+      border-color: hsl(var(--color-disabled));
     }
     
     .field__input {
-      background: var(--color-background-secondary);
-      border-color: var(--color-disabled);
+      background: hsl(var(--color-background-secondary));
+      border-color: hsl(var(--color-disabled));
     }
   }
 }
