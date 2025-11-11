@@ -1,0 +1,8 @@
+export const NOTIFICATION_DAYS_BANNER = 3;
+export const NOTIFICATION_DAYS_PILL = 5;
+export const NOTIFICATION_DAYS_POPUP = 5;
+export const NOTIFICATION_LEVEL_BANNER = 3;
+export const NOTIFICATION_LEVEL_PILL = 1;
+export const NOTIFICATION_LEVEL_POPUP = 2;
+export const MIN_TREE_COUNT_PILL = 5;
+export const MIN_TREE_COUNT_POPUP = 5;
