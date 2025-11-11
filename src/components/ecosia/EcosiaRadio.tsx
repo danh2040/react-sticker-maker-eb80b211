@@ -1,7 +1,5 @@
 import { cn } from "@/lib/utils";
 
-type RadioSize = "s" | "m" | "l";
-
 interface EcosiaRadioProps {
   id: string;
   name: string;
@@ -11,15 +9,9 @@ interface EcosiaRadioProps {
   checked?: boolean;
   onChange?: (value: string) => void;
   disabled?: boolean;
-  size?: RadioSize;
   reversed?: boolean;
+  small?: boolean; // Only affects label size, not radio size
 }
-
-const sizeClasses = {
-  s: "w-4 h-4",
-  m: "w-5 h-5",
-  l: "w-6 h-6",
-};
 
 export function EcosiaRadio({
   id,
@@ -30,44 +22,67 @@ export function EcosiaRadio({
   checked = false,
   onChange,
   disabled = false,
-  size = "m",
   reversed = false,
+  small = false,
 }: EcosiaRadioProps) {
   return (
-    <div className="flex items-start gap-s min-h-[48px]">
-      <div className={cn("flex items-start pt-1s", reversed && "order-1")}>
-        <input
-          type="radio"
-          id={id}
-          name={name}
-          value={value}
-          checked={checked}
-          onChange={(e) => onChange?.(e.target.value)}
-          disabled={disabled}
-          className={cn(
-            "appearance-none rounded-full border-2 border-[hsl(var(--form-border-default))]",
-            "transition-all duration-1s cursor-pointer",
-            "hover:border-[hsl(var(--form-border-hover))]",
-            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-            "checked:border-[7px] checked:border-[hsl(var(--form-border-primary-active))]",
-            "disabled:opacity-50 disabled:cursor-not-allowed",
-            sizeClasses[size]
-          )}
-        />
-      </div>
-      <label
-        htmlFor={id}
+    <label
+      className={cn(
+        "flex items-center min-h-[48px] cursor-pointer touch-manipulation",
+        reversed && "flex-row-reverse justify-between w-full",
+        disabled && "cursor-not-allowed opacity-50",
+        small && "min-h-[20px]"
+      )}
+    >
+      <input
+        type="radio"
+        id={id}
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={(e) => onChange?.(e.target.value)}
+        disabled={disabled}
         className={cn(
-          "flex-1 cursor-pointer",
-          disabled && "opacity-50 cursor-not-allowed",
+          // Base - FIXED 20px size, never changes
+          "appearance-none w-[20px] h-[20px] m-0 flex-none",
+          "rounded-full border border-solid border-[hsl(var(--form-border-default))]",
+          "cursor-pointer",
+          "transition-all duration-2s ease-in-out",
+          
+          // Hover state
+          "hover:border-[hsl(var(--form-border-hover))]",
+          
+          // Focus state - keyboard navigation
+          "focus:outline focus:outline-2 focus:outline-[hsl(var(--form-border-primary-active))] focus:outline-offset-2",
+          
+          // Checked state - border becomes 7px
+          "checked:border-[7px] checked:border-[hsl(var(--form-border-primary-active))]",
+          
+          // Disabled state
+          "disabled:opacity-50 disabled:cursor-not-allowed"
+        )}
+      />
+      <span
+        className={cn(
+          "flex-1",
+          small ? "px-1s" : "px-s",
           reversed && "order-0"
         )}
       >
-        <div className="text-m font-medium text-foreground">{label}</div>
+        <div className={cn(
+          "font-medium text-foreground",
+          small ? "text-m" : "text-l"
+        )}>
+          {label}
+        </div>
         {description && (
-          <div className="text-s text-muted-foreground mt-2s">{description}</div>
+          <div className={cn(
+            "text-m text-muted-foreground mt-2s block"
+          )}>
+            {description}
+          </div>
         )}
-      </label>
-    </div>
+      </span>
+    </label>
   );
 }

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { EcosiaRadio } from "./EcosiaRadio";
 
-type RadioSize = "s" | "m" | "l";
-
 interface RadioOption {
   label: string;
   value: string;
@@ -14,9 +12,9 @@ interface EcosiaRadiosProps {
   options: (string | RadioOption)[];
   value?: string;
   onChange?: (value: string) => void;
-  size?: RadioSize;
   reversed?: boolean;
   disabled?: boolean;
+  small?: boolean;
 }
 
 export function EcosiaRadios({
@@ -24,9 +22,9 @@ export function EcosiaRadios({
   options,
   value,
   onChange,
-  size = "m",
   reversed = false,
   disabled = false,
+  small = false,
 }: EcosiaRadiosProps) {
   const [internalValue, setInternalValue] = useState(value || "");
 
@@ -51,9 +49,9 @@ export function EcosiaRadios({
           description={option.description}
           checked={internalValue === option.value}
           onChange={handleChange}
-          size={size}
           reversed={reversed}
           disabled={disabled}
+          small={small}
         />
       ))}
     </div>

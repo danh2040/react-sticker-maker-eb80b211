@@ -64,11 +64,50 @@
       cursor: pointer;
       flex-shrink: 0;
 
-      &:hover {
+      &:hover:not(:disabled) {
         border-color: var(--color-form-border-hover);
+      }
+      
+      &:active:not(:disabled) {
+        // Pressed state
+        .checkbox::before {
+          transform: scale(0.95) translate(2px, 0);
+        }
+        
+        &.checkbox--checked .checkbox::before {
+          transform: scale(0.95) translate(22px, 0);
+        }
+      }
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        
+        background: var(--color-background-secondary);
+        border-color: var(--color-disabled);
       }
     }
   }
+  
+  // Disabled state for the switch knob
+  &--disabled {
+    .checkbox::before {
+      background: var(--color-disabled);
+      border-color: var(--color-disabled);
+    }
+    
+    .field__input {
+      background: var(--color-background-secondary);
+      border-color: var(--color-disabled);
+    }
+  }
+}
+
+.switch__input:disabled + .field__input {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
   .checkbox__input {
     position: absolute;

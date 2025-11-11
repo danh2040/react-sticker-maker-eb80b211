@@ -11,9 +11,9 @@ const buttonVariants = cva(
       variant: {
         default: "bg-[hsl(var(--color-button-background-primary))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-primary-hover))] active:bg-[hsl(var(--color-button-background-primary-active))]",
         destructive: "bg-[hsl(var(--color-button-background-negative))] text-[hsl(var(--color-button-content-primary))] hover:bg-[hsl(var(--color-button-background-negative))]/90",
-        outline: "border-2 border-[hsl(var(--color-button-border))] bg-transparent text-foreground hover:bg-[hsl(var(--color-highlight-primary))]",
-        secondary: "bg-[hsl(var(--color-button-background-secondary))] text-[hsl(var(--color-button-content-secondary))] hover:bg-[hsl(var(--color-button-background-secondary-hover))] active:bg-[hsl(var(--color-button-background-secondary-active))]",
-        ghost: "hover:bg-[hsl(var(--color-highlight-primary))] text-foreground",
+        outline: "border border-[hsl(var(--form-border-default))] bg-transparent text-foreground hover:bg-[hsl(var(--color-highlight-primary))] hover:border-[hsl(var(--form-border-hover))] active:border-[hsl(var(--form-border-primary-active))] active:bg-[hsl(var(--color-button-background-transparent-active))]",
+        secondary: "bg-[hsl(var(--color-button-background-secondary))] text-[hsl(var(--color-button-content-secondary))] border border-[hsl(var(--decorative-border-1))] hover:bg-[hsl(var(--color-button-background-secondary-hover))] active:bg-[hsl(var(--color-button-background-secondary-active))]",
+        ghost: "hover:bg-[hsl(var(--color-highlight-primary))] active:bg-[hsl(var(--color-button-background-transparent-active))] text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         featured: "bg-[hsl(var(--color-button-background-featured))] text-[hsl(var(--color-button-content-featured))] hover:bg-[hsl(var(--color-button-background-featured-hover))] active:bg-[hsl(var(--color-button-background-featured-active))]",
       },

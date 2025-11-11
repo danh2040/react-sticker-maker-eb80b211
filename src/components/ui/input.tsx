@@ -8,7 +8,37 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
       <input
         type={type}
         className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          // Base styles
+          "flex h-[40px] w-full",
+          "px-m py-s", // 16px horizontal, 12px vertical
+          "text-l font-normal", // 16px font size
+          "bg-background text-foreground",
+          "placeholder:text-[hsl(var(--text-secondary))]",
+          
+          // Border
+          "border border-solid border-[hsl(var(--form-border-default))]",
+          "rounded-l", // 10px border radius (use rounded-full for search)
+          
+          // Transitions
+          "transition-all duration-2s ease-in-out",
+          
+          // Hover state
+          "hover:border-[hsl(var(--form-border-hover))]",
+          
+          // Focus state
+          "focus:outline-none",
+          "focus:border-[hsl(var(--form-border-primary-active))]",
+          "focus:ring-2 focus:ring-[hsl(var(--form-border-primary-active))]",
+          "focus:ring-offset-2",
+          
+          // Disabled state
+          "disabled:cursor-not-allowed disabled:opacity-50",
+          "disabled:bg-[hsl(var(--background-quaternary))]",
+          
+          // File input styling
+          "file:border-0 file:bg-transparent",
+          "file:text-sm file:font-medium file:text-foreground",
+          
           className,
         )}
         ref={ref}

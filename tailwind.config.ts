@@ -223,9 +223,12 @@ export default {
         '1l': '2000ms',
       },
       boxShadow: {
-        'elevation-1': '0 1px 2px hsl(var(--color-elevation-layer-1)), 0 0 8px hsl(var(--color-elevation-layer-2))',
-        'elevation-2': '0 2px 4px 0 hsl(var(--color-elevation-layer-1)), 0 0 12px 0 hsl(var(--color-elevation-layer-2))',
-        'elevation-3': '0 4px 8px 0 hsl(var(--color-elevation-layer-1)), 0 0 16px 0 hsl(var(--color-elevation-layer-2))',
+        'elevation-0': 'none',
+        'elevation-1': '0 1px 2px var(--color-elevation-layer-1), 0 0 8px var(--color-elevation-layer-2)',
+        'elevation-1-inverted': '0 -1px 2px var(--color-elevation-layer-1), 0 -1px 8px var(--color-elevation-layer-2)',
+        'elevation-2': '0 2px 4px 0 var(--color-elevation-layer-1), 0 0 12px 0 var(--color-elevation-layer-2)',
+        'elevation-2-inverted': '0 -2px 4px 0 var(--color-elevation-layer-1), 0 0 12px 0 var(--color-elevation-layer-2)',
+        'elevation-3': '0 4px 8px 0 var(--color-elevation-layer-1), 0 0 16px 0 var(--color-elevation-layer-2)',
       },
       keyframes: {
         "accordion-down": {

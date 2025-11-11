@@ -895,27 +895,25 @@ const Index = () => {
                 <ComponentDemo title="Variants">
                   <div className="space-y-8">
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Small Size</h4>
+                      <h4 className="text-sm font-medium">Small Size (label only)</h4>
                       <EcosiaRadios
                         name="small"
                         options={["Small 1", "Small 2", "Small 3"]}
-                        size="s"
+                        small={true}
                       />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Medium Size (Default)</h4>
+                      <h4 className="text-sm font-medium">Default Size</h4>
                       <EcosiaRadios
                         name="medium"
                         options={["Medium 1", "Medium 2", "Medium 3"]}
-                        size="m"
                       />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Large Size</h4>
+                      <h4 className="text-sm font-medium">Default Size (radio is always 20px)</h4>
                       <EcosiaRadios
                         name="large"
                         options={["Large 1", "Large 2", "Large 3"]}
-                        size="l"
                       />
                     </div>
                     <div className="space-y-2">

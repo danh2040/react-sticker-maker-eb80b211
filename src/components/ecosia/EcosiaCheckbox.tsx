@@ -18,36 +18,70 @@ export function EcosiaCheckbox({
 }: EcosiaCheckboxProps) {
   return (
     <div className="flex items-center gap-1s">
-      <div className="relative">
+      <div className="relative inline-block">
         <input
           type="checkbox"
           id={id}
           checked={checked}
           onChange={(e) => onChange?.(e.target.checked)}
           disabled={disabled}
-          className="sr-only peer"
+          className="peer sr-only"
         />
         <label
           htmlFor={id}
           className={cn(
-            "flex items-center justify-center w-6 h-6 rounded-s border-2 cursor-pointer transition-all duration-1s",
-            "border-[hsl(var(--form-border-default))]",
-            "hover:border-[hsl(var(--form-border-hover))]",
-            "peer-focus:ring-2 peer-focus:ring-primary peer-focus:ring-offset-2",
-            "peer-checked:border-primary peer-checked:bg-primary",
-            "peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:bg-[hsl(var(--color-disabled))]",
-            // Extended tappable area
-            "before:absolute before:inset-[-4px] before:content-['']"
+            // Base styles - creates the checkbox box
+            "block relative w-[20px] h-[20px] cursor-pointer",
+            "before:content-[''] before:block before:box-border before:w-[20px] before:h-[20px]",
+            "before:border before:border-solid before:border-[hsl(var(--form-border-default))]",
+            "before:rounded-s before:bg-[hsl(var(--color-button-content-primary))]",
+            "before:transition-all before:duration-2s before:ease-in-out",
+            
+            // Hover state
+            "hover:before:border-[hsl(var(--form-border-hover))]",
+            
+            // Focus state
+            "peer-focus:outline peer-focus:outline-2 peer-focus:outline-[hsl(var(--form-border-primary-active))] peer-focus:outline-offset-2",
+            "peer-focus:before:border-[hsl(var(--form-border-primary-active))]",
+            
+            // Checked state - CRITICAL: border becomes 10px, NOT filled background
+            "peer-checked:before:border-[10px] peer-checked:before:border-[hsl(var(--color-brand-primary))]",
+            
+            // Disabled state
+            "peer-disabled:pointer-events-none peer-disabled:text-[hsl(var(--color-disabled))]",
+            "peer-disabled:before:border-[hsl(var(--color-disabled))] peer-disabled:before:bg-[hsl(var(--color-background-secondary))]",
+            
+            // Disabled + checked state
+            "peer-disabled:peer-checked:before:border-[hsl(var(--color-disabled))]",
           )}
         >
-          {checked && <Check className="h-4 w-4 text-primary-foreground" strokeWidth={3} />}
+          {/* Check icon */}
+          <div
+            className={cn(
+              "absolute top-[2px] left-[2px] pointer-events-none",
+              // Hide when unchecked OR (disabled AND unchecked)
+              !checked && "hidden",
+              disabled && !checked && "hidden",
+              // Show when checked (even if disabled)
+              checked && "block"
+            )}
+          >
+            <Check 
+              className={cn(
+                "w-4 h-4",
+                "text-[hsl(var(--color-button-content-primary))]"
+              )} 
+              strokeWidth={3}
+            />
+          </div>
         </label>
       </div>
       {label && (
         <label
           htmlFor={id}
           className={cn(
-            "text-m font-medium cursor-pointer",
+            "text-m font-medium cursor-pointer select-none",
+            "text-[hsl(var(--foreground))]",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >
