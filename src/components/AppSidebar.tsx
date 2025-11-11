@@ -20,8 +20,12 @@ import {
   Image as ImageIcon,
   ChevronDown
 } from "lucide-react";
+import logoLight from "@/assets/ecosia-logo-light.svg";
+import logoDark from "@/assets/ecosia-logo-dark.svg";
 
 const componentItems = [
+  { title: "Logo", url: "#logo", isLogo: true },
+  { title: "Illustrations", url: "#illustrations", icon: ImageIcon },
   { title: "Button", url: "#button", icon: Square },
   { title: "Badge", url: "#badge", icon: Tag },
   { title: "Avatar", url: "#avatar", icon: User },
@@ -54,7 +58,14 @@ export function AppSidebar() {
                         currentHash === item.url ? 'bg-muted text-primary font-medium' : ''
                       }`}
                     >
-                      <item.icon className="h-4 w-4" />
+                      {item.isLogo ? (
+                        <>
+                          <img src={logoLight} alt="Ecosia" className="h-4 dark:hidden" />
+                          <img src={logoDark} alt="Ecosia" className="h-4 hidden dark:block" />
+                        </>
+                      ) : (
+                        <item.icon className="h-4 w-4" />
+                      )}
                       {!isCollapsed && <span>{item.title}</span>}
                     </a>
                   </SidebarMenuButton>

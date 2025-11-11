@@ -13,6 +13,16 @@ import ecosiaLogoBrowserDark from "@/assets/ecosia-logo-browser-dark.svg";
 import ecosiaLogoBrowserLight from "@/assets/ecosia-logo-browser-light.svg";
 import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
 import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
+import activeProjects from "@/assets/illustrations/active_projects.svg";
+import ai from "@/assets/illustrations/AI.svg";
+import areaRestored from "@/assets/illustrations/area_restored.svg";
+import bookmark from "@/assets/illustrations/bookmark.svg";
+import celebration from "@/assets/illustrations/celebration.svg";
+import control from "@/assets/illustrations/control.svg";
+import download from "@/assets/illustrations/download.svg";
+import education from "@/assets/illustrations/education.svg";
+import excitement from "@/assets/illustrations/excitement.svg";
+import featureAdoption from "@/assets/illustrations/feature_adoption.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -135,6 +145,73 @@ const Index = () => {
                           alt="Ecosia Favicon Rounded" 
                           className="h-12"
                         />
+                      </div>
+                    </div>
+                  </div>
+                </ComponentDemo>
+              </ComponentSection>
+
+              {/* Illustrations Section */}
+              <ComponentSection
+                id="illustrations"
+                title="Illustrations"
+                description="Ecosia illustration assets for various use cases"
+              >
+                <ComponentDemo title="Variants">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <h3 className="text-lg font-semibold">All Variants</h3>
+                      <Badge variant="featured">new</Badge>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={activeProjects} alt="Active Projects" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Active Projects</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={ai} alt="AI" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">AI</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={areaRestored} alt="Area Restored" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Area Restored</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={bookmark} alt="Bookmark" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Bookmark</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={celebration} alt="Celebration" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Celebration</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={control} alt="Control" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Control</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={download} alt="Download" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Download</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={education} alt="Education" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Education</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={excitement} alt="Excitement" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Excitement</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={featureAdoption} alt="Feature Adoption" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Feature Adoption</p>
                       </div>
                     </div>
                   </div>
