@@ -6,6 +6,8 @@
 @use '../../../scss/elevations' as *;
 @use '../../../scss/animations' as *;
 
+$button-padding: calc(#{$space-m} - #{$border-width});
+
 $max-width: 280px;
 
 .popover {
@@ -46,10 +48,10 @@ $max-width: 280px;
   z-index: 900;
   width: max-content;
   max-width: $max-width;
-  padding: 0;
+  padding: $space-m;
   border-radius: $border-radius-l;
-  background-color: var(--color-surface-brand-secondary);
-  color: var(--color-text-inverse-primary);
+  background-color: var(--color-background-featured-static);
+  color: var(--color-text-static-dark);
   font-size: $font-m;
   cursor: default;
   box-shadow: $elevation-2;
@@ -61,30 +63,33 @@ $max-width: 280px;
   }
 }
 
-.popover__badge {
-  display: inline-block;
-  padding: $space-3s $space-2s;
-  margin: $space-m $space-m 0 $space-m;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: $border-radius-s;
-  font-size: $font-s;
-  font-weight: $font-weight-600;
-  line-height: 1;
-}
-
 .popover__image {
   width: 100%;
-  margin-top: $space-m;
   
   img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: $border-radius-m;
   }
 }
 
+.popover__header {
+  display: flex;
+  align-items: center;
+  gap: $space-1s;
+  padding: $space-m 0 0 0;
+}
+
+.popover__title {
+  margin: 0;
+  font-size: $font-l;
+  font-weight: $font-weight-600;
+  color: inherit;
+}
+
 .popover__body {
-  padding: $space-m;
+  padding: $space-1s 0 0 0;
 }
 
 .popover__footer {
@@ -92,32 +97,40 @@ $max-width: 280px;
   align-items: center;
   justify-content: space-between;
   gap: $space-m;
-  padding: 0 $space-m $space-m $space-m;
+  padding: $space-1s 0 0 0;
+}
+
+.popover__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-s;
 }
 
 .popover__step {
-  font-size: $font-s;
+  font-size: $font-m;
   opacity: 0.8;
 }
 
-.popover__button {
-  padding: $space-2s $space-m;
-  border: 1px solid currentColor;
-  border-radius: 9999px;
-  background: transparent;
+.popover__button-skip {
+  opacity: 0.8;
   color: inherit;
-  font-size: $font-s;
-  font-weight: $font-weight-600;
-  cursor: pointer;
-  transition: background-color $timing-1s $easing, opacity $timing-1s $easing;
+  background: transparent !important;
+
+  &:hover {
+    opacity: 1;
+    background: transparent !important;
+  }
+}
+
+.popover__button-primary {
+  color: inherit;
+  border-color: currentColor !important;
+  border-width: $border-width !important;
+  background: transparent;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  &:focus {
-    outline: 2px solid var(--color-focused);
-    outline-offset: 2px;
+    border-color: currentColor !important;
   }
 }
 
@@ -138,7 +151,7 @@ $max-width: 280px;
     width: $space-s;
     height: $space-s;
     transform: translate(-50%, -50%) rotate(45deg);
-    background-color: var(--color-surface-brand-secondary);
+    background-color: var(--color-background-featured-static);
     box-shadow: $elevation-2;
   }
 }

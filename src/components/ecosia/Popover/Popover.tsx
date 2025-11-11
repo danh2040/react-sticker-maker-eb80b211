@@ -1,4 +1,6 @@
 import React from 'react';
+import { Badge } from '../Badge';
+import { Button } from '@/components/ui/button';
 import './Popover.scss';
 
 export type PopoverSide =
@@ -27,11 +29,15 @@ export interface PopoverProps {
   showImage?: boolean;
   showPointer?: boolean;
   showStep?: boolean;
+  showSkipButton?: boolean;
   showTrailingButton?: boolean;
   badge?: string;
+  title?: string;
   imageUrl?: string;
   step?: string;
+  skipButtonText?: string;
   trailingButtonText?: string;
+  onSkipButtonClick?: () => void;
   onTrailingButtonClick?: () => void;
 }
 
@@ -45,11 +51,15 @@ export const Popover: React.FC<PopoverProps> = ({
   showImage = false,
   showPointer = true,
   showStep = false,
+  showSkipButton = false,
   showTrailingButton = false,
   badge = 'New',
+  title,
   imageUrl,
   step = '1 / 2',
+  skipButtonText = 'Skip',
   trailingButtonText = 'Got it',
+  onSkipButtonClick,
   onTrailingButtonClick,
 }) => {
   const hasToggle = !!children;
@@ -85,14 +95,15 @@ export const Popover: React.FC<PopoverProps> = ({
         className={`popover__content ${visible ? 'popover__content--visible' : ''}`}
         data-test-id="popover-content"
       >
-        {showBadge && (
-          <div className="popover__badge">
-            <span className="popover__badge-text">{badge}</span>
-          </div>
-        )}
         {showImage && imageUrl && (
           <div className="popover__image">
             <img src={imageUrl} alt="Popover visual" />
+          </div>
+        )}
+        {(showBadge || title) && (
+          <div className="popover__header">
+            {showBadge && <Badge variant="neutral">{badge}</Badge>}
+            {title && <h3 className="popover__title">{title}</h3>}
           </div>
         )}
         <div className="popover__body">
@@ -102,14 +113,28 @@ export const Popover: React.FC<PopoverProps> = ({
           {showStep && (
             <span className="popover__step">{step}</span>
           )}
-          {showTrailingButton && (
-            <button 
-              className="popover__button"
-              onClick={onTrailingButtonClick}
-            >
-              {trailingButtonText}
-            </button>
-          )}
+          <div className="popover__actions">
+            {showSkipButton && (
+              <Button 
+                variant="ghost"
+                size="default"
+                onClick={onSkipButtonClick}
+                className="popover__button-skip"
+              >
+                {skipButtonText}
+              </Button>
+            )}
+            {showTrailingButton && (
+              <Button 
+                variant="outline"
+                size="default"
+                onClick={onTrailingButtonClick}
+                className="popover__button-primary"
+              >
+                {trailingButtonText}
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>

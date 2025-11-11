@@ -85,6 +85,7 @@ import { Avatar as AvatarUI, AvatarImage, AvatarFallback } from "@/components/ui
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [popoverVisible, setPopoverVisible] = useState(false);
+  const [popoverImageVisible, setPopoverImageVisible] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [showSheet, setShowSheet] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -199,7 +200,7 @@ const Index = () => {
                           className="h-12 hidden dark:block"
                         />
                       </div>
-                    </div>
+          </div>
                     
                     <div className="space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Favicon App (Square)</p>
@@ -210,7 +211,7 @@ const Index = () => {
                           className="h-12"
                         />
                       </div>
-                    </div>
+          </div>
                     
                     <div className="space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Favicon Rounded (Circle)</p>
@@ -660,7 +661,7 @@ const Index = () => {
                 </ComponentDemo>
 
                 <ComponentDemo title="Variants">
-                  <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4">
                     <div className="space-y-2">
                       <p className="text-sm text-muted-foreground font-medium">Primary</p>
                       <Button variant="primary">Primary</Button>
@@ -706,7 +707,7 @@ const Index = () => {
                         </svg>
                       </Button>
                     </div>
-                  </div>
+          </div>
                 </ComponentDemo>
 
               </ComponentSection>
@@ -725,16 +726,16 @@ const Index = () => {
                   <div className="flex flex-wrap gap-4">
                     <div className="space-y-2">
                       <p className="text-sm text-muted-foreground font-medium">Featured</p>
-                      <Badge variant="featured">Featured</Badge>
+            <Badge variant="featured">Featured</Badge>
                     </div>
                     <div className="space-y-2">
                       <p className="text-sm text-muted-foreground font-medium">Neutral</p>
-                      <Badge variant="neutral">Neutral</Badge>
+            <Badge variant="neutral">Neutral</Badge>
                     </div>
                     <div className="space-y-2">
                       <p className="text-sm text-muted-foreground font-medium">Accent Yellow</p>
-                      <Badge variant="accent-yellow">Accent</Badge>
-                    </div>
+            <Badge variant="accent-yellow">Accent</Badge>
+          </div>
                   </div>
                 </ComponentDemo>
 
@@ -799,31 +800,66 @@ const Index = () => {
                 title="Popover"
                 description="Popovers display additional content in a floating container when triggered. They can contain rich content and interactive elements."
               >
-                <ComponentDemo title="Interactive Example">
-                  <Popover
-                    visible={popoverVisible}
-                    side="bottom-center"
-                    showBadge={true}
-                    showStep={true}
-                    showTrailingButton={true}
-                    badge="New"
-                    step="1 / 2"
-                    trailingButtonText="Got it"
-                    onTrailingButtonClick={() => setPopoverVisible(false)}
-                    content={
-                      <div>
-                        <p className="font-semibold mb-2">From trees to seeds</p>
-                        <p className="text-sm">Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...</p>
-                      </div>
-                    }
-                  >
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setPopoverVisible(!popoverVisible)}
-                    >
-                      Toggle Popover
-                    </Button>
-                  </Popover>
+                <ComponentDemo title="Interactive Example - Text Only">
+          <Popover
+            visible={popoverVisible}
+            side="bottom-center"
+            showBadge={true}
+            showStep={true}
+            showSkipButton={true}
+            showTrailingButton={true}
+            badge="New"
+            title="From trees to seeds"
+            step="1 / 2"
+            skipButtonText="Skip"
+            trailingButtonText="Next"
+            onSkipButtonClick={() => setPopoverVisible(false)}
+            onTrailingButtonClick={() => setPopoverVisible(false)}
+            content={
+              <div>
+                <p className="text-sm">Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...</p>
+              </div>
+            }
+          >
+            <Button 
+              variant="outline" 
+              onClick={() => setPopoverVisible(!popoverVisible)}
+            >
+              Toggle Popover
+            </Button>
+          </Popover>
+                </ComponentDemo>
+
+                <ComponentDemo title="Interactive Example - With Image">
+          <Popover
+            visible={popoverImageVisible}
+            side="bottom-center"
+            showBadge={true}
+            showImage={true}
+            showStep={true}
+            showSkipButton={true}
+            showTrailingButton={true}
+            badge="New"
+            title="Popover heading"
+            step="1 / 2"
+            imageUrl={typeFlower}
+            skipButtonText="Skip"
+            trailingButtonText="Next"
+            onSkipButtonClick={() => setPopoverImageVisible(false)}
+            onTrailingButtonClick={() => setPopoverImageVisible(false)}
+            content={
+              <div>
+                <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+              </div>
+            }
+          >
+            <Button 
+              variant="outline" 
+              onClick={() => setPopoverImageVisible(!popoverImageVisible)}
+            >
+              Toggle Popover with Image
+            </Button>
+          </Popover>
                 </ComponentDemo>
 
                 <ComponentDemo title="Positions">
@@ -860,7 +896,7 @@ const Index = () => {
                     >
                       <Button variant="outline">Left Center</Button>
                     </Popover>
-                  </div>
+          </div>
                 </ComponentDemo>
 
               </ComponentSection>
@@ -884,17 +920,17 @@ const Index = () => {
                 description="Accordions allow users to expand and collapse sections of content. They help organize information into manageable sections."
               >
                 <ComponentDemo title="Interactive Example">
-                  <Accordion defaultOpenIndex={0}>
-                    <AccordionItem index={0} title="First Item">
+          <Accordion defaultOpenIndex={0}>
+            <AccordionItem index={0} title="First Item">
                       Content for first item. This section can contain any type of content including text, images, or other components.
-                    </AccordionItem>
-                    <AccordionItem index={1} title="Second Item">
+            </AccordionItem>
+            <AccordionItem index={1} title="Second Item">
                       Content for second item. Each accordion item expands and collapses independently.
-                    </AccordionItem>
-                    <AccordionItem index={2} title="Third Item">
+            </AccordionItem>
+            <AccordionItem index={2} title="Third Item">
                       Content for third item. Only one item can be open at a time by default.
-                    </AccordionItem>
-                  </Accordion>
+            </AccordionItem>
+          </Accordion>
                 </ComponentDemo>
 
               </ComponentSection>
