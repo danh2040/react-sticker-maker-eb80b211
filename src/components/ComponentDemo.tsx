@@ -1,5 +1,5 @@
 interface ComponentDemoProps {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
 }
 

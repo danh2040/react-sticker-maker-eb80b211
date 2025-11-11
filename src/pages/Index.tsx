@@ -33,6 +33,10 @@ import personalImpact from "@/assets/illustrations/personal_impact.svg";
 import readingList from "@/assets/illustrations/reading_list.svg";
 import renewableSolar from "@/assets/illustrations/renewable_solar.svg";
 import renewableWind from "@/assets/illustrations/renewable_wind.svg";
+import safety from "@/assets/illustrations/safety.svg";
+import seedlingsPlanted from "@/assets/illustrations/seedlings_planted.svg";
+import socialProof from "@/assets/illustrations/social_proof.svg";
+import transparency from "@/assets/illustrations/transparency.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -167,13 +171,13 @@ const Index = () => {
                 title="Illustrations"
                 description="Ecosia illustration assets for various use cases"
               >
-                <ComponentDemo title="Variants">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2 mb-4">
-                      <h3 className="text-lg font-semibold">All Variants</h3>
-                      <Badge variant="featured">new</Badge>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <ComponentDemo title={
+                  <div className="flex items-center gap-2">
+                    Variants
+                    <Badge variant="featured">new</Badge>
+                  </div>
+                }>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
                         <img src={activeProjects} alt="Active Projects" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Active Projects</p>
@@ -273,9 +277,28 @@ const Index = () => {
                         <img src={renewableWind} alt="Renewable Wind" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Renewable Wind</p>
                       </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={safety} alt="Safety" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Safety</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={seedlingsPlanted} alt="Seedlings Planted" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Seedlings Planted</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={socialProof} alt="Social Proof" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Social Proof</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={transparency} alt="Transparency" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Transparency</p>
+                      </div>
                     </div>
-                  </div>
-                </ComponentDemo>
+                  </ComponentDemo>
               </ComponentSection>
 
               {/* Button Section */}
