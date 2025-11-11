@@ -7,6 +7,8 @@ import { ComponentDemo } from "@/components/ComponentDemo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import ecosiaLogoDark from "@/assets/ecosia-logo-dark.svg";
+import ecosiaLogoLight from "@/assets/ecosia-logo-light.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -70,6 +72,26 @@ const Index = () => {
           {/* Main Content */}
           <main className="flex-1 px-4 md:px-6 py-8">
             <div className="max-w-5xl mx-auto">
+              {/* Logo Section */}
+              <ComponentSection
+                id="logo"
+                title="Logo"
+                description="The Ecosia logo represents our brand identity. Use the appropriate variant for light or dark backgrounds."
+              >
+                <div className="flex items-center justify-center py-12 bg-muted rounded-lg">
+                  <img 
+                    src={ecosiaLogoLight} 
+                    alt="Ecosia Logo" 
+                    className="h-8 dark:hidden"
+                  />
+                  <img 
+                    src={ecosiaLogoDark} 
+                    alt="Ecosia Logo" 
+                    className="h-8 hidden dark:block"
+                  />
+                </div>
+              </ComponentSection>
+
               {/* Button Section */}
               <ComponentSection
                 id="button"
