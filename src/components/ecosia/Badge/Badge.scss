@@ -13,7 +13,7 @@
 
   border-radius: $border-radius-full;
 
-  color: hsl(var(--color-text-inverse-primary));
+  color: var(--color-text-inverse-primary);
   font-size: $font-s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,18 +23,15 @@
 }
 
 .badge--variant-featured {
-  background-color: hsl(var(--color-background-featured-static));
-
-  color: hsl(var(--color-text-static-dark));
-
+  background-color: var(--color-background-featured-static);
+  color: var(--color-text-static-dark);
 }
 
 .badge--variant-neutral {
-  background-color: hsl(var(--color-background-inverse-primary));
+  background-color: var(--color-background-inverse-primary);
 }
 
 .badge--variant-accent-yellow {
   background: $n-yellow-200;
-
   color: $c-gray-90;
 }

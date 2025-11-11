@@ -58,8 +58,8 @@
   --color-surface-brand-secondary: #{$c-dark-green-50};
   
   // Elevation shadows
-  --color-elevation-layer-1: #{rgba($c-gray-90, 18%)};
-  --color-elevation-layer-2: #{rgba($c-gray-90, 6%)};
+  --color-elevation-layer-1: rgba(25, 25, 25, 0.18);
+  --color-elevation-layer-2: rgba(25, 25, 25, 0.06);
 }
 
 // Basic resets and global styles
