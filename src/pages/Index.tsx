@@ -23,6 +23,16 @@ import download from "@/assets/illustrations/download.svg";
 import education from "@/assets/illustrations/education.svg";
 import excitement from "@/assets/illustrations/excitement.svg";
 import featureAdoption from "@/assets/illustrations/feature_adoption.svg";
+import history from "@/assets/illustrations/history.svg";
+import incognito from "@/assets/illustrations/incognito.svg";
+import location from "@/assets/illustrations/location.svg";
+import missionContinuity from "@/assets/illustrations/mission_continuity.svg";
+import people from "@/assets/illustrations/people.svg";
+import person from "@/assets/illustrations/person.svg";
+import personalImpact from "@/assets/illustrations/personal_impact.svg";
+import readingList from "@/assets/illustrations/reading_list.svg";
+import renewableSolar from "@/assets/illustrations/renewable_solar.svg";
+import renewableWind from "@/assets/illustrations/renewable_wind.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -212,6 +222,56 @@ const Index = () => {
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
                         <img src={featureAdoption} alt="Feature Adoption" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Feature Adoption</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={history} alt="History" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">History</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={incognito} alt="Incognito" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Incognito</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={location} alt="Location" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Location</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={missionContinuity} alt="Mission Continuity" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Mission Continuity</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={people} alt="People" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">People</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={person} alt="Person" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Person</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={personalImpact} alt="Personal Impact" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Personal Impact</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={readingList} alt="Reading List" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Reading List</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={renewableSolar} alt="Renewable Solar" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Renewable Solar</p>
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
+                        <img src={renewableWind} alt="Renewable Wind" className="h-20 w-20" />
+                        <p className="text-sm text-muted-foreground text-center">Renewable Wind</p>
                       </div>
                     </div>
                   </div>
