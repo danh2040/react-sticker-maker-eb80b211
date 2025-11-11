@@ -9,6 +9,10 @@ import { Menu } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ecosiaLogoDark from "@/assets/ecosia-logo-dark.svg";
 import ecosiaLogoLight from "@/assets/ecosia-logo-light.svg";
+import ecosiaLogoBrowserDark from "@/assets/ecosia-logo-browser-dark.svg";
+import ecosiaLogoBrowserLight from "@/assets/ecosia-logo-browser-light.svg";
+import ecosiaFaviconApp from "@/assets/ecosia-favicon-app.svg";
+import ecosiaFaviconRounded from "@/assets/ecosia-favicon-rounded.svg";
 
 const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -78,18 +82,63 @@ const Index = () => {
                 title="Logo"
                 description="The Ecosia logo represents our brand identity. Use the appropriate variant for light or dark backgrounds."
               >
-                <div className="flex items-center justify-center py-12 bg-muted rounded-lg">
-                  <img 
-                    src={ecosiaLogoLight} 
-                    alt="Ecosia Logo" 
-                    className="h-8 dark:hidden"
-                  />
-                  <img 
-                    src={ecosiaLogoDark} 
-                    alt="Ecosia Logo" 
-                    className="h-8 hidden dark:block"
-                  />
-                </div>
+                <ComponentDemo title="Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground font-medium">Minimal Logo</p>
+                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                        <img 
+                          src={ecosiaLogoLight} 
+                          alt="Ecosia Minimal Logo" 
+                          className="h-7 dark:hidden"
+                        />
+                        <img 
+                          src={ecosiaLogoDark} 
+                          alt="Ecosia Minimal Logo" 
+                          className="h-7 hidden dark:block"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground font-medium">Browser Logo</p>
+                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                        <img 
+                          src={ecosiaLogoBrowserLight} 
+                          alt="Ecosia Browser Logo" 
+                          className="h-12 dark:hidden"
+                        />
+                        <img 
+                          src={ecosiaLogoBrowserDark} 
+                          alt="Ecosia Browser Logo" 
+                          className="h-12 hidden dark:block"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground font-medium">Favicon App (Square)</p>
+                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                        <img 
+                          src={ecosiaFaviconApp} 
+                          alt="Ecosia Favicon App" 
+                          className="h-12"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground font-medium">Favicon Rounded (Circle)</p>
+                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                        <img 
+                          src={ecosiaFaviconRounded} 
+                          alt="Ecosia Favicon Rounded" 
+                          className="h-12"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </ComponentDemo>
               </ComponentSection>
 
               {/* Button Section */}
