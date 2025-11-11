@@ -1165,7 +1165,7 @@ const Index = () => {
                 <ComponentDemo title="Variants">
                   <div className="space-y-8">
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Glass Effect</h4>
+                      <h4 className="text-sm font-medium">Solid</h4>
                       <EcosiaGlobalCounter
                         treeCount="200M+"
                         investmentCount="€50M+"

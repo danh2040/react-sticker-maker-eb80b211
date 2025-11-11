@@ -32,7 +32,7 @@ export function EcosiaGlobalCounter({
       )}
     >
       <div className={cn("grid", vertical ? "grid-cols-1 divide-y" : "md:grid-cols-2 md:divide-x divide-y md:divide-y-0", "divide-[hsl(var(--decorative-border-1))]")}>
-        <div className="p-0">
+        <div className="px-4">
           <EcosiaCounter
             icon={treeIcon}
             count={treeCount}
@@ -42,7 +42,7 @@ export function EcosiaGlobalCounter({
             border={false}
           />
         </div>
-        <div className="p-0">
+        <div className="px-4">
           <EcosiaCounter
             icon={moneyIcon}
             count={investmentCount}

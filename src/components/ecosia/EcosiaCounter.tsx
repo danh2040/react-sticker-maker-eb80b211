@@ -30,8 +30,8 @@ export function EcosiaCounter({
   return (
     <div
       className={cn(
-        "grid gap-2 p-4 rounded-2xl min-h-[69px]",
-        vertical ? "grid-cols-1 grid-rows-[auto_auto_auto]" : "grid-cols-[auto_1fr] grid-rows-[auto_auto]",
+        "grid p-4 rounded-2xl min-h-[69px]",
+        vertical ? "grid-cols-1 grid-rows-[auto_auto_auto] gap-2" : "grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-x-2",
         glass && "bg-[hsl(var(--background-glass))] backdrop-blur-[24px]",
         !glass && "bg-[hsl(var(--background-elevation-1))]",
         border && "border border-[hsl(var(--decorative-border-1))]"

@@ -191,7 +191,7 @@ All colors MUST be HSL.
     --decorative-border-1: 0 0% 87%;
 
     /* Background variants */
-    --background-elevation-1: 0 0% 97%;
+    --background-elevation-1: 0 0% 100%;
     --background-elevation-2: 0 0% 100%;
     --background-quaternary: 0 0% 93%;
     --background-glass: 0 0% 100% / 0.8;
