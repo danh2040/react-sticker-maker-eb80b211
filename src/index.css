@@ -118,10 +118,10 @@ All colors MUST be HSL.
     /* Gray Scale */
     --gray-10: 0 0% 97%;
     --gray-20: 0 0% 93%;
-    --gray-30: 0 0% 87%;
-    --gray-40: 0 0% 80%;
-    --gray-50: 0 0% 67%;
-    --gray-60: 0 0% 47%;
+    --gray-30: 60 10% 87%;
+    --gray-40: 60 6% 74%;
+    --gray-50: 0 0% 42%;
+    --gray-60: 0 0% 30%;
     --gray-70: 0 0% 20%;
     --gray-80: 0 0% 15%;
     --gray-90: 0 0% 10%;
@@ -151,8 +151,8 @@ All colors MUST be HSL.
     --destructive: 353 98% 63%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 87%;
-    --input: 0 0% 87%;
+    --border: 60 10% 87%;
+    --input: 60 10% 87%;
     --ring: 72 79% 70%;
 
     --radius: 0.5rem;
@@ -184,15 +184,15 @@ All colors MUST be HSL.
     --toast-negative-foreground: 0 0% 100%;
 
     /* Form borders */
-    --form-border-default: 0 0% 80%;
-    --form-border-hover: 0 0% 67%;
+    --form-border-default: 60 6% 74%;
+    --form-border-hover: 0 0% 42%;
     --form-border-primary-active: 72 79% 70%;
 
     /* Overlay */
     --overlay-primary: 0 0% 0% / 0.5;
 
     /* Decorative borders */
-    --decorative-border-1: 0 0% 87%;
+    --decorative-border-1: 60 10% 87%;
 
     /* Background variants */
     --background-elevation-1: 0 0% 100%;
@@ -215,8 +215,8 @@ All colors MUST be HSL.
     --color-button-background-featured-hover: 72 51% 60%;
     --color-button-background-featured-active: 72 42% 51%;
     --color-button-background-secondary: 0 0% 100%;
-    --color-button-background-secondary-hover: 0 0% 87%;
-    --color-button-background-secondary-active: 0 0% 74%;
+    --color-button-background-secondary-hover: 60 10% 87%;
+    --color-button-background-secondary-active: 60 6% 74%;
     --color-button-background-negative: 349 89% 28%;
     --color-button-background-negative-hover: 349 91% 38%;
     --color-button-background-negative-active: 349 89% 49%;
@@ -227,7 +227,7 @@ All colors MUST be HSL.
 
     /* Additional semantic colors */
     --color-highlight-primary: 0 0% 20% / 0.16;
-    --color-disabled: 0 0% 87%;
+    --color-disabled: 60 10% 87%;
     --color-success: 125 100% 16%;
     --color-error: 349 91% 38%;
   }
@@ -289,12 +289,12 @@ All colors MUST be HSL.
     --toast-negative-foreground: 0 0% 0%;
 
     /* Form borders - dark mode */
-    --form-border-default: 0 0% 20%;
-    --form-border-hover: 0 0% 47%;
-    --form-border-primary-active: 72 79% 70%;
+    --form-border-default: 0 0% 42%;
+    --form-border-hover: 0 0% 30%;
+    --form-border-primary-active: 0 0% 100%;
 
     /* Decorative borders - dark mode */
-    --decorative-border-1: 0 0% 20%;
+    --decorative-border-1: 0 0% 47%;
 
     /* Background variants - dark mode */
     --background-elevation-1: 0 0% 15%;
@@ -311,14 +311,14 @@ All colors MUST be HSL.
 
     /* Button semantic colors - dark mode */
     --color-button-background-primary: 0 0% 100%;
-    --color-button-background-primary-hover: 0 0% 87%;
-    --color-button-background-primary-active: 0 0% 74%;
+    --color-button-background-primary-hover: 60 10% 87%;
+    --color-button-background-primary-active: 60 6% 74%;
     --color-button-background-featured: 72 79% 70%;
     --color-button-background-featured-hover: 72 51% 60%;
     --color-button-background-featured-active: 72 42% 51%;
     --color-button-background-secondary: 0 0% 10%;
     --color-button-background-secondary-hover: 0 0% 20%;
-    --color-button-background-secondary-active: 0 0% 30%;
+    --color-button-background-secondary-active: 0 0% 42%;
     --color-button-background-negative: 2 93% 84%;
     --color-button-background-negative-hover: 1 98% 76%;
     --color-button-background-negative-active: 353 98% 63%;
