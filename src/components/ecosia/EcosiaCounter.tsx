@@ -45,7 +45,7 @@ export function EcosiaCounter({
       <div className="flex items-center justify-center" style={{ gridArea: "icon" }}>
         <div className={cn(iconSizeClasses[size])}>{icon}</div>
       </div>
-      <div className="text-xl font-bold text-foreground" style={{ gridArea: "count" }}>
+      <div className="text-2xl font-bold font-brand text-foreground" style={{ gridArea: "count" }}>
         {count}
       </div>
       <div className="text-sm text-muted-foreground" style={{ gridArea: "description" }}>
