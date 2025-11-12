@@ -41,11 +41,11 @@ export function EcosiaCheckbox({
             "hover:before:border-[hsl(var(--form-border-hover))]",
             
             // Focus state
-            "peer-focus:outline peer-focus:outline-2 peer-focus:outline-[hsl(var(--form-border-primary-active))] peer-focus:outline-offset-2",
-            "peer-focus:before:border-[hsl(var(--form-border-primary-active))]",
+            "peer-focus:outline-none",
+            "peer-focus:before:border-[hsl(var(--color-text-primary))]",
             
             // Checked state - CRITICAL: border becomes 10px, NOT filled background
-            "peer-checked:before:border-[10px] peer-checked:before:border-[hsl(var(--color-brand-primary))]",
+            "peer-checked:before:!border-[10px] peer-checked:before:!border-[hsl(var(--color-text-primary))]",
             
             // Disabled state
             "peer-disabled:pointer-events-none peer-disabled:text-[hsl(var(--color-disabled))]",
