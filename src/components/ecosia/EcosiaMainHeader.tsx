@@ -11,7 +11,6 @@ interface EcosiaMainHeaderProps {
   showInstall?: boolean;
   sticky?: boolean;
   compact?: boolean;
-  rounded?: boolean;
   onSearch?: (query: string) => void;
   className?: string;
 }
@@ -23,7 +22,6 @@ export function EcosiaMainHeader({
   showInstall = false,
   sticky = false,
   compact = false,
-  rounded = false,
   onSearch,
   className,
 }: EcosiaMainHeaderProps) {
@@ -57,7 +55,6 @@ export function EcosiaMainHeader({
       className={cn(
         "w-full bg-background border-b border-border transition-all duration-300",
         sticky && "sticky top-0 z-40 backdrop-blur-sm",
-        rounded && "rounded-full mx-4 mt-4 border",
         className
       )}
     >

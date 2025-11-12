@@ -65,12 +65,14 @@ $max-width: 280px;
 
 .popover__image {
   width: 100%;
+  transition: opacity 200ms ease-in-out;
   
   img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: $border-radius-m;
+    transition: opacity 200ms ease-in-out;
   }
 }
 
@@ -79,21 +81,35 @@ $max-width: 280px;
   align-items: center;
   gap: $space-1s;
   padding: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .popover__image + .popover__header {
-  padding: $space-m 0 0 0;
+  padding: $space-1s 0 0 0;
 }
 
 .popover__title {
   margin: 0;
-  font-size: $font-l;
-  font-weight: $font-weight-600;
+  font-size: $font-m;
+  font-weight: $font-weight-700;
   color: inherit;
+  transition: opacity 200ms ease-in-out;
+  animation: fadeIn 200ms ease-in-out;
 }
 
 .popover__body {
   padding: $space-1s 0 0 0;
+  transition: opacity 200ms ease-in-out;
+  animation: fadeIn 200ms ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .popover__footer {
@@ -101,23 +117,31 @@ $max-width: 280px;
   align-items: center;
   justify-content: space-between;
   gap: $space-m;
-  padding: $space-1s 0 0 0;
+  padding: $space-m 0 0 0;
 }
 
 .popover__actions {
   display: flex;
   align-items: center;
   gap: $space-s;
+  transition: opacity 200ms ease-in-out;
+}
+
+.popover__actions button {
+  transition: opacity 200ms ease-in-out;
+  animation: fadeIn 200ms ease-in-out;
 }
 
 .popover__step {
   font-size: $font-m;
   opacity: 0.8;
+  transition: opacity 200ms ease-in-out;
+  animation: fadeIn 200ms ease-in-out;
 }
 
 .popover__button-skip {
   opacity: 0.8;
-  color: inherit;
+  color: var(--color-text-static-dark) !important;
   background: transparent !important;
 
   &:hover {
@@ -127,14 +151,14 @@ $max-width: 280px;
 }
 
 .popover__button-primary {
-  color: inherit;
-  border-color: currentColor !important;
+  color: var(--color-text-static-dark) !important;
+  border-color: var(--color-text-static-dark) !important;
   border-width: $border-width !important;
   background: transparent;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
-    border-color: currentColor !important;
+    border-color: var(--color-text-static-dark) !important;
   }
 }
 
@@ -144,7 +168,6 @@ $max-width: 280px;
   width: $space-m * 2;
   height: $space-m;
   margin-top: -1px;
-  overflow: hidden;
   pointer-events: none;
 
   &::after {
@@ -376,9 +399,9 @@ $max-width: 280px;
   }
 
   .popover__arrow {
-    left: $space-m;
+    left: 50%;
     bottom: -$space-m;
-    transform: translate(0, 0) rotate(180deg);
+    transform: translate(-50%, 0) rotate(180deg);
   }
 }
 

@@ -29,6 +29,8 @@ export interface TooltipProps {
   colorVariant?: TooltipColorVariant;
   closeOnScroll?: boolean;
   className?: string;
+  visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
 }
 
 const HIDE_DELAY = 300;
@@ -47,6 +49,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   colorVariant = 'default',
   closeOnScroll = true,
   className = '',
+  visible: controlledVisible,
+  onVisibleChange,
 }) => {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -54,7 +58,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
-  const visible = opened || (openOnHover && hovered) || (openOnFocus && focused);
+  const internalVisible = opened || (openOnHover && hovered) || (openOnFocus && focused);
+  // If controlled and explicitly false, hide. Otherwise allow hover/focus to work
+  const visible = controlledVisible === false ? false : (controlledVisible || internalVisible);
 
   const classes = [
     'tooltip',
@@ -87,16 +93,25 @@ export const Tooltip: React.FC<TooltipProps> = ({
       timeoutRef.current = null;
     }
     setHovered(true);
+    if (onVisibleChange) {
+      onVisibleChange(true);
+    }
   };
 
   const handleMouseLeave = () => {
     if (!timeoutRef.current) {
       timeoutRef.current = setTimeout(() => {
         setHovered(false);
+        if (onVisibleChange) {
+          onVisibleChange(false);
+        }
       }, HIDE_DELAY);
     }
     if (closeOnMouseLeave) {
       setOpened(false);
+      if (onVisibleChange) {
+        onVisibleChange(false);
+      }
     }
   };
 
@@ -106,18 +121,28 @@ export const Tooltip: React.FC<TooltipProps> = ({
       timeoutRef.current = null;
     }
     setFocused(true);
+    if (onVisibleChange) {
+      onVisibleChange(true);
+    }
   };
 
   const handleFocusOut = () => {
     if (!timeoutRef.current) {
       timeoutRef.current = setTimeout(() => {
         setFocused(false);
+        if (onVisibleChange) {
+          onVisibleChange(false);
+        }
       }, HIDE_DELAY);
     }
   };
 
   const handleToggle = () => {
-    setOpened(!opened);
+    const newOpened = !opened;
+    setOpened(newOpened);
+    if (onVisibleChange) {
+      onVisibleChange(newOpened);
+    }
   };
 
   const handleClose = () => {

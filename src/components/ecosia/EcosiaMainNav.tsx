@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MainNavButton } from "./MainNavButton";
+import { MainNavDropdown } from "./MainNavDropdown";
 import { cn } from "@/lib/utils";
 
 interface NavLink {
@@ -20,6 +22,9 @@ interface EcosiaMainNavProps {
   onSignIn?: () => void;
   onSignOut?: () => void;
   isMobile?: boolean;
+  seedValue?: string;
+  avatarSrc?: string;
+  notificationPill?: boolean;
 }
 
 export function EcosiaMainNav({
@@ -29,6 +34,9 @@ export function EcosiaMainNav({
   onSignIn,
   onSignOut,
   isMobile = false,
+  seedValue = "1",
+  avatarSrc,
+  notificationPill = false,
 }: EcosiaMainNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -57,15 +65,14 @@ export function EcosiaMainNav({
 
   return (
     <div className="relative" ref={menuRef}>
-      <Button
-        variant="ghost"
-        size="icon"
+      <MainNavButton
+        value={seedValue}
+        signedIn={isSignedIn}
+        avatarSrc={avatarSrc}
+        notificationPill={notificationPill}
+        state={isOpen ? "Active" : "Default"}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Menu"
-        aria-expanded={isOpen}
-      >
-        {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-      </Button>
+      />
 
       {isOpen && (
         <>
@@ -87,16 +94,25 @@ export function EcosiaMainNav({
               </div>
             </div>
           ) : (
-            <div className="absolute right-0 mt-1s w-screen max-w-md max-h-[75vh] overflow-y-auto bg-background border border-[hsl(var(--decorative-border-1))] rounded-2l shadow-elevation-2 z-50 animate-scale-in">
-              <div className="p-m">
-                <NavContent
-                  groups={groups}
-                  footerLinks={footerLinks}
-                  isSignedIn={isSignedIn}
-                  onSignIn={onSignIn}
-                  onSignOut={onSignOut}
-                />
-              </div>
+            <div className="absolute right-[-12px] top-[52px] z-50">
+              <MainNavDropdown
+                signedIn={isSignedIn}
+                userName={isSignedIn ? "Julia Baumman" : "Guest user"}
+                userLevel={isSignedIn ? "Level 2 - Green explorer" : "Level 1 - Ecocurious"}
+                levelProgress={isSignedIn ? 81 : 27}
+                avatarSrc={avatarSrc}
+                menuSections={groups.map(group => ({
+                  title: group.title,
+                  items: group.links.map(link => ({
+                    label: link.label,
+                    href: link.href,
+                    badge: link.label === 'Collectibles' ? 'New' : undefined
+                  }))
+                }))}
+                footerLinks={footerLinks}
+                onSignUp={onSignIn}
+                onSignOut={onSignOut}
+              />
             </div>
           )}
         </>

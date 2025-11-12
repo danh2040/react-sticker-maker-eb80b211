@@ -232,6 +232,7 @@ All colors MUST be HSL.
     --color-disabled: 60 10% 87%;
     --color-success: 125 100% 16%;
     --color-error: 349 91% 38%;
+    --color-icon-strong: 0 0% 20%;
   }
 
   .dark {
@@ -336,6 +337,7 @@ All colors MUST be HSL.
     --color-disabled: 0 0% 47%;
     --color-success: 111 87% 78%;
     --color-error: 2 93% 84%;
+    --color-icon-strong: 0 0% 97%;
   }
 }
 

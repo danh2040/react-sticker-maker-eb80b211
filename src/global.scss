@@ -54,6 +54,9 @@
   --color-focused: #{$c-blue-40};
   --color-highlighter: #{$transparent-grellow-32};
   
+  // Icon colors
+  --color-icon-strong: #{$c-gray-70};
+  
   // Surface colors
   --color-surface-brand-secondary: #{$c-dark-green-50};
   
@@ -98,4 +101,7 @@ button {
   margin: 0 auto;
   padding: 0 $space-l;
 }
+
+// Illustration styling is now handled by the Illustration component
+// See src/components/Illustration.scss
 
