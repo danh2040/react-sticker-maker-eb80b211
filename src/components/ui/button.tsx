@@ -36,12 +36,48 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconOnly?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, iconLeft, iconRight, iconOnly, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+    
+    // When asChild is true, Slot expects exactly one child - don't apply icon logic
+    if (asChild) {
+      return (
+        <Comp 
+          className={cn(buttonVariants({ variant, size, className }))} 
+          ref={ref} 
+          {...props}
+        >
+          {children}
+        </Comp>
+      );
+    }
+    
+    // Normal button rendering with icon support
+    const showText = !iconOnly && !!children;
+    const isIconOnly = iconOnly || (!children && (!!iconLeft || !!iconRight));
+    
+    return (
+      <Comp 
+        className={cn(
+          buttonVariants({ variant, size, className }), 
+          isIconOnly && "p-0 aspect-square"
+        )} 
+        ref={ref} 
+        {...props}
+      >
+        {iconLeft && showText && <span className="flex items-center">{iconLeft}</span>}
+        {iconLeft && isIconOnly && !iconRight && iconLeft}
+        {showText && children}
+        {iconRight && showText && <span className="flex items-center">{iconRight}</span>}
+        {iconRight && isIconOnly && !iconLeft && iconRight}
+      </Comp>
+    );
   },
 );
 Button.displayName = "Button";

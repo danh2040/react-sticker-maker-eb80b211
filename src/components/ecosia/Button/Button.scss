@@ -129,3 +129,36 @@
     background-color: hsl(var(--color-button-background-negative-active, #{$c-red-30}));
   }
 }
+
+// Icon-only button (circular with equal spacing)
+.button--icon-only {
+  padding: 0;
+  aspect-ratio: 1;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Match the height of text buttons for each size
+  &.button--size-sm {
+    width: $space-2l;
+    height: $space-2l;
+  }
+  
+  &.button--size-default {
+    width: $space-3l;
+    height: $space-3l;
+  }
+  
+  &.button--size-lg {
+    width: $space-4l;
+    height: $space-4l;
+  }
+}
+
+.button__icon-left,
+.button__icon-right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

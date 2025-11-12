@@ -42,10 +42,13 @@ export function EcosiaCheckbox({
             
             // Focus state
             "peer-focus:outline peer-focus:outline-2 peer-focus:outline-[hsl(var(--form-border-primary-active))] peer-focus:outline-offset-2",
+            // Focus border only applies when not checked (checked state will override)
             "peer-focus:before:border-[hsl(var(--form-border-primary-active))]",
             
             // Checked state - CRITICAL: border becomes 10px, NOT filled background
-            "peer-checked:before:border-[10px] peer-checked:before:border-[hsl(var(--color-brand-primary))]",
+            // Use dark color (text-primary) instead of brand-primary to avoid green
+            // This must come after focus to ensure it takes precedence
+            "peer-checked:before:border-[10px] peer-checked:before:border-[hsl(var(--color-text-primary))]",
             
             // Disabled state
             "peer-disabled:pointer-events-none peer-disabled:text-[hsl(var(--color-disabled))]",

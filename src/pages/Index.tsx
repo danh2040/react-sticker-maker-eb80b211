@@ -1,11 +1,11 @@
-import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover, Button } from "@/components/ecosia";
+import { Badge, AdPill, Accordion, AccordionItem, Avatar, Switch, Tooltip, Slider, Popover, Button, MainNavButton, MainNavDropdown } from "@/components/ecosia";
 import { useState } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { ComponentSection } from "@/components/ComponentSection";
 import { ComponentDemo } from "@/components/ComponentDemo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Plus, ChevronRight } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ecosiaLogoDark from "@/assets/ecosia-logo-dark.svg";
 import ecosiaLogoLight from "@/assets/ecosia-logo-light.svg";
@@ -34,6 +34,7 @@ import { EcosiaAISearchButton } from "@/components/ecosia/EcosiaAISearchButton";
 import { EcosiaMainNav } from "@/components/ecosia/EcosiaMainNav";
 import { EcosiaMainHeader } from "@/components/ecosia/EcosiaMainHeader";
 import { EcosiaMainFooter } from "@/components/ecosia/EcosiaMainFooter";
+import { Illustration } from "@/components/Illustration";
 import activeProjects from "@/assets/illustrations/active_projects.svg";
 import ai from "@/assets/illustrations/AI.svg";
 import areaRestored from "@/assets/illustrations/area_restored.svg";
@@ -86,6 +87,35 @@ const Index = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [popoverVisible, setPopoverVisible] = useState(false);
   const [popoverImageVisible, setPopoverImageVisible] = useState(false);
+  const [popoverPositions, setPopoverPositions] = useState({
+    topCenter: false,
+    rightCenter: false,
+    bottomLeft: false,
+    leftCenter: false,
+  });
+  const [tooltipPositions, setTooltipPositions] = useState({
+    interactive: false,
+    top: false,
+    right: false,
+    bottom: false,
+    left: false,
+  });
+  const [popoverShowBadge, setPopoverShowBadge] = useState(true);
+  const [popoverShowFooter, setPopoverShowFooter] = useState(true);
+  const [popoverShowImage, setPopoverShowImage] = useState(false);
+  const [popoverStep, setPopoverStep] = useState("1 / 2");
+  const [popoverTitle, setPopoverTitle] = useState("From trees to seeds");
+  const [popoverContent, setPopoverContent] = useState("Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...");
+  const [popoverIsStep2, setPopoverIsStep2] = useState(false);
+  const [popoverSkipButtonText, setPopoverSkipButtonText] = useState("Skip");
+  const [popoverNextButtonText, setPopoverNextButtonText] = useState("Next");
+  // Image popover state
+  const [popoverImageStep, setPopoverImageStep] = useState("1 / 2");
+  const [popoverImageTitle, setPopoverImageTitle] = useState("Popover heading");
+  const [popoverImageContent, setPopoverImageContent] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.");
+  const [popoverImageIsStep2, setPopoverImageIsStep2] = useState(false);
+  const [popoverImageSkipButtonText, setPopoverImageSkipButtonText] = useState("Skip");
+  const [popoverImageNextButtonText, setPopoverImageNextButtonText] = useState("Next");
   const [showToast, setShowToast] = useState(false);
   const [showSheet, setShowSheet] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -93,6 +123,10 @@ const Index = () => {
   const [radioValue, setRadioValue] = useState("option1");
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [toastVariant, setToastVariant] = useState<"neutral" | "informative" | "positive" | "negative">("neutral");
+  const [buttonShowText, setButtonShowText] = useState(true);
+  const [buttonShowIconLeft, setButtonShowIconLeft] = useState(false);
+  const [buttonShowIconRight, setButtonShowIconRight] = useState(false);
+  const [buttonIconOnly, setButtonIconOnly] = useState(false);
   
   const sliderData = [
     {
@@ -169,10 +203,10 @@ const Index = () => {
                 description="The Ecosia logo represents our brand identity. Use the appropriate variant for light or dark backgrounds."
               >
                 <ComponentDemo title="Variants">
-                  <div className="space-y-8">
-                    <div className="space-y-3">
+                  <div className="grid grid-cols-4 gap-4">
+                    <div className="flex flex-col space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Minimal Logo</p>
-                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                      <div className="flex items-center justify-center bg-muted rounded-lg aspect-square w-full">
                         <img 
                           src={ecosiaLogoLight} 
                           alt="Ecosia Minimal Logo" 
@@ -186,9 +220,9 @@ const Index = () => {
                       </div>
                     </div>
                     
-                    <div className="space-y-3">
+                    <div className="flex flex-col space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Browser Logo</p>
-                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                      <div className="flex items-center justify-center bg-muted rounded-lg aspect-square w-full">
                         <img 
                           src={ecosiaLogoBrowserLight} 
                           alt="Ecosia Browser Logo" 
@@ -200,22 +234,22 @@ const Index = () => {
                           className="h-12 hidden dark:block"
                         />
                       </div>
-          </div>
+                    </div>
                     
-                    <div className="space-y-3">
+                    <div className="flex flex-col space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Favicon App (Square)</p>
-                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                      <div className="flex items-center justify-center bg-muted rounded-lg aspect-square w-full">
                         <img 
                           src={ecosiaFaviconApp} 
                           alt="Ecosia Favicon App" 
                           className="h-12"
                         />
                       </div>
-          </div>
+                    </div>
                     
-                    <div className="space-y-3">
+                    <div className="flex flex-col space-y-3">
                       <p className="text-sm text-muted-foreground font-medium">Favicon Rounded (Circle)</p>
-                      <div className="flex items-center justify-center py-8 bg-muted rounded-lg">
+                      <div className="flex items-center justify-center bg-muted rounded-lg aspect-square w-full">
                         <img 
                           src={ecosiaFaviconRounded} 
                           alt="Ecosia Favicon Rounded" 
@@ -241,122 +275,122 @@ const Index = () => {
                 }>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={activeProjects} alt="Active Projects" className="h-20 w-20" />
+                        <Illustration src={activeProjects} alt="Active Projects" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Active Projects</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={ai} alt="AI" className="h-20 w-20" />
+                        <Illustration src={ai} alt="AI" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">AI</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={areaRestored} alt="Area Restored" className="h-20 w-20" />
+                        <Illustration src={areaRestored} alt="Area Restored" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Area Restored</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={bookmark} alt="Bookmark" className="h-20 w-20" />
+                        <Illustration src={bookmark} alt="Bookmark" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Bookmark</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={celebration} alt="Celebration" className="h-20 w-20" />
+                        <Illustration src={celebration} alt="Celebration" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Celebration</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={control} alt="Control" className="h-20 w-20" />
+                        <Illustration src={control} alt="Control" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Control</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={download} alt="Download" className="h-20 w-20" />
+                        <Illustration src={download} alt="Download" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Download</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={education} alt="Education" className="h-20 w-20" />
+                        <Illustration src={education} alt="Education" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Education</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={excitement} alt="Excitement" className="h-20 w-20" />
+                        <Illustration src={excitement} alt="Excitement" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Excitement</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={featureAdoption} alt="Feature Adoption" className="h-20 w-20" />
+                        <Illustration src={featureAdoption} alt="Feature Adoption" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Feature Adoption</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={history} alt="History" className="h-20 w-20" />
+                        <Illustration src={history} alt="History" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">History</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={incognito} alt="Incognito" className="h-20 w-20" />
+                        <Illustration src={incognito} alt="Incognito" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Incognito</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={location} alt="Location" className="h-20 w-20" />
+                        <Illustration src={location} alt="Location" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Location</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={missionContinuity} alt="Mission Continuity" className="h-20 w-20" />
+                        <Illustration src={missionContinuity} alt="Mission Continuity" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Mission Continuity</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={people} alt="People" className="h-20 w-20" />
+                        <Illustration src={people} alt="People" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">People</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={person} alt="Person" className="h-20 w-20" />
+                        <Illustration src={person} alt="Person" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Person</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={personalImpact} alt="Personal Impact" className="h-20 w-20" />
+                        <Illustration src={personalImpact} alt="Personal Impact" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Personal Impact</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={readingList} alt="Reading List" className="h-20 w-20" />
+                        <Illustration src={readingList} alt="Reading List" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Reading List</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={renewableSolar} alt="Renewable Solar" className="h-20 w-20" />
+                        <Illustration src={renewableSolar} alt="Renewable Solar" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Renewable Solar</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={renewableWind} alt="Renewable Wind" className="h-20 w-20" />
+                        <Illustration src={renewableWind} alt="Renewable Wind" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Renewable Wind</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={safety} alt="Safety" className="h-20 w-20" />
+                        <Illustration src={safety} alt="Safety" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Safety</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={seedlingsPlanted} alt="Seedlings Planted" className="h-20 w-20" />
+                        <Illustration src={seedlingsPlanted} alt="Seedlings Planted" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Seedlings Planted</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={socialProof} alt="Social Proof" className="h-20 w-20" />
+                        <Illustration src={socialProof} alt="Social Proof" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Social Proof</p>
                       </div>
 
                       <div className="flex flex-col items-center gap-4 p-6 border border-border rounded-lg bg-card">
-                        <img src={transparency} alt="Transparency" className="h-20 w-20" />
+                        <Illustration src={transparency} alt="Transparency" className="h-20 w-20" />
                         <p className="text-sm text-muted-foreground text-center">Transparency</p>
                       </div>
                     </div>
@@ -655,9 +689,80 @@ const Index = () => {
                 description="Buttons allow users to take actions and make choices with a single tap. They communicate actions that users can take."
               >
                 <ComponentDemo title="Interactive Example">
-                  <Button variant="primary" onClick={() => alert('Button clicked!')}>
-                    Click Me
-                  </Button>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <Button 
+                        variant="primary" 
+                        onClick={() => alert('Button clicked!')}
+                        iconLeft={buttonShowIconLeft ? <Plus className="w-4 h-4" /> : undefined}
+                        iconRight={buttonShowIconRight ? <ChevronRight className="w-4 h-4" /> : undefined}
+                        iconOnly={buttonIconOnly}
+                      >
+                        {buttonShowText ? "Click Me" : null}
+                      </Button>
+                    </div>
+                    <div className="space-y-3 p-4 border rounded-lg bg-muted/50">
+                      <p className="text-sm font-medium">Configuration</p>
+                      <div className="space-y-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={buttonShowText}
+                            onChange={(e) => {
+                              setButtonShowText(e.target.checked);
+                              if (e.target.checked) {
+                                setButtonIconOnly(false);
+                              }
+                            }}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Show Text</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={buttonShowIconLeft}
+                            onChange={(e) => {
+                              setButtonShowIconLeft(e.target.checked);
+                              if (e.target.checked && !buttonShowText) {
+                                setButtonIconOnly(true);
+                              }
+                            }}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Icon Left</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={buttonShowIconRight}
+                            onChange={(e) => {
+                              setButtonShowIconRight(e.target.checked);
+                              if (e.target.checked && !buttonShowText && !buttonShowIconLeft) {
+                                setButtonIconOnly(true);
+                              }
+                            }}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Icon Right</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={buttonIconOnly}
+                            onChange={(e) => {
+                              setButtonIconOnly(e.target.checked);
+                              if (e.target.checked) {
+                                setButtonShowText(false);
+                              }
+                            }}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Icon Only (Circular)</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                 </ComponentDemo>
 
                 <ComponentDemo title="Variants">
@@ -700,14 +805,31 @@ const Index = () => {
                       <Button size="lg">Large Button</Button>
                     </div>
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground font-medium">Icon (h-10, w-10)</p>
-                      <Button size="sm" className="w-10 px-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M12 5v14M5 12h14"/>
-                        </svg>
-                      </Button>
+                      <p className="text-sm text-muted-foreground font-medium">Icon Only (Circular)</p>
+                      <Button size="default" iconOnly iconLeft={<Plus className="w-4 h-4" />} />
                     </div>
           </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Icon Compositions">
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Text Only</p>
+                      <Button variant="primary">Button</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Icon Only</p>
+                      <Button variant="primary" iconOnly iconLeft={<Plus className="w-4 h-4" />} />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Text + Icon Left</p>
+                      <Button variant="primary" iconLeft={<Plus className="w-4 h-4" />}>Button</Button>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground font-medium">Text + Icon Right</p>
+                      <Button variant="primary" iconRight={<ChevronRight className="w-4 h-4" />}>Button</Button>
+                    </div>
+                  </div>
                 </ComponentDemo>
 
               </ComponentSection>
@@ -770,23 +892,125 @@ const Index = () => {
                 description="Tooltips display informative text when users hover over, focus on, or tap an element."
               >
                 <ComponentDemo title="Interactive Example">
-                  <Tooltip content="This is a helpful tooltip!" side="center-top">
+                  <Tooltip 
+                    content="This is a helpful tooltip!" 
+                    side="center-top"
+                    visible={tooltipPositions.interactive ? undefined : false}
+                    onVisibleChange={(visible) => {
+                      if (visible) {
+                        // When this tooltip opens, close all others
+                        setTooltipPositions({
+                          interactive: true,
+                          top: false,
+                          right: false,
+                          bottom: false,
+                          left: false,
+                        });
+                      } else {
+                        // When this tooltip closes, update state
+                        setTooltipPositions(prev => ({
+                          ...prev,
+                          interactive: false,
+                        }));
+                      }
+                    }}
+                  >
                     <Button variant="outline">Hover me</Button>
                   </Tooltip>
                 </ComponentDemo>
 
                 <ComponentDemo title="Positions">
                   <div className="flex flex-wrap gap-4 items-center">
-                    <Tooltip content="Top tooltip" side="center-top">
+                    <Tooltip 
+                      content="Top tooltip" 
+                      side="center-top"
+                      visible={tooltipPositions.top ? undefined : false}
+                      onVisibleChange={(visible) => {
+                        if (visible) {
+                          setTooltipPositions({
+                            interactive: false,
+                            top: true,
+                            right: false,
+                            bottom: false,
+                            left: false,
+                          });
+                        } else {
+                          setTooltipPositions(prev => ({
+                            ...prev,
+                            top: false,
+                          }));
+                        }
+                      }}
+                    >
                       <Button variant="outline">Top</Button>
                     </Tooltip>
-                    <Tooltip content="Right tooltip" side="right-center">
+                    <Tooltip 
+                      content="Right tooltip" 
+                      side="right-center"
+                      visible={tooltipPositions.right ? undefined : false}
+                      onVisibleChange={(visible) => {
+                        if (visible) {
+                          setTooltipPositions({
+                            interactive: false,
+                            top: false,
+                            right: true,
+                            bottom: false,
+                            left: false,
+                          });
+                        } else {
+                          setTooltipPositions(prev => ({
+                            ...prev,
+                            right: false,
+                          }));
+                        }
+                      }}
+                    >
                       <Button variant="outline">Right</Button>
                     </Tooltip>
-                    <Tooltip content="Bottom tooltip" side="center-bottom">
+                    <Tooltip 
+                      content="Bottom tooltip" 
+                      side="center-bottom"
+                      visible={tooltipPositions.bottom ? undefined : false}
+                      onVisibleChange={(visible) => {
+                        if (visible) {
+                          setTooltipPositions({
+                            interactive: false,
+                            top: false,
+                            right: false,
+                            bottom: true,
+                            left: false,
+                          });
+                        } else {
+                          setTooltipPositions(prev => ({
+                            ...prev,
+                            bottom: false,
+                          }));
+                        }
+                      }}
+                    >
                       <Button variant="outline">Bottom</Button>
                     </Tooltip>
-                    <Tooltip content="Left tooltip" side="left-center">
+                    <Tooltip 
+                      content="Left tooltip" 
+                      side="left-center"
+                      visible={tooltipPositions.left ? undefined : false}
+                      onVisibleChange={(visible) => {
+                        if (visible) {
+                          setTooltipPositions({
+                            interactive: false,
+                            top: false,
+                            right: false,
+                            bottom: false,
+                            left: true,
+                          });
+                        } else {
+                          setTooltipPositions(prev => ({
+                            ...prev,
+                            left: false,
+                          }));
+                        }
+                      }}
+                    >
                       <Button variant="outline">Left</Button>
                     </Tooltip>
                   </div>
@@ -800,101 +1024,253 @@ const Index = () => {
                 title="Popover"
                 description="Popovers display additional content in a floating container when triggered. They can contain rich content and interactive elements."
               >
-                <ComponentDemo title="Interactive Example - Text Only">
-          <Popover
-            visible={popoverVisible}
-            side="bottom-center"
-            showBadge={true}
-            showStep={true}
-            showSkipButton={true}
-            showTrailingButton={true}
-            badge="New"
-            title="From trees to seeds"
-            step="1 / 2"
-            skipButtonText="Skip"
-            trailingButtonText="Next"
-            onSkipButtonClick={() => setPopoverVisible(false)}
-            onTrailingButtonClick={() => setPopoverVisible(false)}
-            content={
-              <div>
-                <p className="text-sm">Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...</p>
-              </div>
-            }
-          >
-            <Button 
-              variant="outline" 
-              onClick={() => setPopoverVisible(!popoverVisible)}
-            >
-              Toggle Popover
-            </Button>
-          </Popover>
-                </ComponentDemo>
-
-                <ComponentDemo title="Interactive Example - With Image">
-          <Popover
-            visible={popoverImageVisible}
-            side="bottom-center"
-            showBadge={true}
-            showImage={true}
-            showStep={true}
-            showSkipButton={true}
-            showTrailingButton={true}
-            badge="New"
-            title="Popover heading"
-            step="1 / 2"
-            imageUrl={typeFlower}
-            skipButtonText="Skip"
-            trailingButtonText="Next"
-            onSkipButtonClick={() => setPopoverImageVisible(false)}
-            onTrailingButtonClick={() => setPopoverImageVisible(false)}
-            content={
-              <div>
-                <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-              </div>
-            }
-          >
-            <Button 
-              variant="outline" 
-              onClick={() => setPopoverImageVisible(!popoverImageVisible)}
-            >
-              Toggle Popover with Image
-            </Button>
-          </Popover>
+                <ComponentDemo title="Interactive Example">
+                  <div className="space-y-4">
+                    <Popover
+                      visible={popoverVisible}
+                      side="bottom-center"
+                      showBadge={popoverShowBadge}
+                      showImage={popoverShowImage}
+                      showStep={true}
+                      showSkipButton={true}
+                      showTrailingButton={true}
+                      showFooter={popoverShowFooter}
+                      badge="New"
+                      title={popoverTitle}
+                      step={popoverStep}
+                      imageUrl={popoverShowImage ? typeFlower : undefined}
+                      skipButtonText={popoverSkipButtonText}
+                      trailingButtonText={popoverNextButtonText}
+                      onSkipButtonClick={() => {
+                        if (popoverIsStep2) {
+                          // Go back to step 1
+                          setPopoverIsStep2(false);
+                          setPopoverStep("1 / 2");
+                          setPopoverTitle("From trees to seeds");
+                          setPopoverContent("Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...");
+                          setPopoverSkipButtonText("Skip");
+                          setPopoverNextButtonText("Next");
+                        } else {
+                          setPopoverVisible(false);
+                        }
+                      }}
+                      onTrailingButtonClick={() => {
+                        setPopoverIsStep2((prevStep) => {
+                          const isStep2 = prevStep;
+                          if (!isStep2) {
+                            // Move to step 2
+                            setPopoverStep("2 / 2");
+                            setPopoverTitle("Lorem ipsum dolor sit amet");
+                            setPopoverContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.");
+                            setPopoverSkipButtonText("Go back");
+                            setPopoverNextButtonText("Done");
+                            return true;
+                          } else {
+                            // Close popover when Done is clicked
+                            setPopoverVisible(false);
+                            // Reset to step 1 for next time
+                            setPopoverStep("1 / 2");
+                            setPopoverTitle("From trees to seeds");
+                            setPopoverContent("Our mission is growing. Seeds now symbolize the broader impact we're making together, not just planting trees, but driving lasting change for t...");
+                            setPopoverSkipButtonText("Skip");
+                            setPopoverNextButtonText("Next");
+                            return false;
+                          }
+                        });
+                      }}
+                      content={
+                        <div>
+                          <p className="text-sm">{popoverContent}</p>
+                        </div>
+                      }
+                    >
+                      <Button 
+                        variant="outline" 
+                        onClick={() => setPopoverVisible(!popoverVisible)}
+                      >
+                        Toggle Popover
+                      </Button>
+                    </Popover>
+                    <div className="space-y-3 p-4 border rounded-lg bg-muted/50">
+                      <p className="text-sm font-medium">Configuration</p>
+                      <div className="space-y-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={popoverShowBadge}
+                            onChange={(e) => setPopoverShowBadge(e.target.checked)}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Show Badge</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={popoverShowImage}
+                            onChange={(e) => setPopoverShowImage(e.target.checked)}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Show Image</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={popoverShowFooter}
+                            onChange={(e) => setPopoverShowFooter(e.target.checked)}
+                            className="rounded"
+                          />
+                          <span className="text-sm">Show Footer</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                 </ComponentDemo>
 
                 <ComponentDemo title="Positions">
                   <div className="flex flex-wrap gap-4 items-center">
                     <Popover
-                      visible={false}
+                      visible={popoverPositions.topCenter}
                       side="top-center"
-                      showBadge={true}
-                      showTrailingButton={true}
-                      content={<p>Top center popover</p>}
-                    >
-                      <Button variant="outline">Top Center</Button>
-                    </Popover>
-                    <Popover
-                      visible={false}
-                      side="right-center"
+                      showBadge={popoverShowBadge}
+                      showImage={popoverShowImage}
                       showStep={true}
-                      content={<p>Right center popover</p>}
+                      showSkipButton={true}
+                      showTrailingButton={true}
+                      showFooter={popoverShowFooter}
+                      badge="New"
+                      title={popoverTitle}
+                      step={popoverStep}
+                      imageUrl={popoverShowImage ? typeFlower : undefined}
+                      skipButtonText={popoverSkipButtonText}
+                      trailingButtonText={popoverNextButtonText}
+                      content={
+                        <div>
+                          <p className="text-sm">{popoverContent}</p>
+                        </div>
+                      }
                     >
-                      <Button variant="outline">Right Center</Button>
+                      <Button 
+                        variant="outline"
+                        onClick={() => {
+                          const isCurrentlyOpen = popoverPositions.topCenter;
+                          setPopoverPositions({
+                            topCenter: !isCurrentlyOpen,
+                            rightCenter: false,
+                            bottomLeft: false,
+                            leftCenter: false,
+                          });
+                        }}
+                      >
+                        Top Center
+                      </Button>
                     </Popover>
                     <Popover
-                      visible={false}
+                      visible={popoverPositions.rightCenter}
+                      side="right-center"
+                      showBadge={popoverShowBadge}
+                      showImage={popoverShowImage}
+                      showStep={true}
+                      showSkipButton={true}
+                      showTrailingButton={true}
+                      showFooter={popoverShowFooter}
+                      badge="New"
+                      title={popoverTitle}
+                      step={popoverStep}
+                      imageUrl={popoverShowImage ? typeFlower : undefined}
+                      skipButtonText={popoverSkipButtonText}
+                      trailingButtonText={popoverNextButtonText}
+                      content={
+                        <div>
+                          <p className="text-sm">{popoverContent}</p>
+                        </div>
+                      }
+                    >
+                      <Button 
+                        variant="outline"
+                        onClick={() => {
+                          const isCurrentlyOpen = popoverPositions.rightCenter;
+                          setPopoverPositions({
+                            topCenter: false,
+                            rightCenter: !isCurrentlyOpen,
+                            bottomLeft: false,
+                            leftCenter: false,
+                          });
+                        }}
+                      >
+                        Right Center
+                      </Button>
+                    </Popover>
+                    <Popover
+                      visible={popoverPositions.bottomLeft}
                       side="bottom-left"
-                      showBadge={true}
-                      content={<p>Bottom left popover</p>}
+                      showBadge={popoverShowBadge}
+                      showImage={popoverShowImage}
+                      showStep={true}
+                      showSkipButton={true}
+                      showTrailingButton={true}
+                      showFooter={popoverShowFooter}
+                      badge="New"
+                      title={popoverTitle}
+                      step={popoverStep}
+                      imageUrl={popoverShowImage ? typeFlower : undefined}
+                      skipButtonText={popoverSkipButtonText}
+                      trailingButtonText={popoverNextButtonText}
+                      content={
+                        <div>
+                          <p className="text-sm">{popoverContent}</p>
+                        </div>
+                      }
                     >
-                      <Button variant="outline">Bottom Left</Button>
+                      <Button 
+                        variant="outline"
+                        onClick={() => {
+                          const isCurrentlyOpen = popoverPositions.bottomLeft;
+                          setPopoverPositions({
+                            topCenter: false,
+                            rightCenter: false,
+                            bottomLeft: !isCurrentlyOpen,
+                            leftCenter: false,
+                          });
+                        }}
+                      >
+                        Bottom Left
+                      </Button>
                     </Popover>
                     <Popover
-                      visible={false}
+                      visible={popoverPositions.leftCenter}
                       side="left-center"
-                      content={<p>Left center popover</p>}
+                      showBadge={popoverShowBadge}
+                      showImage={popoverShowImage}
+                      showStep={true}
+                      showSkipButton={true}
+                      showTrailingButton={true}
+                      showFooter={popoverShowFooter}
+                      badge="New"
+                      title={popoverTitle}
+                      step={popoverStep}
+                      imageUrl={popoverShowImage ? typeFlower : undefined}
+                      skipButtonText={popoverSkipButtonText}
+                      trailingButtonText={popoverNextButtonText}
+                      content={
+                        <div>
+                          <p className="text-sm">{popoverContent}</p>
+                        </div>
+                      }
                     >
-                      <Button variant="outline">Left Center</Button>
+                      <Button 
+                        variant="outline"
+                        onClick={() => {
+                          const isCurrentlyOpen = popoverPositions.leftCenter;
+                          setPopoverPositions({
+                            topCenter: false,
+                            rightCenter: false,
+                            bottomLeft: false,
+                            leftCenter: !isCurrentlyOpen,
+                          });
+                        }}
+                      >
+                        Left Center
+                      </Button>
                     </Popover>
           </div>
                 </ComponentDemo>
@@ -1141,31 +1517,162 @@ const Index = () => {
                 description="Main navigation menu with hamburger toggle. Displays as dropdown on desktop and full-screen sheet on mobile."
               >
                 <ComponentDemo title="Interactive Example">
-                  <EcosiaMainNav
-                    groups={[
-                      {
-                        title: "Products",
-                        links: [
-                          { label: "Search", href: "#" },
-                          { label: "Browser", href: "#" },
-                          { label: "Mobile App", href: "#" },
-                        ],
-                      },
-                      {
-                        title: "About",
-                        links: [
-                          { label: "Our Mission", href: "#" },
-                          { label: "Financial Reports", href: "#" },
-                          { label: "Blog", href: "#" },
-                        ],
-                      },
-                    ]}
-                    footerLinks={[
-                      { label: "Privacy", href: "#" },
-                      { label: "Terms", href: "#" },
-                      { label: "Help", href: "#" },
-                    ]}
-                  />
+                  <div className="flex gap-4 items-start">
+                    <EcosiaMainNav
+                      isSignedIn={false}
+                      seedValue="1"
+                      groups={[
+                        {
+                          title: "Use Ecosia",
+                          links: [
+                            { label: "Ecosia Search", href: "#" },
+                            { label: "Ecosia Browser", href: "#" },
+                            { label: "Ecosia for Companies", href: "#" },
+                          ],
+                        },
+                        {
+                          title: "Search",
+                          links: [
+                            { label: "Settings", href: "#" },
+                          ],
+                        },
+                      ]}
+                      footerLinks={[
+                        { label: "Privacy Policy", href: "#" },
+                        { label: "Help", href: "#" },
+                        { label: "Feedback", href: "#" },
+                      ]}
+                    />
+                    <EcosiaMainNav
+                      isSignedIn={true}
+                      seedValue="3"
+                      avatarSrc={greenMainstreamAvatar}
+                      groups={[
+                        {
+                          title: "Your Ecosia",
+                          links: [
+                            { label: "Your profile", href: "#" },
+                            { label: "Collectibles", href: "#" },
+                          ],
+                        },
+                        {
+                          title: "Use Ecosia",
+                          links: [
+                            { label: "Ecosia Search", href: "#" },
+                            { label: "Ecosia Browser", href: "#" },
+                            { label: "Ecosia for Companies", href: "#" },
+                          ],
+                        },
+                        {
+                          title: "Search",
+                          links: [
+                            { label: "Settings", href: "#" },
+                          ],
+                        },
+                      ]}
+                      footerLinks={[
+                        { label: "Privacy Policy", href: "#" },
+                        { label: "Help", href: "#" },
+                        { label: "Feedback", href: "#" },
+                      ]}
+                    />
+                  </div>
+                </ComponentDemo>
+
+                <ComponentDemo title="Main Nav Button Variants">
+                  <div className="space-y-8">
+                    <div className="space-y-4">
+                      <h4 className="text-sm font-medium">Signed Out States</h4>
+                      <div className="flex flex-wrap gap-4 items-center">
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Default</p>
+                          <MainNavButton value="1" signedIn={false} state="Default" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Hover</p>
+                          <MainNavButton value="1" signedIn={false} state="Hover" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Active</p>
+                          <MainNavButton value="1" signedIn={false} state="Active" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Focus</p>
+                          <MainNavButton value="1" signedIn={false} state="Focus" status="Default" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-sm font-medium">Signed In States</h4>
+                      <div className="flex flex-wrap gap-4 items-center">
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Default</p>
+                          <MainNavButton value="1" signedIn={true} state="Default" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Hover</p>
+                          <MainNavButton value="1" signedIn={true} state="Hover" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Active</p>
+                          <MainNavButton value="1" signedIn={true} state="Active" status="Default" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Focus</p>
+                          <MainNavButton value="1" signedIn={true} state="Focus" status="Default" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-sm font-medium">Status Variants</h4>
+                      <div className="flex flex-wrap gap-4 items-center">
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">New Level</p>
+                          <MainNavButton value="1" signedIn={false} state="Default" status="New level" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">New Seed</p>
+                          <MainNavButton value="1" signedIn={false} state="Default" status="New seed" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Locked</p>
+                          <MainNavButton value="3" signedIn={false} state="Default" status="Locked" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">With Notification</p>
+                          <MainNavButton value="1" signedIn={false} state="Default" status="Default" notificationPill={true} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-sm font-medium">Signed In Status Variants</h4>
+                      <div className="flex flex-wrap gap-4 items-center">
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">New Level</p>
+                          <MainNavButton value="1" signedIn={true} state="Default" status="New level" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">New Seed</p>
+                          <MainNavButton value="3" signedIn={true} state="Default" status="New seed" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Locked</p>
+                          <MainNavButton value="3" signedIn={false} state="Hover" status="Locked" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Locked Active</p>
+                          <MainNavButton value="3" signedIn={false} state="Active" status="Locked" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Locked Focus</p>
+                          <MainNavButton value="3" signedIn={false} state="Focus" status="Locked" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </ComponentDemo>
 
               </ComponentSection>
@@ -1199,14 +1706,6 @@ const Index = () => {
                         logo={<img src={ecosiaLogoLight} alt="Ecosia" className="h-5 w-auto dark:hidden" />}
                         showSearch={false}
                         compact={true}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Rounded</h4>
-                      <EcosiaMainHeader
-                        logo={<img src={ecosiaLogoLight} alt="Ecosia" className="h-5 w-auto dark:hidden" />}
-                        showSearch={false}
-                        rounded={true}
                       />
                     </div>
                   </div>

@@ -3,6 +3,8 @@ export * from './AdPill';
 export * from './Avatar';
 export * from './Badge';
 export * from './Button';
+export * from './MainNavButton';
+export * from './MainNavDropdown';
 export * from './Popover';
 export * from './Slider';
 export * from './Switch';

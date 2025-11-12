@@ -31,14 +31,15 @@ export interface PopoverProps {
   showStep?: boolean;
   showSkipButton?: boolean;
   showTrailingButton?: boolean;
+  showFooter?: boolean;
   badge?: string;
   title?: string;
   imageUrl?: string;
   step?: string;
   skipButtonText?: string;
   trailingButtonText?: string;
-  onSkipButtonClick?: () => void;
-  onTrailingButtonClick?: () => void;
+  onSkipButtonClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onTrailingButtonClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Popover: React.FC<PopoverProps> = ({
@@ -53,6 +54,7 @@ export const Popover: React.FC<PopoverProps> = ({
   showStep = false,
   showSkipButton = false,
   showTrailingButton = false,
+  showFooter = true,
   badge = 'New',
   title,
   imageUrl,
@@ -103,39 +105,43 @@ export const Popover: React.FC<PopoverProps> = ({
         {(showBadge || title) && (
           <div className="popover__header">
             {showBadge && <Badge variant="neutral">{badge}</Badge>}
-            {title && <h3 className="popover__title">{title}</h3>}
+            {title && <h3 key={title} className="popover__title">{title}</h3>}
           </div>
         )}
-        <div className="popover__body">
+        <div key={`body-${step}-${title}`} className="popover__body">
           {content}
         </div>
-        <div className="popover__footer">
-          {showStep && (
-            <span className="popover__step">{step}</span>
-          )}
-          <div className="popover__actions">
-            {showSkipButton && (
-              <Button 
-                variant="ghost"
-                size="default"
-                onClick={onSkipButtonClick}
-                className="popover__button-skip"
-              >
-                {skipButtonText}
-              </Button>
+        {showFooter && (
+          <div className="popover__footer">
+            {showStep && (
+              <span key={step} className="popover__step">{step}</span>
             )}
-            {showTrailingButton && (
-              <Button 
-                variant="outline"
-                size="default"
-                onClick={onTrailingButtonClick}
-                className="popover__button-primary"
-              >
-                {trailingButtonText}
-              </Button>
-            )}
+            <div className="popover__actions">
+              {showSkipButton && (
+                <Button 
+                  key={`skip-${skipButtonText}`}
+                  variant="ghost"
+                  size="default"
+                  onClick={onSkipButtonClick}
+                  className="popover__button-skip"
+                >
+                  {skipButtonText}
+                </Button>
+              )}
+              {showTrailingButton && (
+                <Button 
+                  key={`trailing-${trailingButtonText}`}
+                  variant="outline"
+                  size="default"
+                  onClick={onTrailingButtonClick}
+                  className="popover__button-primary"
+                >
+                  {trailingButtonText}
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

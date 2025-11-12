@@ -1,0 +1,300 @@
+@use '../../../scss/spaces' as *;
+@use '../../../scss/borders' as *;
+@use '../../../scss/typography' as *;
+@use '../../../scss/colors' as *;
+@use '../../../scss/animations' as *;
+
+.main-nav-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $space-1s; // 8px
+  padding: $space-2s $space-2s $space-2s $space-1s; // 4px 4px 4px 8px (top right bottom left)
+  min-height: 40px;
+  max-height: 40px;
+  border-radius: $border-radius-full;
+  border: none;
+  background-color: #ffffff; // var(--component/button/button-bg-secondary)
+  cursor: pointer;
+  transition: background-color $timing-2s $easing;
+  box-sizing: border-box;
+
+  &--state-hover {
+    background-color: #deded9; // var(--component/button/button-bg-secondary-hover)
+  }
+
+  &--state-active {
+    background-color: #bebeb9; // var(--component/button/button-bg-secondary-active)
+  }
+
+  &--state-focus {
+    background-color: #ffffff; // var(--component/button/button-bg-secondary)
+  }
+
+  &__seed-counter {
+    display: flex;
+    align-items: center;
+    gap: $space-2s; // 4px
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__seed-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  &__seed-icon-inner {
+    position: absolute;
+    inset: 12.5% 8.33%; // top/bottom: 12.5%, left/right: 8.33%
+  }
+
+  &__seed-icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  // New seed status: 16px icon with rotation
+  &__seed-icon--new-seed {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__seed-icon-wrapper {
+    position: absolute;
+    left: 0;
+    top: -2.14px;
+    // Complex transform calculation from Figma for rotated 16px icon
+    // Using simplified approach: container for rotated element
+    width: 19.6px; // Approximate: sqrt(16^2 + 16^2) * cos(15deg) ≈ 19.6px
+    height: 19.6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__seed-icon-rotated {
+    transform: rotate(345deg);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__seed-icon-rotated &__seed-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__seed-value {
+    font-family: var(--web-font-family-sans-serif, 'Inter', sans-serif);
+    font-size: $font-m; // 14px
+    font-weight: 700; // Bold
+    line-height: 1.5;
+    color: #333333; // var(--text/text-primary)
+    white-space: nowrap;
+    position: relative;
+    text-align: right;
+  }
+
+  &__seed-counter--new-seed &__seed-value {
+    overflow: hidden;
+    width: 9px;
+    height: 24px;
+  }
+
+  &__seed-value-old {
+    position: absolute;
+    left: 9px;
+    top: -10px;
+    transform: translateX(-100%);
+    width: 9px;
+  }
+
+  &__seed-value-new {
+    position: absolute;
+    left: 9px;
+    top: 10px;
+    transform: translateX(-100%);
+    width: 9px;
+    animation: slideUp $timing-2s $easing;
+  }
+
+  &__lock-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  &__lock-icon-inner {
+    position: absolute;
+    inset: 8.36% 16.44% 8.08% 16.71%; // top right bottom left
+  }
+
+  &__lock-icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) saturate(100%);
+    opacity: 1;
+  }
+
+  &--status-locked &__seed-value {
+    color: #6c6c6c; // var(--text/text-secondary)
+  }
+
+  &--status-locked &__lock-icon-img {
+    filter: brightness(0) saturate(100%);
+  }
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__avatar-component {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__sparkles {
+    position: absolute;
+    left: -3px;
+    top: -5px;
+    width: 44px;
+    height: 51px;
+    pointer-events: none;
+  }
+
+  &__sparkle {
+    position: absolute;
+    overflow: hidden;
+    color: #FFAF87; // rgba(255, 175, 135, 1) - sparkle color
+
+    &--1 {
+      left: 1px;
+      top: 34px;
+      width: 10px;
+      height: 10px;
+    }
+
+    &--2 {
+      left: 23px;
+      top: 27px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &--3 {
+      left: 1px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__sparkle-inner {
+    position: absolute;
+    inset: 0;
+  }
+
+  // For sparkle 1: centered
+  &__sparkle--1 &__sparkle-inner {
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    inset: auto;
+  }
+  
+  // For sparkles 2 and 3: 8.33% inset
+  &__sparkle--2 &__sparkle-inner,
+  &__sparkle--3 &__sparkle-inner {
+    inset: 8.33%;
+  }
+
+  &__sparkle-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    // Filter to convert black SVG to #FFAF87 (rgb(255, 175, 135))
+    // This is an approximation - for exact color, SVGs should be inlined
+    filter: brightness(0) saturate(100%) invert(67%) sepia(20%) saturate(2000%) hue-rotate(340deg) brightness(1.1);
+  }
+
+  &__new-seed-badge {
+    position: absolute;
+    left: 16px;
+    top: -10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 40px;
+    background-color: #fcdbcc; // var(--peach/peach-100)
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  &__new-seed-badge-text {
+    font-family: var(--web-font-family-sans-serif, 'Inter', sans-serif);
+    font-size: $font-s; // 12px
+    font-weight: 400; // Regular
+    line-height: 1.5;
+    color: #77300a; // var(--peach/peach-700)
+    text-align: center;
+    width: 100%;
+  }
+
+  &__notification-pill {
+    position: absolute;
+    top: 0;
+    right: -1.37px;
+    width: 12px;
+    height: 12px;
+    border-radius: $border-radius-full;
+    background-color: #fd8786; // var(--red/red-300)
+    border: 1px solid #ffffff; // var(--background/neutral/elevation-1)
+    z-index: 1;
+  }
+
+  // Notification pill position for locked and new seed statuses
+  &--status-locked &__notification-pill,
+  &--status-new-seed &__notification-pill {
+    right: 0;
+  }
+
+  &__focus-ring {
+    position: absolute;
+    inset: -2px;
+    border: 2px solid #0094c7; // var(--form/focus)
+    border-radius: $border-radius-full;
+    pointer-events: none;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    top: 10px;
+    opacity: 0;
+  }
+  to {
+    top: -10px;
+    opacity: 1;
+  }
+}
